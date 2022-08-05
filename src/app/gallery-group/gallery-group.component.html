@@ -1,0 +1,16 @@
+<div class="buttons-container">
+
+  <div class="buttons-container-head">{{groupName}}</div>
+
+  <div class="buttons-container-body">
+    <a routerLink="/{{g.year}}/{{g.month}}" *ngFor="let g of galleries">
+      <div 
+        class="controls-button" 
+        routerLinkActive="controls-button-selected">
+        {{g.name}} 
+        <span class="controls-button-label">({{g.numberOfImages}})</span>
+      </div>
+    </a>
+  </div>
+
+</div>
