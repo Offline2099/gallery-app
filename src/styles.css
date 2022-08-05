@@ -314,7 +314,7 @@ a, a:hover {
   top: 0;
   left: 0;
   z-index: -1;
-  background: url("/assets/img/2022/07/4.jpg");
+  background: url("./assets/img/2022/07/4.jpg");
   background-size: cover;
   -webkit-filter: brightness(.8) contrast(90%) blur(5px);
   -moz-filter: brightness(.8) contrast(90%) blur(5px);

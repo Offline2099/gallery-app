@@ -6,7 +6,7 @@
   <img 
     class="gallery-simple-image" 
     *ngFor="let image of times(g.numberOfImages); index as i" 
-    src="../assets/img/small/{{g.year}}/{{g.month}}/{{i+1}}.jpg" />
+    src="./assets/img/small/{{g.year}}/{{g.month}}/{{i+1}}.jpg" />
 
   <div 
     class="mobile-up-button" 
@@ -27,12 +27,12 @@
 
       <div class="image-name">&#9656; {{g.name}} {{g.year ? g.year : ''}} &#9656; Image {{currentImage}}</div>
 
-      <a class="controls-button controls-button-right" href="../assets/img/{{g.year}}/{{g.month}}/{{currentImage}}.jpg" download="{{currentImage}}.jpg">
-        <img class="controls-button-icon" src="../assets/icon/download-icon.png">Download
+      <a class="controls-button controls-button-right" href="./assets/img/{{g.year}}/{{g.month}}/{{currentImage}}.jpg" download="{{currentImage}}.jpg">
+        <img class="controls-button-icon" src="./assets/icon/download-icon.png">Download
       </a>
 
-      <a class="controls-button controls-button-right" href="../assets/img/{{g.year}}/{{g.month}}/{{currentImage}}.jpg" target="_blank">
-        <img class="controls-button-icon" src="../assets/icon/new-tab-icon.png">Full Size 
+      <a class="controls-button controls-button-right" href="./assets/img/{{g.year}}/{{g.month}}/{{currentImage}}.jpg" target="_blank">
+        <img class="controls-button-icon" src="./assets/icon/new-tab-icon.png">Full Size 
         <span class="controls-button-label">(3840&hairsp;x&hairsp;2160)</span>
       </a>
 
@@ -40,7 +40,7 @@
     
     <img 
       class="image-selected"
-      src="../assets/img/{{g.year}}/{{g.month}}/{{currentImage}}.jpg"
+      src="./assets/img/{{g.year}}/{{g.month}}/{{currentImage}}.jpg"
       (contextmenu)="onRightClick($event)" />
 
     <div 
@@ -93,7 +93,7 @@
       (mouseenter)="mouseoverImageSelect(i+1)"
       (mouseleave)="cancelMouseoverSelect(i+1)"
       (contextmenu)="onRightClick($event)">
-      <img class="image-thumbnail" src="../assets/img/small/{{g.year}}/{{g.month}}/{{i+1}}.jpg">
+      <img class="image-thumbnail" src="./assets/img/small/{{g.year}}/{{g.month}}/{{i+1}}.jpg">
       <div class="image-thumbnail-overlay-1"></div>
       <div class="image-thumbnail-overlay-2"></div>
       <div class="image-thumbnail-overlay-3"></div>
