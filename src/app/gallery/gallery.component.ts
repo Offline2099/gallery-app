@@ -1,37 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Gallery } from '../data/gallery';
 import {UserSettingsService} from '../user-settings.service';
-
-function times(max: Number) {
-  return {
-    [Symbol.iterator]: function* () {
-      for (let i = 0; i < max; i++, yield) {
-      }
-    }
-  };
-}
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent implements OnInit, AfterViewInit {
 
   @Input() g: Gallery;
   @Input() userSettings: {
     selectOnMouseover: boolean
   };
 
-  times = times;
-
-  scrolled = 0;
-  currentImage = 1;
-  imageOverlayDisplayed = false;
-  aciveMouseover: boolean[] = [];
- 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private userSettingsService: UserSettingsService) {
+  constructor(
+      private router: Router, 
+      private activatedRoute: ActivatedRoute, 
+      private userSettingsService: UserSettingsService
+    ) {
     this.g = activatedRoute.snapshot.data['gallery'];
     this.userSettings = userSettingsService.getUserSettings();
     for (let i = 0; i < this.g.numberOfImages; i++) {
@@ -41,6 +29,33 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  ngAfterViewInit(): void {
+    this.preloadImages(1);
+  }
+
+  preloadImages(i: number): void {
+    let img = new Image();
+    img.src = './assets/img/' + this.g.year + '/' + this.g.month + '/' + i + '.jpg';
+    img.onload = () => {
+        console.log("Image " + i + '.jpg' + " loaded.");
+        if (i < this.g.numberOfImages) this.preloadImages(i + 1);
+    }
+  }
+
+  times(max: Number) {
+    return {
+      [Symbol.iterator]: function* () {
+        for (let i = 0; i < max; i++, yield) {}
+      }
+    };
+  }
+
+  scrolled = 0;
+  currentImage = 1;
+  currentImageLoading = true;
+  imageOverlayDisplayed = false;
+  aciveMouseover: boolean[] = [];
 
   onWindowScroll(e: Event): void {
     this.scrolled = ((e.target as Element).firstElementChild as Element).scrollTop;
@@ -55,8 +70,14 @@ export class GalleryComponent implements OnInit {
   }
 
   onRightClick(e: Event) {
-  e.preventDefault();
-}
+    e.preventDefault();
+  }
+
+  setCurrentImage(val: number): void {
+    if (val == this.currentImage) return;
+    this.currentImage = val;
+    this.onImageChange();
+  }
 
   prevImageNumber(): number {
     if (this.currentImage > 1) return this.currentImage - 1;
@@ -64,7 +85,7 @@ export class GalleryComponent implements OnInit {
   }
 
   prevImage(): void {
-    this.currentImage = this.prevImageNumber();
+    this.setCurrentImage(this.prevImageNumber());
   }
   
   nextImageNumber(): number {
@@ -73,7 +94,7 @@ export class GalleryComponent implements OnInit {
   }
 
   nextImage(): void {
-    this.currentImage = this.nextImageNumber();
+    this.setCurrentImage(this.nextImageNumber());
   }
 
   manageSelectOnMouseover(): void {
@@ -84,7 +105,7 @@ export class GalleryComponent implements OnInit {
   mouseoverImageSelect(i: number): void {
     this.aciveMouseover[i] = true;
     setTimeout(()=>{
-      if (this.aciveMouseover[i] && this.userSettings.selectOnMouseover) this.currentImage = i;
+      if (this.aciveMouseover[i] && this.userSettings.selectOnMouseover) this.setCurrentImage(i);
     }, 300);
   }
 
@@ -104,4 +125,11 @@ export class GalleryComponent implements OnInit {
     if (side == 2) this.cancelMouseoverSelect(this.nextImageNumber());
   }
 
+  onImageChange(): void {
+    this.currentImageLoading = true;
+  }
+
+  onImageLoad(): void {
+    this.currentImageLoading = false;
+  }
 }

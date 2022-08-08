@@ -3,7 +3,7 @@
 
 body {
   min-width: 320px;
-  min-height: 110vh;
+  min-height: 100vh;
   margin: 0;
   background: #111;
   font-size: 0;
@@ -21,12 +21,23 @@ a, a:hover {
   }
 }
 
+.vertical-align-fix {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
 
-/* Fade-In Animation */
+
+/* Animations */
 
 @keyframes fadeIn {
   0% {opacity: 0;}
   100% {opacity: 1;}
+}
+
+@keyframes rotate {
+  0% {transform: rotate(0);}
+  100% {transform: rotate(360deg);}
 }
 
 
@@ -424,6 +435,30 @@ a, a:hover {
   animation: fadeIn .5s;
 }
 
+.image-background {
+  display: inline-block;
+  position: absolute;
+  width: calc(100% - 10px);
+  height: calc(100% - 43px);
+  top: 43px;
+  left: 5px;
+  bottom: 0;
+  z-index: -1;
+  background-color: #111;
+  background-size: 12px 12px;
+  background-image: repeating-linear-gradient(45deg, #004d4d 0, #004d4d 0.9px, #333 0, #111 50%);
+  box-shadow: 0 0 2px 2px #004d4d inset;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.image-background-cogwheel {
+  display: inline-block;
+  vertical-align: middle;
+  animation: rotate 3s;
+  animation-iteration-count: infinite;
+}
+
 .image-selected {
   display: inline-block;
   position: relative;
@@ -431,6 +466,13 @@ a, a:hover {
   aspect-ratio:  16/9;
   margin: 0 5px;
   z-index: 10;
+  opacity: 1;
+  transition: .2s;
+  transition-delay: .2s;
+}
+
+.image-selected.image-loading {
+  opacity: 0;
 }
 
 .image-options-panel {
@@ -482,13 +524,14 @@ a, a:hover {
 .control-image-next {
   right: 5px;
   background: linear-gradient(90deg, rgba(0, 153, 153, .0) 0, rgba(0, 153, 153, .4) 40%, rgba(0, 153, 153, .6) 100%);
+  text-align: right;
 }
 
 .control-image-center {
   position: absolute;
   width: 120px;
   height: 120px;
-  top: calc((100% - 42px) / 2 - 26px);
+  top: calc(50% - 39px);
   left: calc(50% - 60px);
   z-index: 20;
   border-radius: 60px;
@@ -503,23 +546,28 @@ a, a:hover {
   opacity: 1;
 }
 
+.control-image-prev.image-overlay-inactive,
+.control-image-next.image-overlay-inactive,
+.control-image-center.image-overlay-inactive {
+  pointer-events: none;
+}
+
 .control-image-label-left,
 .control-image-label-right,
 .control-image-label-center {
-  position: absolute;
   display: inline-block;
-  top: calc(50% - 40px);
+  vertical-align: middle;
   color: #eee;
   font-size: 40px;
   text-shadow: 2px 2px 2px #222;
 }
 
 .control-image-label-left {
-  left: 10px;
+  padding-left: 10px;
 }
 
 .control-image-label-right {
-  right: 10px;
+  padding-right: 10px;
 }
 
 .control-image-label-center {
@@ -556,7 +604,7 @@ a, a:hover {
   .control-image-center {
     width: 80px;
     height: 80px;
-    top: calc((100% - 42px) / 2 - 16px);
+    top: calc(50% - 19px);
     left: calc(50% - 40px);
     border-radius: 40px;
     background: radial-gradient(rgba(0, 153, 153, .8) 0, rgba(0, 153, 153, .4) 30px, rgba(0, 153, 153, .0) 40px);
