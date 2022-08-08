@@ -38,7 +38,6 @@ export class GalleryComponent implements OnInit, AfterViewInit {
     let img = new Image();
     img.src = './assets/img/' + this.g.year + '/' + this.g.month + '/' + i + '.jpg';
     img.onload = () => {
-        console.log("Image " + i + '.jpg' + " loaded.");
         if (i < this.g.numberOfImages) this.preloadImages(i + 1);
     }
   }
