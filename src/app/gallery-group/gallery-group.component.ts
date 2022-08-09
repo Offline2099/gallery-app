@@ -16,6 +16,14 @@ export class GalleryGroupComponent implements OnInit {
     this.galleries = [];
   }
 
+  imagesTotal(): number {
+    let n = 0;
+    for (let i = 0; i < this.galleries.length; i++) {
+      n += this.galleries[i].numberOfImages;
+    }
+    return n;
+  }
+
   ngOnInit(): void {
   }
 

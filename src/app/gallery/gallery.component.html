@@ -6,7 +6,8 @@
   <img 
     class="gallery-simple-image" 
     *ngFor="let image of times(g.numberOfImages); index as i" 
-    src="./assets/img/small/{{g.year}}/{{g.month}}/{{i+1}}.jpg" />
+    src="./assets/img/small/{{g.year}}/{{g.month}}/{{i+1}}.jpg"
+    alt="Image {{i+1}}" />
 
   <div 
     class="mobile-up-button" 
@@ -47,6 +48,7 @@
       class="image-selected"
       [ngClass]="{'image-loading' : currentImageLoading}"
       src="./assets/img/{{g.year}}/{{g.month}}/{{currentImage}}.jpg"
+      alt="Image {{currentImage}}"
       (change)="onImageChange()"
       (load)="onImageLoad()"
       (contextmenu)="onRightClick($event)" />
@@ -104,7 +106,7 @@
       (mouseenter)="mouseoverImageSelect(i+1)"
       (mouseleave)="cancelMouseoverSelect(i+1)"
       (contextmenu)="onRightClick($event)">
-      <img class="image-thumbnail" src="./assets/img/small/{{g.year}}/{{g.month}}/{{i+1}}.jpg">
+      <img class="image-thumbnail" src="./assets/img/small/{{g.year}}/{{g.month}}/{{i+1}}.jpg" alt="Image {{i+1}}">
       <div class="image-thumbnail-overlay-1"></div>
       <div class="image-thumbnail-overlay-2"></div>
       <div class="image-thumbnail-overlay-3"></div>

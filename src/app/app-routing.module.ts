@@ -10,7 +10,8 @@ const routes: Routes = [
 
   // Main page
   { path: '', 
-    component: HomepageComponent
+    component: HomepageComponent,
+    pathMatch: 'full'
   },
 
   // 2019 galleries

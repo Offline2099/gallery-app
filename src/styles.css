@@ -56,6 +56,7 @@ a, a:hover {
   word-spacing: .2em;
   text-shadow: 1px 1px #111;
   transition: .5s;
+  animation: fadeIn .5s;
 }
 
 .heading-area::before {
@@ -116,6 +117,7 @@ a, a:hover {
   font-size: 18px;
   letter-spacing: .02em;
   text-shadow: 1px 1px #111;
+  animation: fadeIn .5s;
 }
 
 .footer-area::before {
@@ -152,6 +154,7 @@ a, a:hover {
   margin: 5px 5px 8px 5px;
   padding: 5px;
   background: #282828;
+  animation: fadeIn .5s;
 }
 
 .buttons-container {
@@ -173,6 +176,14 @@ a, a:hover {
   line-height: 34px;
   letter-spacing: 0.02em;
   text-shadow: 1px 1px #333;
+}
+
+.buttons-container-head-label {
+  display: none;
+  float: right;
+  color:  #00b3b3;
+  font-size: smaller;
+  line-height: 22px;
 }
 
 .buttons-container-body {
@@ -295,13 +306,23 @@ a, a:hover {
   }
   .buttons-container-head {
     width: calc(100% - 20px);
-    height: 28px;
+    height: 22px;
     font-size: 16px;
-    line-height: 28px;
+    line-height: 20px;
+  }
+  .buttons-container-head-label {
+    display: inline-block;
   }
   .controls-button {
     padding: 1px 8px 2px 8px;
     font-size: 14px;
+  }
+  .controls-button:hover {
+    color: #00cccc;
+    background-color: #333;
+    background-size: 9px 9px;
+    background-image: repeating-linear-gradient(45deg, #004d4d 0, #004d4d 0.9px, #333 0, #333 50%);
+    box-shadow: 0 0 2px 2px #004d4d inset;
   }
 }
 
@@ -325,7 +346,7 @@ a, a:hover {
   top: 0;
   left: 0;
   z-index: -1;
-  background: url("./assets/img/2022/07/4.jpg");
+  background: url("./assets/img/small/2022/07/4.jpg");
   background-size: cover;
   -webkit-filter: brightness(.8) contrast(90%) blur(5px);
   -moz-filter: brightness(.8) contrast(90%) blur(5px);
@@ -373,8 +394,14 @@ a, a:hover {
 }
 
 .gallery-simple-image {
+  display: block;
   width: 100%;
   margin: 5px 0;
+  aspect-ratio: 16/9;
+  background-color: #282828;
+  background-image:  linear-gradient(#004d4d 1.1px, transparent 1.1px), linear-gradient(to right, #004d4d 1.1px, #282828 1.1px);
+  background-size: 6.25% 11%;
+  background-position: -3.125% -5.5%;
 }
 
 .mobile-up-button {
@@ -445,8 +472,8 @@ a, a:hover {
   bottom: 0;
   z-index: -1;
   background-color: #111;
-  background-size: 12px 12px;
-  background-image: repeating-linear-gradient(45deg, #004d4d 0, #004d4d 0.9px, #333 0, #111 50%);
+  background-image:  linear-gradient(#004d4d 1.1px, transparent 1.1px), linear-gradient(to right, #004d4d 1.1px, #111 1.1px);
+  background-size: 4% 4%;
   box-shadow: 0 0 2px 2px #004d4d inset;
   text-align: center;
   vertical-align: middle;
@@ -654,6 +681,10 @@ a, a:hover {
   display: inline-block;
   width: calc(100% - 16px);
   aspect-ratio:  16/9;
+  background-color: #111;
+  background-image:  linear-gradient(#004d4d 1.1px, transparent 1.1px), linear-gradient(to right, #004d4d 1.1px, #111 1.1px);
+  background-size: 6.25% 11%;
+  background-position: -3.125% -5.5%;
 }
 
 .thumbnails-options-panel {

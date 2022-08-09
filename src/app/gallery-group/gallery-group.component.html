@@ -1,6 +1,8 @@
 <div class="buttons-container">
 
-  <div class="buttons-container-head">{{groupName}}</div>
+  <div class="buttons-container-head">{{groupName}}
+    <span class="buttons-container-head-label hidden-desktop">({{imagesTotal()}} images)</span>
+  </div>
 
   <div class="buttons-container-body">
     <a routerLink="/{{g.year}}/{{g.month}}" *ngFor="let g of galleries">

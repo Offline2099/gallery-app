@@ -12,14 +12,10 @@ export class AppComponent implements AfterViewInit {
 
   constructor(private renderer: Renderer2) {}
 
-  ngAfterViewInit() {
-    let loader = this.renderer.selectRootElement('#loader');
-    this.renderer.setStyle(loader, 'display', 'none');
-  }
-
   galleryGroups = GalleriesChronologically;
 
-  userSettings = {
-    selectOnMouseover: false
+  ngAfterViewInit() {
+    let loader = this.renderer.selectRootElement('#app-loading-placeholder');
+    this.renderer.setStyle(loader, 'display', 'none');
   }
 }

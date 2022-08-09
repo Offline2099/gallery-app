@@ -1,7 +1,8 @@
 import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
 import { Gallery } from '../data/gallery';
-import {UserSettingsService} from '../user-settings.service';
+import { UserSettingsService } from '../user-settings.service';
 
 @Component({
   selector: 'app-gallery',
