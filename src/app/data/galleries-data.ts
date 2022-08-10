@@ -89,6 +89,24 @@ export const Apr2019: Gallery = {
 
 export const All2019 = { name: "2019", galleries: [Jan2019, Mar2019, Apr2019] };
 
+// 2018
+
+export const Jan2018: Gallery = {
+  name: "January",
+  year: "2018",
+  month: "01",
+  numberOfImages: 20
+};
+
+export const Sep2018: Gallery = {
+  name: "September",
+  year: "2018",
+  month: "09",
+  numberOfImages: 13
+};
+
+export const All2018 = { name: "2018", galleries: [Jan2018, Sep2018] };
+
 // Everything chronologically
 
-export const GalleriesChronologically = [ All2022, All2021, All2019 ];
+export const GalleriesChronologically = [ All2022, All2021, All2019, All2018 ];
