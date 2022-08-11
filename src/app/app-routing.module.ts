@@ -14,6 +14,14 @@ const routes: Routes = [
     pathMatch: 'full'
   },
 
+  // 2017 galleries
+  { path: '2017/01', 
+    component: GalleryComponent,
+    data: {
+      gallery: G.Jan2017
+    }
+  },
+
   // 2018 galleries
   { path: '2018/01', 
     component: GalleryComponent,
