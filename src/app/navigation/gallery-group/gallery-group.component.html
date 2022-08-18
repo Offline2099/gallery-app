@@ -1,0 +1,30 @@
+<div class="buttons-container">
+
+  <!-- Group Head -->
+  <div 
+    class="buttons-container-head" 
+    (click)="visibleOnMobile = !visibleOnMobile">
+    <span 
+      class="buttons-container-head-triangle hidden-tablet hidden-desktop" 
+      [ngClass]="{'buttons-container-head-triangle-down': visibleOnMobile}">&#9654;</span>
+    <span class="hidden-desktop">{{groupName}}</span>
+    <span class="hidden-mobile hidden-tablet">{{groupNameShort}}</span>
+    <span class="buttons-container-head-label hidden-desktop">({{imagesTotal}} images)</span>
+  </div>
+
+  <!-- Group Body -->
+  <div 
+    class="buttons-container-body" 
+    [ngClass]="{'hidden-mobile': !visibleOnMobile}">
+    <a *ngFor="let g of gData" routerLink="{{g.path}}">
+      <div 
+        class="controls-button" 
+        routerLinkActive="controls-button-selected">
+        <span class="hidden-tablet">{{g.name}}</span>
+        <span class="hidden-mobile hidden-desktop">{{g.nameShort}}</span>
+        <span class="controls-button-label">({{g.numberOfImages}})</span>
+      </div>
+    </a>
+  </div>
+
+</div>

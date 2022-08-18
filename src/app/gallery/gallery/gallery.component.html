@@ -1,0 +1,252 @@
+
+<!-- Simple Gallery (Mobile and Tablets) -->
+
+<div class="gallery-simple hidden-desktop">
+
+  <div class="gallery-simple-options-panel">
+    <div class="controls-button" (click)="toggleImageData()">
+      <div 
+        class="control-switch" 
+        [ngClass]="{'control-switch-off': !userSettings.showImageData, 'control-switch-on': userSettings.showImageData}">
+        <div class="control-switch-ball"></div>
+      </div>
+      Show Captions
+    </div>
+  </div>
+
+  <!-- Images and captions -->
+  <div 
+    *ngFor="let image of g.imageData; index as i"
+    class="gallery-simple-block">
+    <img 
+      class="gallery-simple-image"
+      src="./assets/img/small/{{image.path}}.jpg"
+      alt="Image {{i+1}}" />
+    <div 
+      *ngIf="image.caption && userSettings.showImageData" 
+      class="gallery-simple-image-data">
+      <div class="gallery-simple-image-data-caption">{{image.caption}}</div>
+      <div class="gallery-simple-image-data-angle-1"></div>
+      <div class="gallery-simple-image-data-angle-4"></div>
+    </div>
+  </div>
+
+  <!-- Button for scrolling back to top -->
+  <div 
+    class="mobile-up-button" 
+    [ngClass]="{'mobile-up-button-invisible': verticalOffset < 250}" 
+    (click)="scrollToTop()">&#9650;</div>
+
+</div>
+
+
+<!-- Desktop Gallery -->
+
+<div class="gallery-area hidden-mobile hidden-tablet">
+  
+  <!-- Current selected image with its data and options -->    
+  <div class="image-container" *ngIf="!userSettings.simpleGallery">
+
+    <!-- Panel with controls atop of the image -->
+    <div class="image-options-panel">
+
+      <div 
+        class="controls-button controls-button-left image-change-button" 
+        (click)="prevImage()">
+        &#9664; <span class="controls-button-label">{{prevImageNumber()}}</span>
+      </div>
+
+      <div 
+        class="controls-button controls-button-right image-change-button" 
+        (click)="nextImage()">
+        <span class="controls-button-label">{{nextImageNumber()}}</span> &#9654;
+      </div>
+
+      <div class="image-name">Image {{currentImage}}</div>
+
+      <a 
+        class="controls-button controls-button-right" 
+        href="./assets/img/{{g.path}}{{currentImage}}.jpg" 
+        download="{{u.strToKebabCase(g.name)}}-{{g.year ? g.year : ''}}-image-{{currentImage}}.jpg">
+        <img class="controls-button-icon" src="./assets/interface/download-icon.png" alt="icon">Download
+      </a>
+
+      <a 
+        class="controls-button controls-button-right" 
+        href="./assets/img/{{g.path}}{{currentImage}}.jpg" target="_blank">
+        <img class="controls-button-icon" src="./assets/interface/new-tab-icon.png" alt="icon">Full Size 
+        <span class="controls-button-label">(3840&hairsp;x&hairsp;2160)</span>
+      </a>
+
+    </div>
+
+    <!-- Container with the image -->
+    <div class="image-background">
+      <span class="vertical-align-fix"></span>
+      <img class="image-background-cogwheel" src="./assets/interface/cogwheel.svg">
+      <img 
+        class="image-selected"
+        [ngClass]="{'image-loading' : currentImageLoading}"
+        src="./assets/img/{{g.path}}{{currentImage}}.jpg"
+        alt="{{g.name}} {{g.year ? g.year : ''}} - Image {{currentImage}}"
+        (load)="onImageLoad()"
+        (contextmenu)="onRightClick($event)" />
+    </div>
+
+    <!-- Panel with data below the image -->
+    <div 
+      class="image-data-container" 
+      *ngIf="g.imageData && userSettings.showImageData">
+      
+      <div 
+        class="image-data-block image-data-caption" 
+        *ngIf="g.imageData[currentImage - 1].caption">
+
+        <span class="vertical-align-fix"></span>
+
+        <div class="image-data-block-icon">
+          <img 
+            class="image-data-block-icon-image" 
+            src="./assets/interface/image-caption-icon.png"
+            alt="icon" />
+        </div>
+
+        <span class="image-data-caption-text">{{g.imageData[currentImage - 1].caption}}</span>
+        
+      </div>
+      
+      <div 
+        class="image-data-block image-data-location" 
+        *ngIf="g.imageData[currentImage - 1].location">
+
+        <span class="vertical-align-fix"></span>
+
+        <div class="image-data-block-icon">
+          <img 
+            class="image-data-block-icon-image" 
+            src="./assets/interface/location-icon.png"
+            alt="icon" />
+        </div>
+
+        <div class="image-data-location-text">
+          <span *ngIf="currentLocationText[0]">{{currentLocationText[0]}}<br /></span>
+          <span *ngIf="currentLocationText[1]">{{currentLocationText[1]}}<br /></span>
+          <span *ngIf="currentLocationText[2]" class="image-data-location-coords" >{{currentLocationText[2]}}</span>
+        </div>
+
+      </div>
+     
+      <div class="image-data-angle-1"></div>
+      <div class="image-data-angle-4"></div>
+
+    </div>
+
+  </div>
+
+  <!-- Gallery images on the right -->
+  <div class="thumbnails-container">
+
+    <!-- Gallery name and settings button -->
+    <div class="gallery-options-panel">
+      <div class="gallery-name">{{g.name}}{{g.year ? ' ' + g.year : ''}}</div>
+      <div 
+        class="controls-button controls-button-right"
+        (click)="toggleSettingsPanel()">
+        <img class="controls-button-icon controls-button-icon-notext" src="./assets/interface/settings-icon-1.png" alt="icon">
+        <img class="controls-button-icon controls-button-icon-notext" src="./assets/interface/settings-icon-2.png" alt="icon">
+      </div>
+    </div>
+
+    <!-- Gallery settings panel -->
+    <div 
+      class="gallery-settings-panel"
+      [ngClass]="{'gallery-settings-panel-visible': settingsOpen}" >
+
+      <div class="gallery-settings-panel-header">
+        Gallery Settings
+        <span class="panel-close-button controls-button-right" (click)="toggleSettingsPanel()">&#x2716;</span>
+      </div>
+
+      <div class="gallery-settings-panel-block">
+        <div class="gallery-settings-panel-block-control">
+          <div class="controls-button" (click)="toggleSelectOnMouseover()">
+            <div 
+              class="control-switch" 
+              [ngClass]="{'control-switch-off': !userSettings.selectOnMouseover, 'control-switch-on': userSettings.selectOnMouseover}">
+              <div class="control-switch-ball"></div>
+            </div>
+            No-Click Mode
+          </div>
+        </div>
+        <div class="gallery-settings-panel-block-text">
+          Select images automatically without clicking, just by hovering your mouse cursor over the preview. Some people find it convenient, others don't like it.
+        </div>
+      </div>
+
+      <div class="gallery-settings-panel-block">
+        <div class="gallery-settings-panel-block-control">
+          <div class="controls-button" (click)="toggleImageData()">
+            <div 
+              class="control-switch" 
+              [ngClass]="{'control-switch-off': !userSettings.showImageData, 'control-switch-on': userSettings.showImageData}">
+              <div class="control-switch-ball"></div>
+            </div>
+            Show Image Info
+          </div>
+        </div>
+        <div class="gallery-settings-panel-block-text">
+          Show information below the selected image, such as a brief description and the location where the photo was taken.
+        </div>
+      </div>
+
+      <!-- <div class="gallery-settings-panel-block">
+        TBD later
+        <div class="gallery-settings-panel-block-control">
+          <div class="controls-button" (click)="toggleSimpleGallery()">
+            <div 
+              class="control-switch" 
+              [ngClass]="{'control-switch-off': !userSettings.simpleGallery, 'control-switch-on': userSettings.simpleGallery}">
+              <div class="control-switch-ball"></div>
+            </div>
+            Simple Gallery
+          </div>
+        </div>
+        <div class="gallery-settings-panel-block-text">
+          Simply display all images in the gallery, no previews and other things.
+        </div>
+      </div> -->
+      
+    </div>
+
+    <!-- Interactive image thumbnails -->
+    <div *ngIf="!userSettings.simpleGallery">
+      <div 
+        class="image-thumbnail-container"
+        [ngClass]="{'image-thumbnail-container-selected': i+1 == currentImage}" 
+        *ngFor="let image of g.imageData; index as i" 
+        (click)="setCurrentImage(i+1)"
+        (mouseenter)="mouseoverImageSelect(i+1)"
+        (mouseleave)="cancelMouseoverSelect(i+1)"
+        (contextmenu)="onRightClick($event)">
+        <img class="image-thumbnail" src="./assets/img/small/{{image.path}}.jpg" alt="Image {{i+1}}">
+        <div class="image-thumbnail-overlay-1"></div>
+        <div class="image-thumbnail-overlay-2"></div>
+        <div class="image-thumbnail-overlay-3"></div>
+        <div class="image-thumbnail-overlay-4"></div>
+        <div 
+          class="image-thumbnail-overlay-number" 
+          [ngClass]="{'image-thumbnail-overlay-number-selected': i+1 == currentImage}">
+          {{i+1}}
+        </div>
+      </div>
+    </div>
+
+    <!-- Button for scrolling back to top -->
+    <div 
+      class="gallery-up-button"
+      [ngClass]="{'hidden-desktop': verticalOffset < 250}" 
+      (click)="scrollToTop()">&#9650;</div>
+
+  </div>
+
+</div>

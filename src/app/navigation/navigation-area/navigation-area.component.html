@@ -1,0 +1,24 @@
+<div class="navigation-area">
+
+  <!-- Single area layout (mobile and desktop) -->
+  <app-gallery-group 
+    *ngFor="let group of galleryGroups"
+    class="hidden-tablet"
+    [groupName]="group.name"
+    [groupNameShort]="group.nameShort"
+    [galleries]="group.galleries">
+  </app-gallery-group>
+
+  <!-- Two columns layout (tablets) -->
+  <div 
+    *ngFor="let column of columns"
+    class="navigation-area-column hidden-mobile hidden-desktop">
+    <app-gallery-group 
+      *ngFor="let group of column"
+      [groupName]="group.name"
+      [groupNameShort]="group.nameShort"
+      [galleries]="group.galleries">
+    </app-gallery-group>
+  </div>
+
+</div>

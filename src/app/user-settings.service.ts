@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 export class UserSettingsService {
 
   private userSettings = {
-    selectOnMouseover: false
+    selectOnMouseover: false,
+    showImageData: true,
+    simpleGallery: false
   };
 
   getUserSettings() {
@@ -15,6 +17,14 @@ export class UserSettingsService {
 
   setSelectOnMouseover(val: boolean) {
     this.userSettings.selectOnMouseover = val;
+  }
+
+  setShowImageData(val: boolean) {
+    this.userSettings.showImageData = val;
+  }
+
+  setSimpleGallery(val: boolean) {
+    this.userSettings.simpleGallery = val;
   }
 
   constructor() { }

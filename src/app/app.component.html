@@ -2,16 +2,10 @@
 <!-- Heading -->
 <div class="heading-area">Thailand Photo Gallery</div>
 
-<!-- Main Controls -->
-<div class="controls-area">
-  <app-gallery-group 
-    *ngFor="let group of galleryGroups"
-    [groupName]="group.name"
-    [galleries]="group.galleries">
-  </app-gallery-group>
-</div>
+<!-- Navigation Controls Area -->
+<app-navigation-area></app-navigation-area>
 
-<!-- Gallery -->
+<!-- Gallery Area -->
 <router-outlet></router-outlet>
 
 <!-- Footer -->
