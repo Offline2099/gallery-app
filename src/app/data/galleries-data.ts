@@ -147,10 +147,18 @@ export const Jan2017: Gallery = {
   imageData: I.Jan2017Data
 };
 
+export const Feb2017: Gallery = {
+  type: "chronological",
+  year: "2017",
+  month: "02",
+  numberOfImages: 27,
+  imageData: I.Feb2017Data
+};
+
 export const All2017 = { 
   name: "Year 2017", 
   nameShort: "2017", 
-  galleries: [Jan2017] 
+  galleries: [Jan2017, Feb2017] 
 };
 
 // Everything chronologically

@@ -1670,7 +1670,7 @@ export const Apr2019Data = [
     }
   },
   {
-    caption: "The shore of Ban Amphoe Reservoir. Wat Yannasangwararam is visible in the distance.",
+    caption: "The shore of Ban Amphoe Reservoir. Wat Yansangwararam is visible in the distance.",
     location: {
       name: "Ban Amphoe Reservoir",
       name2: "Southeast of Pattaya"
@@ -1698,7 +1698,7 @@ export const Apr2019Data = [
     }
   },
   {
-    caption: "A bridge across a lily pond. The spire of Wat Yannasangwararam is visible in the distance.",
+    caption: "A bridge across a lily pond. The spire of Wat Yansangwararam is visible in the distance.",
     location: {
       name: "Wat Yansangwararam",
       name2: "Southeast of Pattaya",
@@ -2235,4 +2235,187 @@ export const Jan2017Data = [
       lon: 101.02351
     }
   },
+];
+
+export const Feb2017Data = [
+  {
+    caption: "A fire burns in a roadside ditch in a rural area during the dry season.",
+    location: {
+      name: "East of Pattaya"
+    }
+  },
+  {
+    caption: "A countryside road crosses the fields near Din Hill.",
+    location: {
+      name: "East of Pattaya"
+    }
+  },
+  {
+    caption: "Palm trees in a field on a sunny day.",
+    location: {
+      name: "East of Pattaya"
+    }
+  },
+  {
+    caption: "Palm trees in a field on a sunny day.",
+    location: {
+      name: "East of Pattaya"
+    }
+  },
+  {
+    caption: "A freshly cultivated field in a rural area on a late sunny afternoon.",
+    location: {
+      name: "East of Pattaya"
+    }
+  },
+  {
+    caption: "Cows look surprised to see a stranger near their enclosure in a remote area of Khao Mai Kaeo.",
+    location: {
+      name: "Khao Mai Kaeo",
+      name2: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A steep narrow trail leads through a forest on the hills of Khao Mai Kaeo.",
+    location: {
+      name: "Khao Mai Kaeo",
+      name2: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A strange formation of intertwined vines in the jungle of Khao Mai Kaeo.",
+    location: {
+      name: "Khao Mai Kaeo",
+      name2: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A patch of yellow flowers in a rural area near Chak Nok Reservoir.",
+    location: {
+      name: "East of Pattaya"
+    }
+  },
+  {
+    caption: "A dragon statue and intricate pavilions at the shore of Ban Amphoe Reservoir.",
+    location: {
+      name: "Ban Amphoe Reservoir",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Buddhist temple Wat Yansangwararam and Viharn Sien Museum are seen in the distance across Ban Amphoe Reservoir.",
+    location: {
+      name: "Ban Amphoe Reservoir",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "The bank of Ban Amphoe Reservoir, with Khao Chi Chan (Buddha Mountain) seen in the distance.",
+    location: {
+      name: "Ban Amphoe Reservoir",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Pavilions at the northern shore of Ban Amphoe Reservoir.",
+    location: {
+      name: "Ban Amphoe Reservoir",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Chi Chan Hill (left) and Chi On Hill (right) viewed from the south.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A lake to the south of Khao Chi Chan (Buddha Mountain).",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A turtle looks scared as it tries to cross a road near Ban Amphoe Reservoir.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A heavy tropical rain at Jomtien Beach.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "A flooded street after a heavy rain at Jomtien Beach.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "A flooded street after a heavy rain at Jomtien Beach.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "Rain clouds near Din Hill, viewed from the 31st floor.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "Rain clouds over Pattaya, viewed from the 31st floor.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "Boats in Pattaya Bay, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Phra Tamnak Hill",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "Boats around a pier in Pattaya Bay, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Phra Tamnak Hill",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "A scenic sunset at Jomtien Beach.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "A scenic sunset at Jomtien Beach.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "A scenic sunset at Jomtien Beach.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "A scenic sunset at Jomtien Beach.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  }
 ];

@@ -9,27 +9,38 @@ import * as G from './data/galleries-data';
 const routes: Routes = [
 
   // Main page
-  { path: '', 
+  { 
+    path: '', 
     component: HomepageComponent,
     pathMatch: 'full'
   },
 
   // 2017 galleries
-  { path: '2017/01', 
+  { 
+    path: '2017/01', 
     component: GalleryComponent,
     data: {
       gallery: G.Jan2017
     }
   },
+  { 
+    path: '2017/02', 
+    component: GalleryComponent,
+    data: {
+      gallery: G.Feb2017
+    }
+  },
 
   // 2018 galleries
-  { path: '2018/01', 
+  { 
+    path: '2018/01', 
     component: GalleryComponent,
     data: {
       gallery: G.Jan2018
     }
   },
-  { path: '2018/09', 
+  { 
+    path: '2018/09', 
     component: GalleryComponent,
     data: {
       gallery: G.Sep2018
@@ -37,19 +48,22 @@ const routes: Routes = [
   },
 
   // 2019 galleries
-  { path: '2019/01', 
+  { 
+    path: '2019/01', 
     component: GalleryComponent,
     data: {
       gallery: G.Jan2019
     }
   },
-  { path: '2019/03', 
+  { 
+    path: '2019/03', 
     component: GalleryComponent,
     data: {
       gallery: G.Mar2019
     }
   },
-  { path: '2019/04', 
+  { 
+    path: '2019/04', 
     component: GalleryComponent,
     data: {
       gallery: G.Apr2019
@@ -57,31 +71,36 @@ const routes: Routes = [
   },
 
   // 2021 galleries
-  { path: '2021/08', 
+  { 
+    path: '2021/08', 
     component: GalleryComponent,
     data: {
       gallery: G.Aug2021
     }
   },
-  { path: '2021/09', 
+  { 
+    path: '2021/09', 
     component: GalleryComponent,
     data: {
       gallery: G.Sep2021
     }
   },
-  { path: '2021/10', 
+  { 
+    path: '2021/10', 
     component: GalleryComponent,
     data: {
       gallery: G.Oct2021
     }
   },
-  { path: '2021/11', 
+  { 
+    path: '2021/11', 
     component: GalleryComponent,
     data: {
       gallery: G.Nov2021
     }
   },
-  { path: '2021/12', 
+  { 
+    path: '2021/12', 
     component: GalleryComponent,
     data: {
       gallery: G.Dec2021
@@ -89,19 +108,22 @@ const routes: Routes = [
   },
 
   // 2022 galleries
-  { path: '2022/01', 
+  { 
+    path: '2022/01', 
     component: GalleryComponent,
     data: {
       gallery: G.Jan2022
     }
   },
-  { path: '2022/02', 
+  { 
+    path: '2022/02', 
     component: GalleryComponent,
     data: {
       gallery: G.Feb2022
     }
   },
-  { path: '2022/07', 
+  { 
+    path: '2022/07', 
     component: GalleryComponent,
     data: {
       gallery: G.Jul2022
@@ -109,7 +131,8 @@ const routes: Routes = [
   },
 
   // 404 (redirect to main page)
-  { path: '**', 
+  { 
+    path: '**', 
     redirectTo: ''
   }
 ];
