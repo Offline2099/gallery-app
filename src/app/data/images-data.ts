@@ -10,7 +10,7 @@ export const Jan2022Data = [
     }
   },
   {
-    caption: "A calm evening at Jomtien Beach. The hills of Sattahip are visible on the horizon.",
+    caption: "A calm evening at Jomtien Beach. Hills of Sattahip are visible on the horizon.",
     location: {
       name: "Jomtien Beach",
       name2: "Pattaya"
@@ -33,7 +33,7 @@ export const Jan2022Data = [
     }
   },
   {
-    caption: "Another sunset at Jomtien Beach.",
+    caption: "The sun approaches the horizon over the Gulf of Thailand, viewed from Jomtien Beach.",
     location: {
       name: "Jomtien Beach",
       name2: "Pattaya"
@@ -47,13 +47,13 @@ export const Jan2022Data = [
     }
   },
   {
-    caption: "A palm tree at the beach during a sunset.",
+    caption: "A palm tree on the beach at sunset.",
     location: {
       name: "South of Pattaya"
     }
   },
   {
-    caption: "Tropical plants at the beach during a sunset.",
+    caption: "Tropical plants on the beach at sunset.",
     location: {
       name: "South of Pattaya"
     }
@@ -67,7 +67,7 @@ export const Jan2022Data = [
     }
   },
   {
-    caption: "A tree at sunset in a small park in the suburbs of Pattaya.",
+    caption: "A picturesque tree at sunset in a small park in the suburbs of Pattaya.",
     location: {
       name: "East of Pattaya",
       lat: 12.86753, 
@@ -75,46 +75,46 @@ export const Jan2022Data = [
     }
   },
   {
-    caption: "Buddhist temple Wat Na Jomtien during a sunset, viewed from an overpass above Sukhumvit Road.",
+    caption: "Buddhist temple Wat Na Jomtien at sunset, viewed from a pedestrian bridge over Sukhumvit Road.",
     location: {
       name: "Wat Na Jomtien",
       name2: "South of Pattaya"
     }
   },
   {
-    caption: "A peculiar tree on the street of Pattaya.",
+    caption: "A peculiar tree on a street of Pattaya.",
     location: {
       name: "Pattaya"
     }
   },
   {
-    caption: "A seaside pavilion in Lan Pho Park near Pattaya.",
+    caption: "A seaside pavilion in Lan Pho Park in north Pattaya.",
     location: {
       name: "Lan Pho Park",
-      name2: "North of Pattaya"
+      name2: "Pattaya"
     }
   },
   {
-    caption: "A spectacular view in Lan Pho Park near Pattaya. Sanctuary of Truth is seen in the distance.",
+    caption: "A spectacular view in Lan Pho Park in north Pattaya. Sanctuary of Truth is seen in the distance.",
     location: {
       name: "Lan Pho Park",
-      name2: "North of Pattaya",
+      name2: "Pattaya",
       lat: 12.97355, 
       lon: 100.90521
     }
   },
   {
-    caption: "Northern side of Na Klua Subdistrict of Pattaya, with Sanctuary of Truth in the middle, viewed from Lan Pho Park.",
+    caption: "North side of Na Klua Subdistrict of Pattaya, with Sanctuary of Truth in the middle, viewed from Lan Pho Park.",
     location: {
       name: "Lan Pho Park",
-      name2: "North of Pattaya"
+      name2: "Pattaya"
     }
   },
   {
-    caption: "A pier near Lan Pho Park. Laem Chabang Port can be seen far in the distance at the right.",
+    caption: "A pier near Lan Pho Park. Laem Chabang Port is seen far in the distance on the right.",
     location: {
       name: "Lan Pho Park",
-      name2: "North of Pattaya"
+      name2: "Pattaya"
     }
   },
   {
@@ -148,7 +148,7 @@ export const Jan2022Data = [
     }
   },
   {
-    caption: "Plumeria flowers in a park at Na Klua Beach.",
+    caption: "Plumeria flowers bloom in a park at Na Klua Beach.",
     location: {
       name: "Na Klua Beach",
       name2: "North of Pattaya"
@@ -162,7 +162,7 @@ export const Jan2022Data = [
     }
   },
   {
-    caption: "Skyline of northern Pattaya is visible from a park at Na Klua Beach.",
+    caption: "Skyline of north Pattaya, seen from a park at Na Klua Beach.",
     location: {
       name: "Na Klua Beach",
       name2: "North of Pattaya"
@@ -171,14 +171,14 @@ export const Jan2022Data = [
   {
     caption: "Boats near Pattaya Beach on a hazy morning, viewed from Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "Boats near Pattaya Beach on a hazy morning, viewed from Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
@@ -198,7 +198,7 @@ export const Jan2022Data = [
     }
   },
   {
-    caption: "An uncommon white temple near Khao Din Hill.",
+    caption: "An uncommon white temple near Din Hill.",
     location: {
       name: "East of Pattaya",
       lat: 12.88432, 
@@ -206,63 +206,63 @@ export const Jan2022Data = [
     }
   },
   {
-    caption: "A steep road climbs the side of Khao Din Hill.",
+    caption: "A steep road climbs the slope of Din Hill.",
     location: {
-      name: "Khao Din Hill",
+      name: "Khao Din",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A steep road makes a turn near the top of Khao Din Hill.",
+    caption: "A steep road leading to Wat Khao Din makes a turn near the top of Din Hill.",
     location: {
-      name: "Khao Din Hill",
+      name: "Khao Din",
       name2: "East of Pattaya",
       lat: 12.88137, 
       lon: 100.95138
     }
   },
   {
-    caption: "A view from Khao Din Hill to the southwest. Chak Nok Reservoir looks like a puddle on the right.",
+    caption: "A view from Din Hill to the southwest. Chak Nok Reservoir looks like a puddle on the right.",
     location: {
-      name: "Khao Din Hill",
+      name: "Khao Din",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A view from Khao Din Hill to the southeast.",
+    caption: "A view from Din Hill to the southeast.",
     location: {
-      name: "Khao Din Hill",
+      name: "Khao Din",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A view from Khao Din Hill to the south. Khao Chi Chan Hill (Buddha Mountain) is seen in the distance.",
+    caption: "A view from Din Hill to the south. Khao Chi Chan (Buddha Mountain) is seen in the distance.",
     location: {
-      name: "Khao Din Hill",
+      name: "Khao Din",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "Chak Nok Reservoir and some high-rise buildings near Jomtien Beach are visible from the foot of Khao Din Hill.",
+    caption: "Chak Nok Reservoir and some high-rise buildings near Jomtien Beach are visible from the foot of Din Hill.",
     location: {
-      name: "Khao Din Hill",
+      name: "Khao Din",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A field at the foot of Khao Din Hill.",
+    caption: "A field at the foot of Din Hill.",
     location: {
       name: "East of Pattaya"
     }
   },
   {
-    caption: "A lone tree stands in a field near Khao Din Hill.",
+    caption: "A lone tree stands in a field near Din Hill.",
     location: {
       name: "East of Pattaya"
     }
   },
   {
-    caption: "A lone tree stands in a field near Khao Din Hill.",
+    caption: "A lone tree stands in a field near Din Hill.",
     location: {
       name: "East of Pattaya"
     }
@@ -287,7 +287,7 @@ export const Jan2022Data = [
     }
   },
   {
-    caption: "Alien monsters grow on a tree in the forest near Mabprachan Reservoir.",
+    caption: "Alien monsters grow on a tree trunk in the forest near Mabprachan Reservoir.",
     location: {
       name: "East of Pattaya"
     }
@@ -299,7 +299,7 @@ export const Jan2022Data = [
     }
   },
   {
-    caption: "A small tree at the side of the dam of Mabprachan Reservoir.",
+    caption: "A small tree near the dam of Mabprachan reservoir.",
     location: {
       name: "Mabprachan Reservoir",
       name2: "East of Pattaya"
@@ -308,21 +308,21 @@ export const Jan2022Data = [
   {
     caption: "A view of Pattaya Bay from Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "A view from the south side of Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "A view from Phra Tamnak Hill to the west. The tower of Pattaya Park Hotel is seen on the left.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
@@ -336,13 +336,13 @@ export const Jan2022Data = [
 
 export const Feb2022Data = [
   {
-    caption: "Early sunrise in a rural area, southwest of Khao Phai Hill.",
+    caption: "Early sunrise in a rural area, southwest of Phai Hill.",
     location: {
       name: "East of Pattaya"
     }
   },
   {
-    caption: "A moist field at sunrise after a night rain in a rural area, southwest of Khao Phai Hill.",
+    caption: "A moist field at sunrise after a night rain in a rural area, southwest of Phai Hill.",
     location: {
       name: "East of Pattaya"
     }
@@ -354,7 +354,7 @@ export const Feb2022Data = [
     }
   },
   {
-    caption: "A wet muddy path through plantations of rubber trees, southwest of Khao Phai Hill.",
+    caption: "A wet muddy path through plantations of rubber trees, southwest of Phai Hill.",
     location: {
       name: "East of Pattaya"
     }
@@ -366,107 +366,107 @@ export const Feb2022Data = [
     }
   },
   {
-    caption: "Dirt road starts climbing the side of Khao Phai Hill.",
+    caption: "Dirt road starts climbing the side of Phai Hill.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
     caption: "Morning sun is visible through the trees.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A road through the forest on Khao Phai Hill.",
+    caption: "A road through the forest on Phai Hill.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A road through the forest on Khao Phai Hill.",
+    caption: "A road through the forest on Phai Hill.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "Trees in the forest on Khao Phai Hill.",
+    caption: "Trees in the forest on Phai Hill.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A forest road, partially washed out by running water during rains.",
+    caption: "A forest road, partially washed out by rains.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A road through the forest on Khao Phai Hill.",
+    caption: "A road through the forest on Phai Hill.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A small road leads into the fields from the foot of Khao Phai Hill.",
+    caption: "A small road leads into the fields from the foot of Phai Hill.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A scenic natural landscape at the foot of Khao Phai Hill.",
+    caption: "A scenic natural landscape at the foot of Phai Hill.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
     caption: "A narrow path runs along an alley of trees.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "Buildings of Thai Polo Club are seen from a trail at the foot of Khao Phai Hill.",
+    caption: "Buildings of Thai Polo Club are seen from a trail at the foot of Phai Hill.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "Buildings of Thai Polo Club are seen from a trail at the foot of Khao Phai Hill.",
+    caption: "Buildings of Thai Polo Club are seen from a trail at the foot of Phai Hill.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A natural landscape, west of Khao Phai Hill.",
+    caption: "A natural landscape, west of Phai Hill.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
     caption: "Boats in Pattaya Bay, viewed from Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "The sun is rising above Pattaya, viewed from Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   }
@@ -476,77 +476,77 @@ export const Jul2022Data = [
   {
     caption: "A view of Pattaya from the side of Phra Tamnak Hill early in the morning.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "A paved footpath at the side of Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "Morning mist blankets Pattaya, viewed through a small gap in the trees on the side of Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "Pattaya Bay early in the morning, seen from the side of Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "A paved footpath at the side of Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "Another view of Pattaya early in the morning from the side of Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "Pattaya Beach, seen from the side of Phra Tamnak Hill early in the morning.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "Morning sun lights up the trees at the side of Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
-    caption: "A small cafe at the top of Phra Tamnak Hill, with the view of Pattaya Bay.",
+    caption: "A small cafe at the top of Phra Tamnak Hill, with a great view of Pattaya Bay.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "A view of Pattaya from the top of Phra Tamnak Hill early in the morning.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "Pattaya Bay early in the morning, seen from the top of Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
@@ -593,7 +593,7 @@ export const Jul2022Data = [
     }
   },
   {
-    caption: "Pidgeons and metal-detecting locals roam the shore of Mairuak Bay in the early morning.",
+    caption: "Pidgeons and metal-detecting locals roam the shore of Mairuak Bay early in the morning.",
     location: {
       name: "Mairuak Bay",
       name2: "Pattaya"
@@ -710,7 +710,7 @@ export const Aug2021Data = [
     }
   },
   {
-    caption: "A wave is breaking on the shore of Jomtien Beach.",
+    caption: "A wave breaks on the shore of Jomtien Beach.",
     location: {
       name: "Jomtien Beach",
       name2: "Pattaya"
@@ -724,14 +724,14 @@ export const Aug2021Data = [
     }
   },
   {
-    caption: "A heavy rain in Sattahip, seen from the shore of Mairuak Bay.",
+    caption: "A heavy rain over Sattahip, seen from the shore of Mairuak Bay.",
     location: {
       name: "Mairuak Bay",
       name2: "Pattaya"
     }
   },
   {
-    caption: "A heavy rain in Sattahip, viewed from Dongtan Beach.",
+    caption: "A heavy rain over Sattahip, viewed from Dongtan Beach.",
     location: {
       name: "Dongtan Beach",
       name2: "Pattaya"
@@ -773,7 +773,7 @@ export const Aug2021Data = [
     }
   },
   {
-    caption: "A powered parachute in the sky atop of Khao Din Hill.",
+    caption: "A motorized parachute in the sky near Din Hill.",
     location: {
       name: "East of Pattaya"
     }
@@ -830,7 +830,7 @@ export const Aug2021Data = [
     }
   },
   {
-    caption: "A cow is grazing on a rural land, with Khao Din Hill seen in the background.",
+    caption: "A cow is grazing on a rural land, with Din Hill seen in the background.",
     location: {
       name: "East of Pattaya"
     }
@@ -894,14 +894,14 @@ export const Sep2021Data = [
     }
   },
   {
-    caption: "Mabprachan Reservoir, viewed from the dam. Khao Mai Kaeo is seen in the distance.",
+    caption: "Mabprachan Reservoir, viewed from the dam. Hills of Khao Mai Kaeo are seen in the distance.",
     location: {
       name: "Mabprachan Reservoir",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "Mabprachan Reservoir, viewed from the dam. Khao Phai Hill is seen in the distance.",
+    caption: "Mabprachan Reservoir, viewed from the dam. Phai Hill is seen in the distance.",
     location: {
       name: "Mabprachan Reservoir",
       name2: "East of Pattaya"
@@ -915,7 +915,7 @@ export const Sep2021Data = [
     }
   },
   {
-    caption: "A pond near Siam Country Club.",
+    caption: "A pond near Siam Country Club golf course.",
     location: {
       name: "East of Pattaya",
       lat: 12.92376, 
@@ -994,7 +994,7 @@ export const Sep2021Data = [
     }
   },
   {
-    caption: "A pier at Pattaya Bay on a cloudy day.",
+    caption: "A pier in Pattaya Bay on a cloudy day.",
     location: {
       name: "Pattaya"
     }
@@ -1022,21 +1022,21 @@ export const Sep2021Data = [
   {
     caption: "Boats in Pattaya Bay, viewed from Phra Tamnak Hill on a cloudy day.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
-    caption: "Pattaya Beach and the pier, viewed from Phra Tamnak Hill on a cloudy day.",
+    caption: "Pattaya Beach and the pier in Pattaya Bay, viewed from Phra Tamnak Hill on a cloudy day.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "Boats in Pattaya Bay, viewed from Phra Tamnak Hill on a cloudy day.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
@@ -1104,7 +1104,7 @@ export const Oct2021Data = [
     }
   },
   {
-    caption: "Phra Tamnak Hill with Pattaya City sign, seen from a pier on a cloudy morning.",
+    caption: "Phra Tamnak Hill with Pattaya City sign, seen from the pier in Pattaya Bay on a cloudy morning.",
     location: {
       name: "Pattaya"
     }
@@ -1116,14 +1116,14 @@ export const Oct2021Data = [
     }
   },
   {
-    caption: "Boats near Bang Saray Beach. Buddhist temple Wat Bang Saray is seen on the shore.",
+    caption: "Boats near Bang Saray Beach at sunset. Buddhist temple Wat Bang Saray is seen on the shore.",
     location: {
       name: "Sattahip",
       name2: "South of Pattaya"
     }
   },
   {
-    caption: "A local couple on the shore of Gulf of Thailand, with Pattaya skyline visible in the distance.",
+    caption: "A couple on the shore of Gulf of Thailand, with Pattaya skyline visible in the distance.",
     location: {
       name: "Sattahip",
       name2: "South of Pattaya"
@@ -1161,7 +1161,7 @@ export const Nov2021Data = [
     }
   },
   {
-    caption: "The sky turns yellow during the sunrise at Mabprachan Reservoir.",
+    caption: "The sky turns yellow during a sunrise at Mabprachan Reservoir.",
     location: {
       name: "Mabprachan Reservoir",
       name2: "East of Pattaya"
@@ -1203,23 +1203,23 @@ export const Nov2021Data = [
     }
   },
   {
-    caption: "A tree grows near the shore of Mabprachan Reservoir, viewed from Pong Public Park.",
+    caption: "A tree grows near the shore of Mabprachan Reservoir, seen from Pong Public Park.",
     location: {
       name: "Mabprachan Reservoir",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A cycling lane in Pong Public Park, at the northeast of Mabprachan Reservoir.",
+    caption: "A cycling lane in Pong Public Park, northeast of Mabprachan Reservoir.",
     location: {
-      name: "Mabprachan Reservoir",
+      name: "Pong Public Park",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A tree sprawls its branches in Pong Public Park, at the northeast of Mabprachan Reservoir.",
+    caption: "A tree sprawls its branches in Pong Public Park, northeast of Mabprachan Reservoir.",
     location: {
-      name: "Mabprachan Reservoir",
+      name: "Pong Public Park",
       name2: "East of Pattaya"
     }
   },
@@ -1231,14 +1231,14 @@ export const Nov2021Data = [
     }
   },
   {
-    caption: "Reeds grow near the shore of Ban Amphoe Reservoir. Khao Chi Chan Hill (Buddha Mountain) is seen in the background.",
+    caption: "Reeds grow near the shore of Ban Amphoe Reservoir. Khao Chi Chan (Buddha Mountain) is seen in the background.",
     location: {
       name: "Ban Amphoe Reservoir",
       name2: "Southeast of Pattaya"
     }
   },
   {
-    caption: "Reeds grow near the shore of Ban Amphoe Reservoir blanketed by the morning mist.",
+    caption: "Reeds grow near the shore of Ban Amphoe Reservoir shrouded in morning mist.",
     location: {
       name: "Ban Amphoe Reservoir",
       name2: "Southeast of Pattaya"
@@ -1266,7 +1266,7 @@ export const Nov2021Data = [
     }
   },
   {
-    caption: "Khao Din Hill, seen across Chak Nok Reservoir on a sunny day.",
+    caption: "Din Hill, seen across Chak Nok Reservoir on a sunny day.",
     location: {
       name: "Chak Nok Reservoir",
       name2: "East of Pattaya"
@@ -1302,25 +1302,25 @@ export const Nov2021Data = [
     }
   },
   {
-    caption: "Morning fog covers the fields around a rural road to the north of Khao Phai Hill.",
+    caption: "Morning fog covers the fields around a rural road to the north of Phai Hill.",
     location: {
       name: "East of Pattaya"
     }
   },
   {
-    caption: "A winding dirt road near Khao Phai Hill.",
+    caption: "A winding dirt road near Phai Hill.",
     location: {
       name: "East of Pattaya"
     }
   },
   {
-    caption: "A winding dirt road near Khao Phai Hill.",
+    caption: "A winding dirt road near Phai Hill.",
     location: {
       name: "East of Pattaya"
     }
   },
   {
-    caption: "A tree in a rural area near Khun Chit Reservoir. Khao Din Hill is seen in the background.",
+    caption: "A tree in a rural area near Khun Chit Reservoir. Din Hill is seen in the background.",
     location: {
       name: "East of Pattaya"
     }
@@ -1347,7 +1347,7 @@ export const Nov2021Data = [
     }
   },
   {
-    caption: "The sky turns yellow during the sunset at Jomtien Beach.",
+    caption: "The sky turned yellow during sunset at Jomtien Beach.",
     location: {
       name: "Jomtien Beach",
       name2: "Pattaya"
@@ -1414,28 +1414,28 @@ export const Jan2019Data = [
     }
   },
   {
-    caption: "A gravel road on top of the dam of Chak Nok Reservoir, with Khao Din Hill seen on the left.",
+    caption: "A gravel road on top of the dam of Chak Nok Reservoir, with Din Hill seen on the left.",
     location: {
       name: "Chak Nok Reservoir",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "Khao Din Hill is visible through the morning fog across Chak Nok Reservoir.",
+    caption: "Din Hill is visible through the morning fog across Chak Nok Reservoir.",
     location: {
       name: "Chak Nok Reservoir",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A flock of birds over Chak Nok Reservoir, with Khao Din Hill seen in the background.",
+    caption: "A flock of birds over Chak Nok Reservoir, with Din Hill seen in the background.",
     location: {
       name: "Chak Nok Reservoir",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "Buddhist temple Wat Huai Yai early in the morning.",
+    caption: "Buddhist temple Wat Huai Yai in the early morning.",
     location: {
       name: "Wat Huai Yai",
       name2: "East of Pattaya",
@@ -1504,7 +1504,7 @@ export const Mar2019Data = [
     }
   },
   {
-    caption: "Decorative deer grazing on the lawn.",
+    caption: "Decorative deer grazing on a lawn near Siam Country Club golf course.",
     location: {
       name: "Siam Country Club",
       name2: "East of Pattaya"
@@ -1536,7 +1536,7 @@ export const Mar2019Data = [
     }
   },
   {
-    caption: "A withered tree in the middle of an arid field under the tropical sun.",
+    caption: "A withered tree in the middle of an arid field under the hot tropical sun.",
     location: {
       name: "East of Pattaya"
     }
@@ -1548,58 +1548,58 @@ export const Mar2019Data = [
     }
   },
   {
-    caption: "A view from Khao Phai Hill to the northeast.",
+    caption: "A view from Phai Hill to the northeast.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A view from Khao Phai Hill to the south.",
+    caption: "A view from Phai Hill to the south.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A view from Khao Phai Hill to the southeast.",
+    caption: "A view from Phai Hill to the southeast.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A dry dusty road leads towards the top of Khao Phai Hill.",
+    caption: "A dry dusty road leads towards the top of Phai Hill.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A view from Khao Phai Hill to the west. Pattaya skyline is visible in the distance.",
+    caption: "A view from Phai Hill to the west. Pattaya skyline is visible in the distance.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A view from Khao Phai Hill to the southwest.",
+    caption: "A view from Phai Hill to the southwest.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A view from Khao Phai Hill to the northwest. Mabprachan Reservoir is seen in the distance.",
+    caption: "A view from Phai Hill to the northwest. Mabprachan Reservoir is seen in the distance.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "A steep rocky path descends from Khao Phai Hill.",
+    caption: "A steep rocky path leads down from Phai Hill.",
     location: {
-      name: "Khao Phai Hill",
+      name: "Khao Phai",
       name2: "East of Pattaya"
     }
   },
@@ -1631,7 +1631,7 @@ export const Apr2019Data = [
     }
   },
   {
-    caption: "A road near Khao Phai Hill descends towards Huay Yay area as the dusk approaches.",
+    caption: "A road near Phai Hill descends towards Huay Yay area as the dusk approaches.",
     location: {
       name: "East of Pattaya",
       lat: 12.87124, 
@@ -1684,14 +1684,14 @@ export const Apr2019Data = [
     }
   },
   {
-    caption: "Khao Chi On Hill and the building of Viharn Sien Museum are visible across Ban Amphoe Reservoir.",
+    caption: "Chi On Hill and the building of Viharn Sien Museum are visible across Ban Amphoe Reservoir.",
     location: {
       name: "Ban Amphoe Reservoir",
       name2: "Southeast of Pattaya"
     }
   },
   {
-    caption: "Khao Chi Chan Hill (also known as Buddha Mountain) is seen from the bank of Ban Amphoe Reservoir.",
+    caption: "Khao Chi Chan (also known as Buddha Mountain) is seen from the bank of Ban Amphoe Reservoir.",
     location: {
       name: "Ban Amphoe Reservoir",
       name2: "Southeast of Pattaya"
@@ -1756,7 +1756,7 @@ export const Apr2019Data = [
     }
   },
   {
-    caption: "A small lake in a remote area. Khao Chi On Hill is visible in the distance.",
+    caption: "A small lake in a remote area. Chi On Hill is visible in the distance.",
     location: {
       name: "Southeast of Pattaya",
       lat: 12.80856, 
@@ -1794,7 +1794,7 @@ export const Jan2018Data = [
     }
   },
   {
-    caption: "The bank of Ban Amphoe Reservoir. Khao Chi Chan Hill (also known as Buddha Mountain) and the building of Viharn Sien Museum are seen in the distance.",
+    caption: "The bank of Ban Amphoe Reservoir. Khao Chi Chan (Buddha Mountain) and Viharn Sien Museum are seen in the distance.",
     location: {
       name: "Ban Amphoe Reservoir",
       name2: "Southeast of Pattaya"
@@ -1820,31 +1820,31 @@ export const Jan2018Data = [
     }
   },
   {
-    caption: "A 17-kilometers-long cycling path winds around the hills between Buddha Mountain (Khao Chi Chan Hill) and Highway 331.",
+    caption: "A 17-kilometers-long cycling path winds around the hills between Buddha Mountain (Khao Chi Chan) and Highway 331.",
     location: {
       name: "Southeast of Pattaya"
     }
   },
   {
-    caption: "A 17-kilometers-long cycling path winds around the hills between Buddha Mountain (Khao Chi Chan Hill) and Highway 331.",
+    caption: "A 17-kilometers-long cycling path winds around the hills between Buddha Mountain (Khao Chi Chan) and Highway 331.",
     location: {
       name: "Southeast of Pattaya"
     }
   },
   {
-    caption: "A 17-kilometers-long cycling path winds around the hills between Buddha Mountain (Khao Chi Chan Hill) and Highway 331.",
+    caption: "A 17-kilometers-long cycling path winds around the hills between Buddha Mountain (Khao Chi Chan) and Highway 331.",
     location: {
       name: "Southeast of Pattaya"
     }
   },
   {
-    caption: "A 17-kilometers-long cycling path winds around the hills between Buddha Mountain (Khao Chi Chan Hill) and Highway 331.",
+    caption: "A 17-kilometers-long cycling path winds around the hills between Buddha Mountain (Khao Chi Chan) and Highway 331.",
     location: {
       name: "Southeast of Pattaya"
     }
   },
   {
-    caption: "Khao Chi Chan Hill (Buddha Mountain), along with other nearby hills and a water park, is seen across a dry field.",
+    caption: "Khao Chi Chan (Buddha Mountain), along with other nearby hills and a water park, is seen across a dry field.",
     location: {
       name: "Southeast of Pattaya"
     }
@@ -1856,7 +1856,7 @@ export const Jan2018Data = [
     }
   },
   {
-    caption: "The hills of Khao Mai Kaeo, viewed from a bridge across a small river on a rainy day.",
+    caption: "Hills of Khao Mai Kaeo, viewed from a bridge across a small river on a rainy day.",
     location: {
       name: "Khao Mai Kaeo",
       name2: "Northeast of Pattaya",
@@ -1880,7 +1880,7 @@ export const Jan2018Data = [
     }
   },
   {
-    caption: "Pineapples grow on a field on a misty morning.",
+    caption: "Pineapples grow in a field on a misty morning.",
     location: {
       name: "East of Pattaya"
     }
@@ -1913,37 +1913,37 @@ export const Jan2018Data = [
 
 export const Sep2018Data = [
   {
-    caption: "A strangely painted Buddha statue on the side of Phra Tamnak Hill.",
+    caption: "A strangely painted green Buddha statue on the hillside of Khao Phra Tamnak.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "Flowers bloom somewhere on Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "A stray cat. Meow!",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "A sunset viewed from Phra Tamnak Hill, with Pattaya Park Hotel tower seen on the left.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "A sunset viewed from Phra Tamnak Hill, with Pattaya Park Hotel tower seen on the left.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
@@ -1976,7 +1976,7 @@ export const Sep2018Data = [
     }
   },
   {
-    caption: "Khao Din Hill, seen across Chak Nok Reservoir.",
+    caption: "Din Hill, seen across Chak Nok Reservoir.",
     location: {
       name: "Chak Nok Reservoir",
       name2: "East of Pattaya"
@@ -1985,21 +1985,21 @@ export const Sep2018Data = [
   {
     caption: "A bright scenic sunset over the island of Ko Lan, viewed from Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "A bright scenic sunset over the island of Ko Lan, viewed from Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "A bright scenic sunset over the island of Ko Lan, viewed from Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   }
@@ -2041,7 +2041,7 @@ export const Jan2017Data = [
     }
   },
   {
-    caption: "A view of Pattaya from the 31st floor. Khao Din Hill is visible in the distance.",
+    caption: "A view of Pattaya from the 31st floor. Din Hill is visible in the distance.",
     location: {
       name: "Pattaya",
       lat: 12.87557,
@@ -2097,7 +2097,7 @@ export const Jan2017Data = [
     }
   },
    {
-    caption: "A view of Pattaya from the 31st floor on a rainy day. Khao Din Hill is visible in the distance.",
+    caption: "A view of Pattaya from the 31st floor on a rainy day. Din Hill is visible in the distance.",
     location: {
       name: "Pattaya",
       lat: 12.87557,
@@ -2122,21 +2122,21 @@ export const Jan2017Data = [
     }
   },
   {
-    caption: "Decorative deer grazing on the lawn in a small park near a golf course.",
+    caption: "Decorative deer grazing on a lawn in a small park near Siam Country Club golf course.",
     location: {
       name: "Siam Country Club",
       name2: "East of Pattaya"
     }
   },
   {
-    caption: "Khao Chi Chan Hill, also known as Buddha Mountain. The golden Buddha engraving is 109 meters tall, it was created in 1996.",
+    caption: "Khao Chi Chan, also known as Buddha Mountain. The golden Buddha engraving is 109 meters tall, it was created in 1996.",
     location: {
       name: "Khao Chi Chan",
       name2: "Southeast of Pattaya"
     }
   },
   {
-    caption: "Khao Chi Chan Hill, also known as Buddha Mountain. The golden Buddha engraving is 109 meters tall, it was created in 1996.",
+    caption: "Khao Chi Chan, also known as Buddha Mountain. The golden Buddha engraving is 109 meters tall, it was created in 1996.",
     location: {
       name: "Khao Chi Chan",
       name2: "Southeast of Pattaya"
@@ -2178,7 +2178,7 @@ export const Jan2017Data = [
     }
   },
   {
-    caption: "A road descends towards Highway 331, east of Khao Chi Chan Hill.",
+    caption: "A road descends towards Highway 331, east of Khao Chi Chan.",
     location: {
       name: "Southeast of Pattaya"
     }
@@ -2276,7 +2276,7 @@ export const Feb2017Data = [
     }
   },
   {
-    caption: "A steep narrow trail leads through a forest on the hills of Khao Mai Kaeo.",
+    caption: "A steep narrow trail leads through the forest on the hills of Khao Mai Kaeo.",
     location: {
       name: "Khao Mai Kaeo",
       name2: "Northeast of Pattaya"
@@ -2365,28 +2365,30 @@ export const Feb2017Data = [
   {
     caption: "Rain clouds near Din Hill, viewed from the 31st floor.",
     location: {
-      name: "Jomtien Beach",
-      name2: "Pattaya"
+      name: "Pattaya",
+      lat: 12.87557,
+      lon: 100.88944
     }
   },
   {
     caption: "Rain clouds over Pattaya, viewed from the 31st floor.",
     location: {
-      name: "Jomtien Beach",
-      name2: "Pattaya"
+      name: "Pattaya",
+      lat: 12.87557,
+      lon: 100.88944
     }
   },
   {
     caption: "Boats in Pattaya Bay, viewed from Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
   {
     caption: "Boats around a pier in Pattaya Bay, viewed from Phra Tamnak Hill.",
     location: {
-      name: "Phra Tamnak Hill",
+      name: "Khao Phra Tamnak",
       name2: "Pattaya"
     }
   },
