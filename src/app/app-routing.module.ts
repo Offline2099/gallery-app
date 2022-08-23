@@ -30,6 +30,20 @@ const routes: Routes = [
       gallery: G.Feb2017
     }
   },
+  { 
+    path: '2017/05', 
+    component: GalleryComponent,
+    data: {
+      gallery: G.May2017
+    }
+  },
+  { 
+    path: '2017/06', 
+    component: GalleryComponent,
+    data: {
+      gallery: G.Jun2017
+    }
+  },
 
   // 2018 galleries
   { 
