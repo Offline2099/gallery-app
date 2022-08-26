@@ -2649,3 +2649,201 @@ export const Jun2017Data = [
     }
   }
 ];
+
+export const Dec2017Data = [
+  {
+    caption: "Sukhumvit Road, almost empty in the early morning.",
+    location: {
+      name: "North of Pattaya",
+      lat: 12.97773,
+      lon: 100.91591
+    }
+  },
+  {
+    caption: "A field in a rural area shortly after sunrise.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A small pond in a rural area shortly after sunrise.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "Palm trees in a rural area, lit by the morning sun.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A small countryside pond on a sunny morning.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "Chak Nok Reservoir on a clear sunny day. Some high-rise buildings of Pattaya are seen in the distance.",
+    location: {
+      name: "Chak Nok Reservoir",
+      name2: "East of Pattaya"
+    }
+  },
+  {
+    caption: "Din Hill, seen across Chak Nok Reservoir on a clear sunny day.",
+    location: {
+      name: "Chak Nok Reservoir",
+      name2: "East of Pattaya"
+    }
+  },
+  {
+    caption: "Mabprachan Reservoir on a sunny morning.",
+    location: {
+      name: "Mabprachan Reservoir",
+      name2: "East of Pattaya"
+    }
+  },
+  {
+    caption: "Buddhist temple Wat Khao Saothong Thong in the eastern suburbs of Pattaya.",
+    location: {
+      name: "Wat Khao Saothong Thong",
+      name2: "East of Pattaya",
+      lat: 12.90398,
+      lon: 100.92265
+    }
+  },
+  {
+    caption: "A small Buddha statue in a rural area.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A countryside road on a cloudy day.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A calm countryside landscape on a cloudy day.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A large statue of Buddha under construction.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A large statue of Buddha under construction.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A roundabout near Ban Amphoe Reservoir.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A bicycle lane leads towards the shore of Ban Amphoe Reservoir.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Morning mist envelops the hills and temples on the shores of Ban Amphoe Reservoir.",
+    location: {
+      name: "Ban Amphoe Reservoir",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Khao Chi Chan (Buddha Mountain) and other nearby hills are seen across Ban Amphoe Reservoir on a foggy morning.",
+    location: {
+      name: "Ban Amphoe Reservoir",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Buddhist temple Wat Yansangwararam, built in 1976.",
+    location: {
+      name: "Wat Yansangwararam",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A small dirt road in a park near Wat Yansangwararam.",
+    location: {
+      name: "Wat Yansangwararam",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "The \"boring\" western side of Ban Amphoe Reservoir, with no temples or hills in the background.",
+    location: {
+      name: "Ban Amphoe Reservoir",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A countryside road leads towards the hills of Khao Mai Kaeo.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "Hills of Khao Mai Kaeo, seen across the nearby fields on a cloudy day.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A dirt road in a rural area near Khao Mai Kaeo on a cloudy day.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "The canopy of a tree viewed from below.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "Mabprachan Reservoir on a cloudy day.",
+    location: {
+      name: "Mabprachan Reservoir",
+      name2: "East of Pattaya"
+    }
+  },
+  {
+    caption: "A seaside view in the north of Pattaya early in the morning.",
+    location: {
+      name: "Pattaya"
+    }
+  },
+  {
+    caption: "Boats of local fishermen near the shore in the north of Pattaya early in the morning.",
+    location: {
+      name: "Pattaya"
+    }
+  },
+  {
+    caption: "An improvised Christmas tree outside a private house in the northern suburbs of Pattaya.",
+    location: {
+      name: "North of Pattaya"
+    }
+  },
+  {
+    caption: "Tourists at Jomtien Beach watch the sun setting for one of the last times in 2017.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  }
+];
