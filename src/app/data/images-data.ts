@@ -2650,6 +2650,71 @@ export const Jun2017Data = [
   }
 ];
 
+export const Oct2017Data = [
+  {
+    caption: "A quick look at Pattaya Bay from Phra Tamnak Hill.",
+    location: {
+      name: "Phra Tamnak Hill",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "A heap of scrap metal near the pier in Pattaya Bay.",
+    location: {
+      name: "Pattaya"
+    }
+  },
+  {
+    caption: "Chinese tourists are having fun at Jomtien Beach, as the sunset approaches.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "Mabprachan Reservoir, shortly before sunset.",
+    location: {
+      name: "Mabprachan Reservoir",
+      name2: "East of Pattaya"
+    }
+  },
+  {
+    caption: "Mabprachan Reservoir, shortly before sunset.",
+    location: {
+      name: "Mabprachan Reservoir",
+      name2: "East of Pattaya"
+    }
+  },
+  {
+    caption: "Mabprachan Reservoir, shortly before sunset.",
+    location: {
+      name: "Mabprachan Reservoir",
+      name2: "East of Pattaya"
+    }
+  },
+  {
+    caption: "A view at the shore of Mabprachan Reservoir, shortly before sunset.",
+    location: {
+      name: "Mabprachan Reservoir",
+      name2: "East of Pattaya"
+    }
+  },
+  {
+    caption: "A bicycle path in Pong Public Park, northeast of Mabprachan Reservoir, shortly before sunset.",
+    location: {
+      name: "Pong Public Park",
+      name2: "East of Pattaya"
+    }
+  },
+  {
+    caption: "A bicycle path in Pong Public Park, at the shore of Mabprachan Reservoir, shortly before sunset.",
+    location: {
+      name: "Pong Public Park",
+      name2: "East of Pattaya"
+    }
+  }
+];
+
 export const Dec2017Data = [
   {
     caption: "Sukhumvit Road, almost empty in the early morning.",
