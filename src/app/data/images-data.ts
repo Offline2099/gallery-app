@@ -2650,6 +2650,129 @@ export const Jun2017Data = [
   }
 ];
 
+export const Aug2017Data = [
+  {
+    caption: "A lily pond in the temple complex of Wat Yansangwararam on a cloudy day.",
+    location: {
+      name: "Wat Yansangwararam",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A lily pond in the temple complex of Wat Yansangwararam on a cloudy day.",
+    location: {
+      name: "Wat Yansangwararam",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A pink water lily blooms in the pond near Wat Yansangwararam.",
+    location: {
+      name: "Wat Yansangwararam",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Bougainvillea (paperflower) blooms near the pond in the temple complex of Wat Yansangwararam.",
+    location: {
+      name: "Wat Yansangwararam",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Buddhist temple Wat Thung Lahan in a rural area southeast of Pattaya.",
+    location: {
+      name: "Wat Thung Lahan",
+      name2: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Khao Chi Chan (Buddha Mountain) and nearby hills, seen across a construction site to the north.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A road climbs towards Khao Chi Chan (Buddha Mountain) and nearby hills.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Hills and ponds alongside the road to the southwest of Khao Chi Chan (Buddha Mountain).",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Small ponds near the road to the southwest of Khao Chi Chan (Buddha Mountain). Hills of Sattahip are in the distance.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A rural landscape with Chi Chan Hill and Chi On Hill (left and right respectively near the center) seen in the distance.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A tree near the entrance to a farm in a rural area.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A view in Krom Luang Chumphon Park in Sattahip on a cloudy day.",
+    location: {
+      name: "Sattahip",
+      name2: "South of Pattaya"
+    }
+  },
+  {
+    caption: "A playground near the Thai Navy base in Sattahip.",
+    location: {
+      name: "Sattahip",
+      name2: "South of Pattaya"
+    }
+  },
+  {
+    caption: "A view from the bank of a large pond in Krom Luang Chumphon Park in Sattahip.",
+    location: {
+      name: "Sattahip",
+      name2: "South of Pattaya"
+    }
+  },
+  {
+    caption: "Boats of local fishermen and several small islands near the south coast of Sattahip.",
+    location: {
+      name: "Sattahip",
+      name2: "South of Pattaya"
+    }
+  },
+  {
+    caption: "Boats of local fishermen and several small islands near the south coast of Sattahip.",
+    location: {
+      name: "Sattahip",
+      name2: "South of Pattaya"
+    }
+  },
+  {
+    caption: "A view from the south of Jomtien Beach towards Sattahip on a cloudy evening.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "A view from the south of Jomtien Beach towards the island of Ko Lan on a cloudy evening.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  }
+];
+
 export const Oct2017Data = [
   {
     caption: "A quick look at Pattaya Bay from Phra Tamnak Hill.",
