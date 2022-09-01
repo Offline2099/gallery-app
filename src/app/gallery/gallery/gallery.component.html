@@ -143,8 +143,8 @@
 
   </div>
 
-  <!-- Gallery images on the right -->
-  <div class="thumbnails-container">
+  <!-- Gallery images -->
+  <div class="gallery-container" [ngClass]="{'gallery-container-full-width': userSettings.simpleGallery}">
 
     <!-- Gallery name and settings button -->
     <div class="gallery-options-panel">
@@ -160,14 +160,63 @@
     <!-- Gallery settings panel -->
     <div 
       class="gallery-settings-panel"
-      [ngClass]="{'gallery-settings-panel-visible': settingsOpen}" >
+      [ngClass]="{'gallery-settings-panel-visible': userSettings.panelOpen}" >
 
       <div class="gallery-settings-panel-header">
         Gallery Settings
         <span class="panel-close-button controls-button-right" (click)="toggleSettingsPanel()">&#x2716;</span>
       </div>
 
-      <div class="gallery-settings-panel-block">
+      <div class="gallery-settings-panel-block gallery-settings-panel-block-right">
+        <div class="gallery-settings-panel-block-control">
+          <span class="gallery-settings-panel-block-control-text">Mode:</span>
+          <div 
+            class="controls-button" 
+            [ngClass]="{'controls-button-selected': !userSettings.simpleGallery}"
+            (click)="toggleSimpleGallery()">Default</div>
+          <div 
+            class="controls-button" 
+            [ngClass]="{'controls-button-selected': userSettings.simpleGallery}"
+            (click)="toggleSimpleGallery()">Grid</div>
+        </div>
+        <div class="gallery-settings-panel-block-text">
+          Default mode displays the gallery preview on the right and allows to pick an image. Grid mode simply displays all images in the gallery as a grid.
+        </div>
+      </div>
+
+      <div class="gallery-settings-panel-block" *ngIf="!userSettings.simpleGallery">
+        <div class="gallery-settings-panel-block-control">
+          <div class="controls-button" (click)="toggleImageData()">
+            <div 
+              class="control-switch" 
+              [ngClass]="{'control-switch-off': !userSettings.showImageData, 'control-switch-on': userSettings.showImageData}">
+              <div class="control-switch-ball"></div>
+            </div>
+            Show Image Info
+          </div>
+        </div>
+        <div class="gallery-settings-panel-block-text">
+          Show or hide the information block under the selected image. It contains a brief description and the location where the photo was taken.
+        </div>
+      </div>
+
+      <div class="gallery-settings-panel-block" *ngIf="userSettings.simpleGallery">
+        <div class="gallery-settings-panel-block-control">
+          <div class="controls-button" (click)="toggleImageData()">
+            <div 
+              class="control-switch" 
+              [ngClass]="{'control-switch-off': !userSettings.showImageData, 'control-switch-on': userSettings.showImageData}">
+              <div class="control-switch-ball"></div>
+            </div>
+            Show Image Info
+          </div>
+        </div>
+        <div class="gallery-settings-panel-block-text">
+          Show or hide the description blocks under the images. Knowing what exactly you are looking at often makes it more interesting.
+        </div>
+      </div>
+
+      <div class="gallery-settings-panel-block" *ngIf="!userSettings.simpleGallery">
         <div class="gallery-settings-panel-block-control">
           <div class="controls-button" (click)="toggleSelectOnMouseover()">
             <div 
@@ -183,38 +232,30 @@
         </div>
       </div>
 
-      <div class="gallery-settings-panel-block">
+      <div class="gallery-settings-panel-block" *ngIf="userSettings.simpleGallery">
         <div class="gallery-settings-panel-block-control">
-          <div class="controls-button" (click)="toggleImageData()">
-            <div 
-              class="control-switch" 
-              [ngClass]="{'control-switch-off': !userSettings.showImageData, 'control-switch-on': userSettings.showImageData}">
-              <div class="control-switch-ball"></div>
-            </div>
-            Show Image Info
-          </div>
+          <span class="gallery-settings-panel-block-control-text">Images per Row:</span>
+          <div 
+            class="controls-button" 
+            [ngClass]="{'controls-button-selected': userSettings.imagesInRow == 1}" 
+            (click)="setImagesInRow(1)">1</div>
+          <div 
+            class="controls-button" 
+            [ngClass]="{'controls-button-selected': userSettings.imagesInRow == 2}" 
+            (click)="setImagesInRow(2)">2</div>
+          <div 
+            class="controls-button" 
+            [ngClass]="{'controls-button-selected': userSettings.imagesInRow == 3}" 
+            (click)="setImagesInRow(3)">3</div>
+          <div 
+            class="controls-button hidden-desktop-small hidden-desktop-average" 
+            [ngClass]="{'controls-button-selected': userSettings.imagesInRow == 4}" 
+            (click)="setImagesInRow(4)">4</div>
         </div>
         <div class="gallery-settings-panel-block-text">
-          Show information below the selected image, such as a brief description and the location where the photo was taken.
+          Select how many images should be fit into a row. Less images per row means a larger size for each image on the screen.
         </div>
       </div>
-
-      <!-- <div class="gallery-settings-panel-block">
-        TBD later
-        <div class="gallery-settings-panel-block-control">
-          <div class="controls-button" (click)="toggleSimpleGallery()">
-            <div 
-              class="control-switch" 
-              [ngClass]="{'control-switch-off': !userSettings.simpleGallery, 'control-switch-on': userSettings.simpleGallery}">
-              <div class="control-switch-ball"></div>
-            </div>
-            Simple Gallery
-          </div>
-        </div>
-        <div class="gallery-settings-panel-block-text">
-          Simply display all images in the gallery, no previews and other things.
-        </div>
-      </div> -->
       
     </div>
 
@@ -241,10 +282,37 @@
       </div>
     </div>
 
-    <!-- Button for scrolling back to top -->
+    <!-- Grid mode gallery -->
+    <div class="gallery-simple gallery-simple-desktop" *ngIf="userSettings.simpleGallery">
+      <div 
+        *ngFor="let image of g.imageData; index as i"
+        class="gallery-simple-block gallery-simple-block-{{userSettings.imagesInRow}}">
+        <img 
+          class="gallery-simple-image"
+          src="./assets/img/{{userSettings.imagesInRow > 2 ? 'small/' : ''}}{{image.path}}.jpg"
+          alt="Image {{i+1}}" />
+        <div 
+          *ngIf="image.caption && userSettings.showImageData" 
+          class="gallery-simple-image-data">
+          <div class="gallery-simple-image-data-caption">{{image.caption}}</div>
+          <div class="gallery-simple-image-data-angle-1"></div>
+          <div class="gallery-simple-image-data-angle-4"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button for scrolling back to top (default gallery) -->
     <div 
       class="gallery-up-button"
       [ngClass]="{'hidden-desktop': verticalOffset < 250}" 
+      *ngIf="!userSettings.simpleGallery"
+      (click)="scrollToTop()">&#9650;</div>
+
+    <!-- Button for scrolling back to top (grid view) -->
+    <div 
+      class="mobile-up-button" 
+      [ngClass]="{'mobile-up-button-invisible': verticalOffset < 250}" 
+      *ngIf="userSettings.simpleGallery"
       (click)="scrollToTop()">&#9650;</div>
 
   </div>

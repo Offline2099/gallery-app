@@ -6,13 +6,19 @@ import { Injectable } from '@angular/core';
 export class UserSettingsService {
 
   private userSettings = {
+    panelOpen: false,
     selectOnMouseover: false,
     showImageData: true,
-    simpleGallery: false
+    simpleGallery: false,
+    imagesInRow: 3
   };
 
   getUserSettings() {
     return this.userSettings;
+  }
+
+  setPanelStatus(val: boolean) {
+    this.userSettings.panelOpen = val;
   }
 
   setSelectOnMouseover(val: boolean) {
@@ -25,6 +31,10 @@ export class UserSettingsService {
 
   setSimpleGallery(val: boolean) {
     this.userSettings.simpleGallery = val;
+  }
+
+  setImagesInRow(val: number) {
+    this.userSettings.imagesInRow = val;
   }
 
   constructor() { }

@@ -15,9 +15,11 @@ export class GalleryComponent implements OnInit, AfterViewInit {
   g: Gallery;
 
   userSettings: {
+    panelOpen: boolean,
     selectOnMouseover: boolean,
     showImageData: boolean,
-    simpleGallery: boolean
+    simpleGallery: boolean,
+    imagesInRow: number
   };
 
   verticalOffset = 0;
@@ -26,7 +28,6 @@ export class GalleryComponent implements OnInit, AfterViewInit {
   currentImageLoading = true;
   currentLocationText: string[] = ['', '', ''];
   
-  settingsOpen: boolean = false;
   aciveMouseover: boolean[] = [];
 
   constructor(
@@ -147,7 +148,8 @@ export class GalleryComponent implements OnInit, AfterViewInit {
   // Settings panel
 
   toggleSettingsPanel(): void {
-    this.settingsOpen = !this.settingsOpen;
+    this.userSettings.panelOpen = !this.userSettings.panelOpen;
+    this.userSettingsService.setPanelStatus(this.userSettings.panelOpen);
   }
 
   // No-click mode
@@ -177,9 +179,14 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   // Simple gallery mode
 
-  // toggleSimpleGallery(): void {
-  //   this.userSettings.simpleGallery = !this.userSettings.simpleGallery;
-  //   this.userSettingsService.setSimpleGallery(this.userSettings.simpleGallery);
-  // }
+  toggleSimpleGallery(): void {
+    this.userSettings.simpleGallery = !this.userSettings.simpleGallery;
+    this.userSettingsService.setSimpleGallery(this.userSettings.simpleGallery);
+  }
+
+  setImagesInRow(val: number): void {
+    this.userSettings.imagesInRow = val;
+    this.userSettingsService.setImagesInRow(this.userSettings.imagesInRow);
+  }
   
 }
