@@ -59,6 +59,13 @@ const routes: Routes = [
     }
   },
   { 
+    path: '2017/11', 
+    component: GalleryComponent,
+    data: {
+      gallery: G.Nov2017
+    }
+  },
+  { 
     path: '2017/12', 
     component: GalleryComponent,
     data: {

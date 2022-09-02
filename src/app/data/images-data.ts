@@ -2838,6 +2838,186 @@ export const Oct2017Data = [
   }
 ];
 
+export const Nov2017Data = [
+  {
+    caption: "A small lake Nong Chak Ngaeo in a rural area southeast of Pattaya.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A dirt road leads through the bushes.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A dirt road through the fields in a rural area.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A countryside landscape with a small hill in the background.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A narrow dirt road at the edge of a field in a rural area.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A dirt road leads through a plantation of date palms.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Date palms in a rural area southeast of Pattaya.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A dirt road leads through a plantation of date palms.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A dirt road through the fields in a rural area.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A small overgrown hill is seen across the field on a windy day.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Pineapple fields in a rural area southeast of Pattaya.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Pineapple fields in a rural area southeast of Pattaya. Din Hill is visible in the distance.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "Pineapple fields in a rural area southeast of Pattaya. Phai Hill is visible in the distance.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A pineapple grows in the field.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A dirt road through the pineapple fields.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "The road crosses a small river.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A scenic view in a rural area in the late afternoon.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A solitary tree in the middle of Chak Nok Reservoir.",
+    location: {
+      name: "Chak Nok Reservoir",
+      name2: "East of Pattaya"
+    }
+  },
+  {
+    caption: "An uncommonly looking wooden building in a rural area.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "Tropical vines wrap around the power lines near the chimney of a small local factory.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A small Buddhist shrine with animal figures in a rural area.",
+    location: {
+      name: "Southeast of Pattaya"
+    }
+  },
+  {
+    caption: "A narrow trail leads through the bushes.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A small water reservoir in a rural area.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A tree sprawls its branches near the field.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A dirt road at the edge of a field in a rural area.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A freshly cultivated patch in a field.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A countryside road on a cloudy day.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "A pineapple field northeast of Pattaya. Hills of Khao Mai Kaeo are seen in the distance.",
+    location: {
+      name: "Northeast of Pattaya"
+    }
+  },
+  {
+    caption: "Mabprachan Reservoir is seen from the bridge over a highway to the north.",
+    location: {
+      name: "Northeast of Pattaya",
+      lat: 12.95505, 
+      lon: 100.97329
+    }
+  }
+];
+
 export const Dec2017Data = [
   {
     caption: "Sukhumvit Road, almost empty in the early morning.",
