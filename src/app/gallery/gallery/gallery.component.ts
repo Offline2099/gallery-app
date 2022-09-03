@@ -36,24 +36,9 @@ export class GalleryComponent implements OnInit, AfterViewInit {
     private userSettingsService: UserSettingsService,
     public u: UtilitiesService
   ) {
-
     // The data for current gallery is passed through the router
     this.g = activatedRoute.snapshot.data['gallery'];
-
-    // For chronological galleries getting path and name from year and month
-    if (this.g.type == 'chronological') {
-      this.g.path = this.g.year + '/' + this.g.month + '/';
-      this.g.name = this.u.monthName(this.g.month);
-      this.g.nameShort = this.u.monthName(this.g.month, true);
-    }
-
-    // If image data is not passed, generating paths from the gallery path
-    if (!this.g.imageData) this.g.imageData = [];
-    for(let i = 0; i < this.g.numberOfImages; i++) {
-      if (this.g.imageData[i]) this.g.imageData[i].path = this.g.path + '/' + (i + 1);
-      else this.g.imageData[i] = { path: this.g.path + '/' + (i + 1) };
-    }
-
+    // Applying global settings 
     this.userSettings = userSettingsService.getUserSettings();
   }
 

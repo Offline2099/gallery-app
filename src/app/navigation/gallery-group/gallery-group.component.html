@@ -8,7 +8,7 @@
       class="buttons-container-head-triangle hidden-tablet hidden-desktop" 
       [ngClass]="{'buttons-container-head-triangle-down': visibleOnMobile}">&#9654;</span>
     <span class="hidden-desktop">{{groupName}}</span>
-    <span class="hidden-mobile hidden-tablet">{{groupNameShort}}</span>
+    <span class="hidden-mobile hidden-tablet"><a routerLink="{{groupPath}}">{{groupNameShort}}</a></span>
     <span class="buttons-container-head-label hidden-desktop">({{imagesTotal}} images)</span>
   </div>
 

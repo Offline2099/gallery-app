@@ -66,14 +66,16 @@
 
       <a 
         class="controls-button controls-button-right" 
-        href="./assets/img/{{g.path}}{{currentImage}}.jpg" 
-        download="{{u.strToKebabCase(g.name)}}-{{g.year ? g.year : ''}}-image-{{currentImage}}.jpg">
+        *ngIf="g.imageData"
+        href="./assets/img/{{g.imageData[currentImage - 1].path}}.jpg" 
+        download="{{u.strToKebabCase(g.name)}}-{{g.year ? g.year + '-' : ''}}image-{{currentImage}}.jpg">
         <img class="controls-button-icon" src="./assets/interface/download-icon.png" alt="icon">Download
       </a>
 
       <a 
         class="controls-button controls-button-right" 
-        href="./assets/img/{{g.path}}{{currentImage}}.jpg" target="_blank">
+        *ngIf="g.imageData"
+        href="./assets/img/{{g.imageData[currentImage - 1].path}}.jpg" target="_blank">
         <img class="controls-button-icon" src="./assets/interface/new-tab-icon.png" alt="icon">Full Size 
         <span class="controls-button-label">(3840&hairsp;x&hairsp;2160)</span>
       </a>
@@ -87,7 +89,8 @@
       <img 
         class="image-selected"
         [ngClass]="{'image-loading' : currentImageLoading}"
-        src="./assets/img/{{g.path}}{{currentImage}}.jpg"
+        *ngIf="g.imageData"
+        src="./assets/img/{{g.imageData[currentImage - 1].path}}.jpg"
         alt="{{g.name}} {{g.year ? g.year : ''}} - Image {{currentImage}}"
         (load)="onImageLoad()"
         (contextmenu)="onRightClick($event)" />

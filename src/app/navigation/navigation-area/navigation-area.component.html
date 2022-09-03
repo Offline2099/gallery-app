@@ -5,6 +5,7 @@
     *ngFor="let group of galleryGroups"
     class="hidden-tablet"
     [groupName]="group.name"
+    [groupPath]="group.path"
     [groupNameShort]="group.nameShort"
     [galleries]="group.galleries">
   </app-gallery-group>
@@ -16,6 +17,7 @@
     <app-gallery-group 
       *ngFor="let group of column"
       [groupName]="group.name"
+      [groupPath]="group.path"
       [groupNameShort]="group.nameShort"
       [galleries]="group.galleries">
     </app-gallery-group>

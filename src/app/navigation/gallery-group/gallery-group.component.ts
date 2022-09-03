@@ -10,6 +10,7 @@ import { UtilitiesService } from '../../utilities.service';
 export class GalleryGroupComponent implements OnInit {
 
   @Input() groupName: string;
+  @Input() groupPath: string;
   @Input() groupNameShort: string;
   @Input() galleries: Gallery[];
 
@@ -19,6 +20,7 @@ export class GalleryGroupComponent implements OnInit {
 
   constructor(private u: UtilitiesService) {
     this.groupName = '';
+    this.groupPath = '';
     this.groupNameShort = '';
     this.galleries = [];
   }
@@ -29,17 +31,8 @@ export class GalleryGroupComponent implements OnInit {
 
   prepareData(): void {
     for (let i = 0; i < this.galleries.length; i++) {
-
-      this.gData[i] = { type: '', path: '', name: '', nameShort: '', numberOfImages: 0 };
-
-      this.gData[i].numberOfImages = this.galleries[i].numberOfImages;
+      this.gData[i] = this.galleries[i];
       this.imagesTotal += this.galleries[i].numberOfImages;
-
-      if (this.galleries[i].type == 'chronological') {
-        this.gData[i].path = '/' + this.galleries[i].year + '/' + this.galleries[i].month;
-        this.gData[i].name = this.u.monthName(this.galleries[i].month);
-        this.gData[i].nameShort = this.u.monthName(this.galleries[i].month, true);
-      }
     }
   }
 }
