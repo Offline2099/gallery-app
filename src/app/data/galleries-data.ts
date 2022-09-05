@@ -40,7 +40,7 @@ export const Aug2021: Gallery = {
   type: "month",
   year: "2021",
   month: "08",
-  numberOfImages: 21,
+  numberOfImages: 20,
   imageData: I.Aug2021Data
 };
 

@@ -696,14 +696,21 @@ export const Jul2022Data = [
 
 export const Aug2021Data = [
   {
-    caption: "The islands of Koh Rin (left) and Ko Lan (right) are seen from Jomtien Beach on a cloudy afternoon.",
+    caption: "The islands of Koh Rin (left) and Ko Lan (right) are seen from Jomtien Beach.",
     location: {
       name: "Jomtien Beach",
       name2: "Pattaya"
     }
   },
   {
-    caption: "The island of Ko Lan and high-rise buildings of Pattaya are seen from the south of Jomtien Beach.",
+    caption: "A view from Jomtien Beach towards Sattahip.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "A view from Jomtien Beach towards the island of Ko Lan.",
     location: {
       name: "Jomtien Beach",
       name2: "Pattaya"
@@ -711,6 +718,13 @@ export const Aug2021Data = [
   },
   {
     caption: "A wave breaks on the shore of Jomtien Beach.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    }
+  },
+  {
+    caption: "The island of Ko Lan and high-rise buildings of Pattaya are seen from the south of Jomtien Beach.",
     location: {
       name: "Jomtien Beach",
       name2: "Pattaya"
@@ -784,27 +798,8 @@ export const Aug2021Data = [
       name: "East of Pattaya"
     }
   },
-  {
-    caption: "A view from Jomtien Beach towards Sattahip.",
-    location: {
-      name: "Jomtien Beach",
-      name2: "Pattaya"
-    }
-  },
-  {
-    caption: "A view from Jomtien Beach towards the island of Ko Lan.",
-    location: {
-      name: "Jomtien Beach",
-      name2: "Pattaya"
-    }
-  },
-  {
-    caption: "The islands of Koh Rin (left) and Ko Lan (right) are seen from Jomtien Beach.",
-    location: {
-      name: "Jomtien Beach",
-      name2: "Pattaya"
-    }
-  },
+  
+  
   {
     caption: "A small park in the eastern suburbs of Pattaya.",
     location: {
