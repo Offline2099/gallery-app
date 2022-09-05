@@ -38,6 +38,13 @@ const routes: Routes = [
     }
   },
   { 
+    path: '2017/03', 
+    component: GalleryComponent,
+    data: {
+      gallery: g('month', ['2017', '03'])
+    }
+  },
+  { 
     path: '2017/05', 
     component: GalleryComponent,
     data: {
