@@ -11,17 +11,19 @@ export class GalleryGroupComponent implements OnInit {
 
   @Input() groupName: string;
   @Input() groupPath: string;
-  @Input() groupNameShort: string;
+  @Input() groupNameMobile: string;
+  @Input() groupLabelType: number;
   @Input() galleries: Gallery[];
 
   gData: Gallery[] = [];
-  imagesTotal = 0;
-  visibleOnMobile: boolean = false;
+  groupLabel: string = '';
+  collapsedOnMobile: boolean = true;
 
   constructor(private u: UtilitiesService) {
     this.groupName = '';
     this.groupPath = '';
-    this.groupNameShort = '';
+    this.groupNameMobile = '';
+    this.groupLabelType = 0;
     this.galleries = [];
   }
 
@@ -30,9 +32,19 @@ export class GalleryGroupComponent implements OnInit {
   }
 
   prepareData(): void {
+    let imagesTotal = 0
+    let entriesTotal = this.galleries.length;
     for (let i = 0; i < this.galleries.length; i++) {
       this.gData[i] = this.galleries[i];
-      this.imagesTotal += this.galleries[i].numberOfImages;
+      imagesTotal += this.galleries[i].numberOfImages;
     }
+    if (this.groupLabelType == 1) 
+      this.groupLabel = '(' + entriesTotal + ' galleries, ' + imagesTotal + ' images)';
+    if (this.groupLabelType == 2) 
+      this.groupLabel = '(' + entriesTotal + ' galleries)';
+  }
+
+  toggleOnMobile(): void {
+    this.collapsedOnMobile = !this.collapsedOnMobile;
   }
 }

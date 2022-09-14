@@ -1,322 +1,290 @@
-import { Gallery } from './data-types';
+import { GalleryGroup, ImageData } from './data-types';
+import { UtilitiesService } from '../utilities.service';
 import * as I from './images-data';
 
-// 2022
+const D = [
+  {
+    y: '2017',
+    m: [
+      { m: '01', n: 31, d: I.Jan2017Data },
+      { m: '02', n: 27, d: I.Feb2017Data },
+      { m: '03', n: 68, d: I.Mar2017Data },
+      { m: '05', n: 9, d: I.May2017Data },
+      { m: '06', n: 23, d: I.Jun2017Data },
+      { m: '08', n: 18, d: I.Aug2017Data },
+      { m: '10', n: 9, d: I.Oct2017Data },
+      { m: '11', n: 29, d: I.Nov2017Data },
+      { m: '12', n: 30, d: I.Dec2017Data }
+    ]
+  },
+  {
+    y: '2018',
+    m: [
+      { m: '01', n: 20, d: I.Jan2018Data },
+      { m: '09', n: 13, d: I.Sep2018Data }
+    ]
+  },
+  {
+    y: '2019',
+    m: [
+      { m: '01', n: 10, d: I.Jan2019Data },
+      { m: '03', n: 18, d: I.Mar2019Data },
+      { m: '04', n: 24, d: I.Apr2019Data }
+    ]
+  },
+  {
+    y: '2021',
+    m: [
+      { m: '08', n: 20, d: I.Aug2021Data },
+      { m: '09', n: 31, d: I.Sep2021Data },
+      { m: '10', n: 12, d: I.Oct2021Data },
+      { m: '11', n: 30, d: I.Nov2021Data },
+      { m: '12', n: 6, d: I.Dec2021Data }
+    ]
+  },
+  {
+    y: '2022',
+    m: [
+      { m: '01', n: 47, d: I.Jan2022Data },
+      { m: '02', n: 20, d: I.Feb2022Data },
+      { m: '07', n: 31, d: I.Jul2022Data }
+    ]
+  }
+];
 
-export const Jan2022: Gallery = {
-  type: "month",
-  year: "2022",
-  month: "01",
-  numberOfImages: 47,
-  imageData: I.Jan2022Data
-};
+const Locations = [
+  {
+    groupName: "Cities\xa0and Regions",
+    names: [
+      "Bangkok", "Pattaya", // major cities
+      "North of Pattaya", "Northeast of Pattaya", "East of Pattaya", "Southeast of Pattaya", "South of Pattaya", // directions
+      "Sattahip" // administrative regions
+    ]
+  },
+  {
+    groupName: "Parks",
+    names: ["Khao Kheow Open Zoo", "Lumphini Park", "Wat Yansangwararam", "Pong Public Park", "Lan Pho Park", "Siam Country Club"]
+  },
+  {
+    groupName: "Beaches",
+    names: ["Jomtien Beach", "Dongtan Beach", "Yinyom Beach", "Pattaya Beach", "Na Klua Beach", "Bang Saray Beach"]
+  },
+  {
+    groupName: "Reservoirs",
+    names: ["Mabprachan Reservoir", "Ban Amphoe Reservoir", "Chak Nok Reservoir", "Khun Chit Reservoir", "Bang Phai Reservoir", "Nong Klang Dong Reservoir"]
+  },
+  {
+    groupName: "Hills",
+    names: ["Khao Phra Tamnak", "Khao Din", "Khao Phai", "Khao Mai Kaeo"]
+  }
+];
 
-export const Feb2022: Gallery = {
-  type: "month",
-  year: "2022",
-  month: "02",
-  numberOfImages: 20,
-  imageData: I.Feb2022Data
-};
+const Tags = [
+  {
+    groupName: "Features",
+    names: ['animals', 'people', 'trees', 'flowers', 'temple', 'shrine', 'statue', 'landmark', 'boats', 
+      'road', 'waterbody', 'hills', 'islands', 'panorama'],
+  },
+  {
+    groupName: "Area Type",
+    names: ['city', 'beach', 'park', 'forest', 'countryside', 'zoo']
+  },
+  {
+    groupName: "Weather",
+    names: ['sunny', 'cloudy', 'rain', 'fog']
+  },
+  {
+    groupName: "Time of Day",
+    names: ['sunrise', 'morning', 'day', 'evening', 'sunset']
+  }
+];
 
-export const Jul2022: Gallery = {
-  type: "month",
-  year: "2022",
-  month: "07",
-  numberOfImages: 31,
-  imageData: I.Jul2022Data
-};
+function combTags(tagArray: string[]): string[] {
 
-export const All2022 = { 
-  name: "Year 2022", 
-  nameShort: "2022", 
-  path: "2022", 
-  galleries: [Jan2022, Feb2022, Jul2022] 
-};
+  let result: string[] = [];
 
-// 2021
-
-export const Aug2021: Gallery = {
-  type: "month",
-  year: "2021",
-  month: "08",
-  numberOfImages: 20,
-  imageData: I.Aug2021Data
-};
-
-export const Sep2021: Gallery = {
-  type: "month",
-  year: "2021",
-  month: "09",
-  numberOfImages: 31,
-  imageData: I.Sep2021Data
-};
-
-export const Oct2021: Gallery = {
-  type: "month",
-  year: "2021",
-  month: "10",
-  numberOfImages: 12,
-  imageData: I.Oct2021Data
-};
-
-export const Nov2021: Gallery = {
-  type: "month",
-  year: "2021",
-  month: "11",
-  numberOfImages: 30,
-  imageData: I.Nov2021Data
-};
-
-export const Dec2021: Gallery = {
-  type: "month",
-  year: "2021",
-  month: "12",
-  numberOfImages: 6,
-  imageData: I.Dec2021Data
-};
-
-export const All2021 = { 
-  name: "Year 2021", 
-  nameShort: "2021", 
-  path: "2021",  
-  galleries: [Aug2021, Sep2021, Oct2021, Nov2021, Dec2021] 
-};
-
-// 2019
-
-export const Jan2019: Gallery = {
-  type: "month",
-  year: "2019",
-  month: "01",
-  numberOfImages: 10,
-  imageData: I.Jan2019Data
-};
-
-export const Mar2019: Gallery = {
-  type: "month",
-  year: "2019",
-  month: "03",
-  numberOfImages: 18,
-  imageData: I.Mar2019Data
-};
-
-export const Apr2019: Gallery = {
-  type: "month",
-  year: "2019",
-  month: "04",
-  numberOfImages: 24,
-  imageData: I.Apr2019Data
-};
-
-export const All2019 = { 
-  name: "Year 2019", 
-  nameShort: "2019", 
-  path: "2019",  
-  galleries: [Jan2019, Mar2019, Apr2019] 
-};
-
-// 2018
-
-export const Jan2018: Gallery = {
-  type: "month",
-  year: "2018",
-  month: "01",
-  numberOfImages: 20,
-  imageData: I.Jan2018Data
-};
-
-export const Sep2018: Gallery = {
-  type: "month",
-  year: "2018",
-  month: "09",
-  numberOfImages: 13,
-  imageData: I.Sep2018Data
-};
-
-export const All2018 = { 
-  name: "Year 2018", 
-  nameShort: "2018", 
-  path: "2018",  
-  galleries: [Jan2018, Sep2018] 
-};
-
-// 2017
-
-export const Jan2017: Gallery = {
-  type: "month",
-  year: "2017",
-  month: "01",
-  numberOfImages: 31,
-  imageData: I.Jan2017Data
-};
-
-export const Feb2017: Gallery = {
-  type: "month",
-  year: "2017",
-  month: "02",
-  numberOfImages: 27,
-  imageData: I.Feb2017Data
-};
-
-export const Mar2017: Gallery = {
-  type: "month",
-  year: "2017",
-  month: "03",
-  numberOfImages: 68,
-  imageData: I.Mar2017Data
-};
-
-export const May2017: Gallery = {
-  type: "month",
-  year: "2017",
-  month: "05",
-  numberOfImages: 9,
-  imageData: I.May2017Data
-};
-
-export const Jun2017: Gallery = {
-  type: "month",
-  year: "2017",
-  month: "06",
-  numberOfImages: 23,
-  imageData: I.Jun2017Data
-};
-
-export const Aug2017: Gallery = {
-  type: "month",
-  year: "2017",
-  month: "08",
-  numberOfImages: 18,
-  imageData: I.Aug2017Data
-};
-
-export const Oct2017: Gallery = {
-  type: "month",
-  year: "2017",
-  month: "10",
-  numberOfImages: 9,
-  imageData: I.Oct2017Data
-};
-
-export const Nov2017: Gallery = {
-  type: "month",
-  year: "2017",
-  month: "11",
-  numberOfImages: 29,
-  imageData: I.Nov2017Data
-};
-
-export const Dec2017: Gallery = {
-  type: "month",
-  year: "2017",
-  month: "12",
-  numberOfImages: 30,
-  imageData: I.Dec2017Data
-};
-
-export const All2017 = { 
-  name: "Year 2017", 
-  nameShort: "2017", 
-  path: "2017", 
-  galleries: [Jan2017, Feb2017, Mar2017, May2017, Jun2017, Aug2017, Oct2017, Nov2017, Dec2017] 
-};
-
-// Everything monthly
-
-export const GalleriesChronologically = [ All2022, All2021, All2019, All2018, All2017 ];
-
-// Gallery constructor
-
-function monthName(monthNumber: string | undefined, short?: boolean): string {
-
-  const months = [
-    'January', 'February', 'March', 'April', 'May', 'June', 'July',
-    'August', 'September', 'October', 'November', 'December'
-  ];
-  let monthInt: number;
-
-  if (!monthNumber) return 'Unknown';
-  monthInt = parseInt(monthNumber);
-  if (monthInt < 1 || monthInt > 12) return 'Unknown';
-
-  if (short) return months[monthInt - 1].substring(0, 3);
-  return months[monthInt - 1];
-}
-
-export function constructGallery(t: string, v: string[]): Gallery {
-
-  let g: Gallery = {type: '', numberOfImages: 0};
-  let imageData;
-
-  if (t == 'month') {
-
-    if (!v[0] || !v[1]) return g;
-
-    for (let i = 0; i < GalleriesChronologically.length; i++) {
-      if (GalleriesChronologically[i].nameShort == v[0]) {
-        for (let j = 0; j < GalleriesChronologically[i].galleries.length; j++) {
-          if (GalleriesChronologically[i].galleries[j].month == v[1]) {
-            g = GalleriesChronologically[i].galleries[j];
-            g.path = g.year + '/' + g.month + '/';
-            g.name = monthName(g.month);
-            g.nameShort = monthName(g.month, true);
-          }
-        }
-      }
-    }
-
-    if (!g.imageData) g.imageData = [];
-    for(let i = 0; i < g.numberOfImages; i++) {
-      if (g.imageData[i]) g.imageData[i].path = g.path + '/' + (i + 1);
-      else g.imageData[i] = { path: g.path + '/' + (i + 1) };
+  for (let i = 0; i < Tags.length; i++) {
+    for (let j = 0; j < Tags[i].names.length; j++) {
+      if (tagArray.includes(Tags[i].names[j])) 
+        result.push(Tags[i].names[j]);
     }
   }
 
-  if (t == 'year') {
+  return result;
+}
 
-    if (!v[0]) return g;
+const AllImages: ImageData[] = getAllImageData();
 
-    for (let i = 0; i < GalleriesChronologically.length; i++) {
-      if (GalleriesChronologically[i].nameShort == v[0]) {
-        
-        g.type = t;
-        g.path = v[0] + '/';
-        g.name = 'Year ' + v[0];
-        g.nameShort = v[0];
-        g.imageData = [];
+function getAllImageData(): ImageData[] {
 
-        for (let j = 0; j < GalleriesChronologically[i].galleries.length; j++) {
-          g.numberOfImages += GalleriesChronologically[i].galleries[j].numberOfImages;
-          imageData = GalleriesChronologically[i].galleries[j].imageData;
-          if (!imageData) {
-            imageData = [];
-            for (let k = 0; k < GalleriesChronologically[i].galleries[j].numberOfImages; k++) {
-              imageData[k] = { 
-                path: GalleriesChronologically[i].galleries[j].year + '/' + 
-                  GalleriesChronologically[i].galleries[j].month + '/' + (k + 1) 
-              }
-            }
-          }
-          else {
-            for (let k = 0; k < GalleriesChronologically[i].galleries[j].numberOfImages; k++) {
-              if (imageData[k]) {
-                imageData[k].path = GalleriesChronologically[i].galleries[j].year + '/' + 
-                  GalleriesChronologically[i].galleries[j].month + '/' + (k + 1);
-                g.imageData.push(imageData[k]);
-              }
-              else {
-                imageData[k] = { 
-                  path: GalleriesChronologically[i].galleries[j].year + '/' + 
-                    GalleriesChronologically[i].galleries[j].month + '/' + (k + 1) 
-                }
-              }
-            }
-          }
+  let allImages: ImageData[] = [];
+  let imgPath: string;
+  let imgData: ImageData;
+
+  // for each year
+  for (let i = 0; i < D.length; i++) {
+    // for each month
+    for (let j = 0; j < D[i].m.length; j++) {
+      // for each image
+      for (let k = D[i].m[j].n - 1; k >= 0; k--) {
+        // Create image data object or add path, year, month to existing one
+        imgPath = D[i].y + '/' + D[i].m[j].m + '/' + (k + 1) + '.jpg';
+        imgData = D[i].m[j].d[k];
+        if (!imgData) imgData = {path: imgPath, year: D[i].y, month: D[i].m[j].m};
+        else {
+          imgData.path = imgPath;
+          imgData.year = D[i].y;
+          imgData.month = D[i].m[j].m
         }
+        // Comb tags if present
+        if (imgData.tags) imgData.tags = combTags(imgData.tags);
+        // Push into the data array for all images
+        allImages.push(imgData);
       }
     }
   }
 
-  return g;
+  return allImages;
 }
+
+function constructDefaultGalleries() {
+
+  let u: UtilitiesService = new UtilitiesService();
+
+  let gByYears: GalleryGroup = {
+    name: "Years",
+    nameShort: "Years",
+    path: '',
+    galleries: []
+  };
+
+  let gByMonths: GalleryGroup[] = [];
+  let gByLocations: GalleryGroup[] = [];
+  let gByTags: GalleryGroup[] = [];
+
+  let uniqueYears: string[] = [];
+  let uniqueMonths: string[][] = [];
+
+  // Get arrays of unique years and months
+  for (let i = 0; i < D.length; i++) {
+    uniqueYears[i] = D[i].y;
+    uniqueMonths[i] = [];
+    for (let j = 0; j < D[i].m.length; j++) {
+      uniqueMonths[i][j] = D[i].m[j].m;
+    }
+  }
+
+  // Galleries by years and months 
+  for (let i = 0; i < uniqueYears.length; i++) {
+    gByMonths[i] = {
+      name: uniqueYears[i],
+      nameShort: uniqueYears[i],
+      path: uniqueYears[i],
+      galleries: []
+    };
+    for (let j = 0; j < uniqueMonths[i].length; j++) {
+      gByMonths[i].galleries[j] = {
+        type: 'month',
+        numberOfImages: 0,
+        path: uniqueYears[i] + '/' + uniqueMonths[i][j],
+        name: u.monthName(uniqueMonths[i][j]),
+        nameExtended: u.monthName(uniqueMonths[i][j]) + ' ' + uniqueYears[i],
+        imageData: []
+      }
+      for (let k = 0; k < AllImages.length; k++) {
+        if (AllImages[k].year == uniqueYears[i] && AllImages[k].month == uniqueMonths[i][j]) {
+          gByMonths[i].galleries[j].numberOfImages++;
+          gByMonths[i].galleries[j].imageData?.push(AllImages[k]);
+        }
+      }
+      gByMonths[i].galleries[j].imageData = 
+        gByMonths[i].galleries[j].imageData?.reverse();
+    }
+    gByYears.galleries[i] = {
+      type: 'year',
+      numberOfImages: 0,
+      path: uniqueYears[i],
+      name: uniqueYears[i],
+      nameExtended: 'Year ' + uniqueYears[i],
+      imageData: []
+    }
+    for (let j = 0; j < gByMonths[i].galleries.length; j++) {
+      for (let k = 0; k < (gByMonths[i].galleries[j].imageData || []).length; k++) {
+        gByYears.galleries[i].numberOfImages++;
+        gByYears.galleries[i].imageData?.push(gByMonths[i].galleries[j].imageData![k]);
+      }
+    }
+  }
+
+  // Galleries by locations
+  for (let i = 0; i < Locations.length; i++) {
+    gByLocations[i] = {
+      name: Locations[i].groupName,
+      nameShort: Locations[i].groupName,
+      path: '',
+      galleries: []
+    };
+    for (let j = 0; j < Locations[i].names.length; j++) {
+      gByLocations[i].galleries[j] = {
+        type: 'location',
+        numberOfImages: 0,
+        path: u.strToKebabCase(Locations[i].names[j]),
+        name: Locations[i].names[j],
+        nameExtended: 'Location: ' + Locations[i].names[j],
+        imageData: []
+      }
+      for (let k = 0; k < AllImages.length; k++) {
+        if (!AllImages[k].location) continue;
+        if (AllImages[k].location?.name == Locations[i].names[j] || 
+          AllImages[k].location?.name2 == Locations[i].names[j]) {
+          gByLocations[i].galleries[j].numberOfImages++;
+          gByLocations[i].galleries[j].imageData?.push(AllImages[k]);
+        }
+      }
+      gByLocations[i].galleries[j].imageData = 
+        gByLocations[i].galleries[j].imageData?.reverse();
+    }
+  }
+
+  // Galleries by tags
+  for (let i = 0; i < Tags.length; i++) {
+    gByTags[i] = {
+      name: Tags[i].groupName,
+      nameShort: Tags[i].groupName,
+      path: '',
+      galleries: []
+    };
+    for (let j = 0; j < Tags[i].names.length; j++) {
+      gByTags[i].galleries[j] = {
+        type: 'tag',
+        numberOfImages: 0,
+        path: u.strToKebabCase(Tags[i].names[j]),
+        name: u.capFirstLetter(Tags[i].names[j]),
+        nameExtended: 'Tag: ' + u.capFirstLetter(Tags[i].names[j]),
+        imageData: []
+      }
+      for (let k = 0; k < AllImages.length; k++) {
+        if (!AllImages[k].tags) continue;
+        let tags = AllImages[k].tags || [];
+        for (let t = 0; t < tags.length; t++) {
+          if (tags[t] == Tags[i].names[j]) {
+            gByTags[i].galleries[j].numberOfImages++;
+            gByTags[i].galleries[j].imageData?.push(AllImages[k]);
+            break;
+          }
+        }
+      }
+      gByTags[i].galleries[j].imageData = 
+        gByTags[i].galleries[j].imageData?.reverse();
+    }
+  }
+  
+  return { 
+    byYears: gByYears, 
+    byMonths: gByMonths,
+    byLocations: gByLocations,
+    byTags: gByTags
+  };
+}
+
+export const DefaultGalleries = constructDefaultGalleries();

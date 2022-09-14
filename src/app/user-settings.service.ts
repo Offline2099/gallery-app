@@ -7,9 +7,13 @@ export class UserSettingsService {
 
   private userSettings = {
     panelOpen: false,
+    showImageInfo: true,
+    showImageCaptions: true,
+    showImageData: false,
+    imageDataTabActive: 'location',
     selectOnMouseover: false,
-    showImageData: true,
-    simpleGallery: false,
+    simpleGalleryByTime: false,
+    simpleGalleryByData: true,
     imagesInRow: 3
   };
 
@@ -21,16 +25,32 @@ export class UserSettingsService {
     this.userSettings.panelOpen = val;
   }
 
-  setSelectOnMouseover(val: boolean) {
-    this.userSettings.selectOnMouseover = val;
+  setShowImageInfo(val: boolean) {
+    this.userSettings.showImageInfo = val;
+  }
+
+  setShowImageCaptions(val: boolean) {
+    this.userSettings.showImageCaptions = val;
   }
 
   setShowImageData(val: boolean) {
     this.userSettings.showImageData = val;
   }
 
-  setSimpleGallery(val: boolean) {
-    this.userSettings.simpleGallery = val;
+  setImageDataTabActive(val: string) {
+    this.userSettings.imageDataTabActive = val;
+  }
+
+  setSelectOnMouseover(val: boolean) {
+    this.userSettings.selectOnMouseover = val;
+  }
+
+  setSimpleGalleryByTime(val: boolean) {
+    this.userSettings.simpleGalleryByTime = val;
+  }
+
+  setSimpleGalleryByData(val: boolean) {
+    this.userSettings.simpleGalleryByData = val;
   }
 
   setImagesInRow(val: number) {

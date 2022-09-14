@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, Renderer2 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserSettingsService } from './user-settings.service';
 
 @Component({
   selector: 'app-root',

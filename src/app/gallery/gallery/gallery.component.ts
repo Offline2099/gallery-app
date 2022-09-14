@@ -16,9 +16,13 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   userSettings: {
     panelOpen: boolean,
-    selectOnMouseover: boolean,
+    showImageInfo: boolean,
+    showImageCaptions: boolean,
     showImageData: boolean,
-    simpleGallery: boolean,
+    imageDataTabActive: string,
+    selectOnMouseover: boolean,
+    simpleGalleryByTime: boolean,
+    simpleGalleryByData: boolean,
     imagesInRow: number
   };
 
@@ -40,6 +44,8 @@ export class GalleryComponent implements OnInit, AfterViewInit {
     this.g = activatedRoute.snapshot.data['gallery'];
     // Applying global settings 
     this.userSettings = userSettingsService.getUserSettings();
+    if (this.g.type == 'month' && this.userSettings.imageDataTabActive == 'time')
+      this.switchImageDataTab('location');
   }
 
   ngOnInit(): void {
@@ -72,8 +78,9 @@ export class GalleryComponent implements OnInit, AfterViewInit {
   // Pre-loading full-size versions of all images recursively after the gallery is loaded
 
   preloadImages(i: number): void {
+    if (!this.g.numberOfImages) return;
     let img = new Image();
-    if (this.g.imageData) img.src = './assets/img/' + this.g.imageData[i].path + '.jpg';
+    if (this.g.imageData) img.src = './assets/img/' + this.g.imageData[i].path;
     img.onload = () => {
         if (this.g.imageData && i + 1 < this.g.imageData.length) this.preloadImages(i + 1);
     }
@@ -93,6 +100,8 @@ export class GalleryComponent implements OnInit, AfterViewInit {
   }
 
   setLocationText(): void {
+
+    if (!this.g.numberOfImages) return;
 
     if (!this.g.imageData || typeof this.g.imageData[this.currentImage - 1] == undefined) {
       this.currentLocationText = ['', '', ''];
@@ -157,21 +166,52 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   // Toggling image data
 
+  toggleImageInfo(): void {
+    this.userSettings.showImageInfo = !this.userSettings.showImageInfo;
+    this.userSettingsService.setShowImageInfo(this.userSettings.showImageInfo);
+  }
+
   toggleImageData(): void {
     this.userSettings.showImageData = !this.userSettings.showImageData;
     this.userSettingsService.setShowImageData(this.userSettings.showImageData);
   }
 
+  toggleImageCaptions(): void {
+    this.userSettings.showImageCaptions = !this.userSettings.showImageCaptions;
+    this.userSettingsService.setShowImageCaptions(this.userSettings.showImageCaptions);
+  }
+
+  // Image data tabs
+
+  switchImageDataTab(tab: string): void {
+    if (this.userSettings.imageDataTabActive != tab) {
+      this.userSettings.imageDataTabActive = tab;
+      this.userSettingsService.setImageDataTabActive(tab);
+    }
+  }
+
   // Simple gallery mode
 
-  toggleSimpleGallery(): void {
-    this.userSettings.simpleGallery = !this.userSettings.simpleGallery;
-    this.userSettingsService.setSimpleGallery(this.userSettings.simpleGallery);
+  gridModeOn(): boolean {
+    if (this.g.type == 'month' || this.g.type == 'year')
+      return this.userSettings.simpleGalleryByTime;
+    else return this.userSettings.simpleGalleryByData;
+  }
+
+  toggleSimpleGallery(mode: boolean): void {
+    if (mode == this.gridModeOn()) return;
+    if (this.g.type == 'month' || this.g.type == 'year') {
+      this.userSettings.simpleGalleryByTime = !this.userSettings.simpleGalleryByTime;
+      this.userSettingsService.setSimpleGalleryByTime(this.userSettings.simpleGalleryByTime);
+    }
+    else {
+      this.userSettings.simpleGalleryByData = !this.userSettings.simpleGalleryByData;
+      this.userSettingsService.setSimpleGalleryByData(this.userSettings.simpleGalleryByData);
+    }
   }
 
   setImagesInRow(val: number): void {
     this.userSettings.imagesInRow = val;
     this.userSettingsService.setImagesInRow(this.userSettings.imagesInRow);
   }
-  
 }

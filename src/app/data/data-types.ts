@@ -1,9 +1,7 @@
-
-// Data for a single image
+// Single image data
 export interface ImageData {
   path?: string;
   caption?: string;
-  complexCaption?: HTMLElement;
   location?: {
     name?: string,
     name2?: string,
@@ -11,16 +9,25 @@ export interface ImageData {
     lon?: number
   };
   tags?: string[]
-}
+  year?: string;
+  month?: string;
+};
 
-// Data for an image gallery
+// Gallery data
 export interface Gallery {
   type: string;
   numberOfImages: number;
+  imageData?: ImageData[];
   path?: string;
   name?: string;
-  nameShort?: string;
-  year?: string;
-  month?: string;
-  imageData?: ImageData[];
-}
+  nameExtended?: string; 
+};
+
+// Gallery group data 
+export interface GalleryGroup {
+  name: string,
+  galleries: Gallery[]
+  path?: string,
+  nameShort?: string,
+  nameExtended?: string
+};

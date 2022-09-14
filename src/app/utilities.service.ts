@@ -5,34 +5,26 @@ import { Injectable } from '@angular/core';
 })
 export class UtilitiesService {
 
-  monthName(monthNumber: string | undefined, short?: boolean): string {
+  monthName(monthNumber: string, returnShort?: boolean): string {
 
     const months = [
       'January', 'February', 'March', 'April', 'May', 'June', 'July',
       'August', 'September', 'October', 'November', 'December'
     ];
-    let monthInt: number;
 
-    if (!monthNumber) return 'Unknown';
-    monthInt = parseInt(monthNumber);
-    if (monthInt < 1 || monthInt > 12) return 'Unknown';
-
-    if (short) return months[monthInt - 1].substring(0, 3);
-    return months[monthInt - 1];
+    let m: number = parseInt(monthNumber);
+    if (m < 1 || m > 12) return 'Error';
+    return returnShort ? months[m - 1].substring(0, 3) : months[m - 1];
   }
 
-  // times(max: Number) {
-  //   return {
-  //     [Symbol.iterator]: function* () {
-  //       for (let i = 0; i < max; i++, yield) {}
-  //     }
-  //   };
-  // }
+  strToKebabCase(str: string) {
+    return str.toLowerCase().replace(/\'/g,'').replace(/:/g,'').replace(/ /g,'-');
+  }
 
-  strToKebabCase(str: string | undefined) {
-    if (!str) return '';
-    return str.toLowerCase().replace('\'', '').replace(' ', '-');
+  capFirstLetter(s: string) {
+    return s.charAt(0).toUpperCase() + s.slice(1);
   }
 
   constructor() { }
 }
+

@@ -1,0 +1,126 @@
+
+/* Navigation Area */
+
+.navigation-area {
+  display: inline-block;
+  width: calc(100% - 20px);
+  margin: 5px;
+  padding: 5px;
+  background-color: #282828;
+  background-image: 
+    linear-gradient(#2b2b2b 1.1px, transparent 1.1px), 
+    linear-gradient(to right, #2b2b2b 1.1px, #282828 1.1px);
+  background-size: 3.125% 22px;
+  background-position: -1.5625% -11px;
+  box-shadow: 0 0 5px 5px #282828 inset;
+  animation: fadeIn .5s;
+}
+
+@media (max-width: 991px) {
+  .navigation-area {
+    background: #282828;
+    box-shadow: none;
+  }
+}
+
+
+/* Tab Headers Block */
+
+.navigation-tabs-headers-container {
+  padding-left: calc(20% - 5px);
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  text-shadow: 1px 1px #333;
+  transition: .2s;
+}
+
+@media (max-width: 1199px) {
+  .navigation-tabs-headers-container {
+    padding: 0 5px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 991px) {
+  .navigation-tabs-headers-container {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 599px) {
+  .navigation-tabs-headers-container {
+    padding: 0 2px;
+  }
+}
+
+
+/* Tab Headers */
+
+.navigation-tab-header-main {
+  display: inline-block;
+  padding: 5px 10px 5px 0;
+  color: #00b3b3;
+}
+
+.navigation-tab-header {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  padding: 5px 20px;
+  border-radius: 3px;
+  background: #333;
+  color: #bbb;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.navigation-tab-header:hover {
+  color: #eee;
+  background: #004d4d;
+  box-shadow: none;
+}
+
+.navigation-tab-header:nth-of-type(4) {
+  margin: 0;
+}
+
+.navigation-tab-header-active,
+.navigation-tab-header-active:hover {
+  color: #00cccc;
+  background-size: 9px 9px;
+  background-image: repeating-linear-gradient(45deg, #004d4d 0, #004d4d 0.9px, #333 0, #333 50%);
+  box-shadow: 0 0 2px 2px #333 inset;
+}
+
+@media (max-width: 991px) {
+  .navigation-tab-header{
+    width: calc((100% - 42px) / 3);
+    margin: 0 6px 0 0;
+    padding: 5px;
+    border-bottom: 2px solid #333;
+    border-radius: 0;
+    font-size: 16px;
+  }
+  .navigation-tab-header-active {
+    border-color: #004d4d;
+  }
+}
+
+
+/* Tabs and Columns */
+
+.navigation-tab-body {
+  padding: 5px 0;
+  animation: fadeIn .5s;
+}
+
+@media (max-width: 991px) {
+  .navigation-tab-body {
+    padding: 0;
+  }
+}
+
+.navigation-area-tab-column-half {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+}

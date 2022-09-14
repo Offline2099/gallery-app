@@ -1,0 +1,66 @@
+
+/* Area and Background */
+
+.homepage-area {
+  position: relative;
+  width: calc(100% - 10px);
+  min-height: calc(100vh - 135px);
+  margin: 0 5px;
+  animation: fadeIn .5s;
+}
+
+.homepage-area::before {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: url("./../../assets/img/small/2022/07/4.jpg");
+  background-size: cover;
+  background-position: center;
+  -webkit-filter: brightness(.8) contrast(90%) blur(5px);
+  -moz-filter: brightness(.8) contrast(90%) blur(5px);
+  -o-filter: brightness(.8) contrast(90%) blur(5px);
+  -ms-filter: brightness(.8) contrast(90%) blur(5px);
+  filter: brightness(.8) contrast(90%) blur(5px);
+}
+
+
+/* Text */
+
+.homepage-area-text {
+  display: inline-block;
+  margin-top: 5%;
+  margin-left: 20%;
+  padding: 20px;
+  color: #ddd;
+  text-align: center;
+  font-size: 32px;
+  letter-spacing: 0.01em;
+  word-spacing: .08em;
+  text-shadow: 2px 2px 2px #111;
+}
+
+@media (max-width: 1199px) {
+  .homepage-area-text {
+    width: calc(100% - 40px);
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .homepage-area-text {
+    width: calc(100% - 50px);
+    padding: 25px;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 599px) {
+  .homepage-area-text {
+    font-size: 18px;
+  }
+}
