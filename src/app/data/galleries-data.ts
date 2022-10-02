@@ -101,16 +101,15 @@ const Tags = [
 
 function combTags(tagArray: string[]): string[] {
 
-  let result: string[] = [];
+  let sortedTags: string[] = [];
 
-  for (let i = 0; i < Tags.length; i++) {
-    for (let j = 0; j < Tags[i].names.length; j++) {
-      if (tagArray.includes(Tags[i].names[j])) 
-        result.push(Tags[i].names[j]);
-    }
-  }
+  Tags.forEach(T => {
+    T.names.forEach(name => {
+      if (tagArray.includes(name)) sortedTags.push(name);
+    });
+  });
 
-  return result;
+  return sortedTags;
 }
 
 const AllImages: ImageData[] = getAllImageData();
@@ -121,35 +120,44 @@ function getAllImageData(): ImageData[] {
   let imgPath: string;
   let imgData: ImageData;
 
-  // for each year
-  for (let i = 0; i < D.length; i++) {
-    // for each month
-    for (let j = 0; j < D[i].m.length; j++) {
-      // for each image
-      for (let k = D[i].m[j].n - 1; k >= 0; k--) {
-        // Create image data object or add path, year, month to existing one
-        imgPath = D[i].y + '/' + D[i].m[j].m + '/' + (k + 1) + '.jpg';
-        imgData = D[i].m[j].d[k];
-        if (!imgData) imgData = {path: imgPath, year: D[i].y, month: D[i].m[j].m};
-        else {
+  // For each year in the data
+  D.forEach(D => {
+    // For each month
+    D.m.forEach(m => {
+      // For each image (in reverse)
+      Array.from(Array(m.n)).forEach((image, i) => {
+        // Construct image path string
+        imgPath = D.y + '/' + m.m + '/' + (m.n - i) + '.jpg';
+        // If image data object exists: add path, year, month;
+        // otherwise: create image data object and add path, year, month
+        imgData = m.d[m.n - i - 1];
+        if (imgData) {
           imgData.path = imgPath;
-          imgData.year = D[i].y;
-          imgData.month = D[i].m[j].m
+          imgData.year = D.y;
+          imgData.month = m.m
         }
+        else imgData = {path: imgPath, year: D.y, month: m.m};
         // Comb tags if present
         if (imgData.tags) imgData.tags = combTags(imgData.tags);
-        // Push into the data array for all images
+        // Push image data into the data array for all images
         allImages.push(imgData);
-      }
-    }
-  }
+      });
+    });
+  });
 
   return allImages;
 }
 
 function constructDefaultGalleries() {
+  return { 
+    byYears: constructGalleriesByYears(), 
+    byMonths: constructGalleriesByMonths(),
+    byLocations: constructGalleriesByLocations(),
+    byTags: constructGalleriesByTags()
+  };
+}
 
-  let u: UtilitiesService = new UtilitiesService();
+function constructGalleriesByYears(): GalleryGroup {
 
   let gByYears: GalleryGroup = {
     name: "Years",
@@ -158,133 +166,134 @@ function constructDefaultGalleries() {
     galleries: []
   };
 
-  let gByMonths: GalleryGroup[] = [];
-  let gByLocations: GalleryGroup[] = [];
-  let gByTags: GalleryGroup[] = [];
+  let gByMonths: GalleryGroup[] = constructGalleriesByMonths();
 
-  let uniqueYears: string[] = [];
-  let uniqueMonths: string[][] = [];
-
-  // Get arrays of unique years and months
-  for (let i = 0; i < D.length; i++) {
-    uniqueYears[i] = D[i].y;
-    uniqueMonths[i] = [];
-    for (let j = 0; j < D[i].m.length; j++) {
-      uniqueMonths[i][j] = D[i].m[j].m;
-    }
-  }
-
-  // Galleries by years and months 
-  for (let i = 0; i < uniqueYears.length; i++) {
-    gByMonths[i] = {
-      name: uniqueYears[i],
-      nameShort: uniqueYears[i],
-      path: uniqueYears[i],
-      galleries: []
-    };
-    for (let j = 0; j < uniqueMonths[i].length; j++) {
-      gByMonths[i].galleries[j] = {
-        type: 'month',
-        numberOfImages: 0,
-        path: uniqueYears[i] + '/' + uniqueMonths[i][j],
-        name: u.monthName(uniqueMonths[i][j]),
-        nameExtended: u.monthName(uniqueMonths[i][j]) + ' ' + uniqueYears[i],
-        imageData: []
-      }
-      for (let k = 0; k < AllImages.length; k++) {
-        if (AllImages[k].year == uniqueYears[i] && AllImages[k].month == uniqueMonths[i][j]) {
-          gByMonths[i].galleries[j].numberOfImages++;
-          gByMonths[i].galleries[j].imageData?.push(AllImages[k]);
-        }
-      }
-      gByMonths[i].galleries[j].imageData = 
-        gByMonths[i].galleries[j].imageData?.reverse();
-    }
+  D.forEach((y, i) => {
     gByYears.galleries[i] = {
       type: 'year',
       numberOfImages: 0,
-      path: uniqueYears[i],
-      name: uniqueYears[i],
-      nameExtended: 'Year ' + uniqueYears[i],
+      path: y.y,
+      name: y.y,
+      nameExtended: 'Year ' + y.y,
       imageData: []
-    }
-    for (let j = 0; j < gByMonths[i].galleries.length; j++) {
-      for (let k = 0; k < (gByMonths[i].galleries[j].imageData || []).length; k++) {
-        gByYears.galleries[i].numberOfImages++;
-        gByYears.galleries[i].imageData?.push(gByMonths[i].galleries[j].imageData![k]);
-      }
-    }
-  }
+    };
+    gByMonths[i].galleries.forEach(g => {
+      gByYears.galleries[i].numberOfImages += (g.imageData || []).length;
+      gByYears.galleries[i].imageData?.push(...(g.imageData || []));
+    });
+  });
 
-  // Galleries by locations
-  for (let i = 0; i < Locations.length; i++) {
+  return gByYears;
+}
+
+function constructGalleriesByMonths(): GalleryGroup[] {
+
+  let gByMonths: GalleryGroup[] = [];
+  let u: UtilitiesService = new UtilitiesService();
+
+  D.forEach((y, i) => {
+    gByMonths[i] = {
+      name: y.y,
+      nameShort: y.y,
+      path: y.y,
+      galleries: []
+    };
+    y.m.forEach((m, j) => {
+      gByMonths[i].galleries[j] = {
+        type: 'month',
+        numberOfImages: 0,
+        path: y.y + '/' + m.m,
+        name: u.monthName(m.m),
+        nameExtended: u.monthName(m.m) + ' ' + y.y,
+        imageData: []
+      };
+      AllImages.forEach(img => {
+        if (img.year == y.y && img.month == m.m) {
+          gByMonths[i].galleries[j].numberOfImages++;
+          gByMonths[i].galleries[j].imageData?.push(img);
+        }
+      });
+      gByMonths[i].galleries[j].imageData = 
+        gByMonths[i].galleries[j].imageData?.reverse();
+    });
+  });
+
+  return gByMonths;
+}
+
+function constructGalleriesByLocations(): GalleryGroup[] {
+
+  let gByLocations: GalleryGroup[] = [];
+  let u: UtilitiesService = new UtilitiesService();
+
+  Locations.forEach((L, i) => {
     gByLocations[i] = {
-      name: Locations[i].groupName,
-      nameShort: Locations[i].groupName,
+      name: L.groupName,
+      nameShort: L.groupName,
       path: '',
       galleries: []
     };
-    for (let j = 0; j < Locations[i].names.length; j++) {
+    L.names.forEach((name, j) => {
       gByLocations[i].galleries[j] = {
         type: 'location',
         numberOfImages: 0,
-        path: u.strToKebabCase(Locations[i].names[j]),
-        name: Locations[i].names[j],
-        nameExtended: 'Location: ' + Locations[i].names[j],
+        path: u.strToKebabCase(name),
+        name: name,
+        nameExtended: 'Location: ' + name,
         imageData: []
-      }
-      for (let k = 0; k < AllImages.length; k++) {
-        if (!AllImages[k].location) continue;
-        if (AllImages[k].location?.name == Locations[i].names[j] || 
-          AllImages[k].location?.name2 == Locations[i].names[j]) {
+      };
+      AllImages.forEach(img => {
+        if (!img.location) return;
+        if (img.location.name == name || img.location.name2 == name) {
           gByLocations[i].galleries[j].numberOfImages++;
-          gByLocations[i].galleries[j].imageData?.push(AllImages[k]);
+          gByLocations[i].galleries[j].imageData?.push(img);
         }
-      }
+      });
       gByLocations[i].galleries[j].imageData = 
         gByLocations[i].galleries[j].imageData?.reverse();
-    }
-  }
+    });
+  });
 
-  // Galleries by tags
-  for (let i = 0; i < Tags.length; i++) {
+  return gByLocations;
+}
+
+function constructGalleriesByTags(): GalleryGroup[] {
+
+  let gByTags: GalleryGroup[] = [];
+  let u: UtilitiesService = new UtilitiesService();
+
+  Tags.forEach((T, i) => {
     gByTags[i] = {
-      name: Tags[i].groupName,
-      nameShort: Tags[i].groupName,
+      name: T.groupName,
+      nameShort: T.groupName,
       path: '',
       galleries: []
     };
-    for (let j = 0; j < Tags[i].names.length; j++) {
+    T.names.forEach((name, j) => {
       gByTags[i].galleries[j] = {
         type: 'tag',
         numberOfImages: 0,
-        path: u.strToKebabCase(Tags[i].names[j]),
-        name: u.capFirstLetter(Tags[i].names[j]),
-        nameExtended: 'Tag: ' + u.capFirstLetter(Tags[i].names[j]),
+        path: u.strToKebabCase(name),
+        name: u.capFirstLetter(name),
+        nameExtended: 'Tag: ' + u.capFirstLetter(name),
         imageData: []
-      }
-      for (let k = 0; k < AllImages.length; k++) {
-        if (!AllImages[k].tags) continue;
-        let tags = AllImages[k].tags || [];
-        for (let t = 0; t < tags.length; t++) {
-          if (tags[t] == Tags[i].names[j]) {
+      };
+      AllImages.forEach(img => {
+        if (!img.tags) return;
+        img.tags.forEach(t => {
+          if (t == name) {
             gByTags[i].galleries[j].numberOfImages++;
-            gByTags[i].galleries[j].imageData?.push(AllImages[k]);
-            break;
+            gByTags[i].galleries[j].imageData?.push(img);
+            return;
           }
-        }
-      }
+        });
+      });
       gByTags[i].galleries[j].imageData = 
         gByTags[i].galleries[j].imageData?.reverse();
-    }
-  }
-  
-  return { 
-    byYears: gByYears, 
-    byMonths: gByMonths,
-    byLocations: gByLocations,
-    byTags: gByTags
-  };
+    });
+  });
+
+  return gByTags;
 }
 
 export const DefaultGalleries = constructDefaultGalleries();
