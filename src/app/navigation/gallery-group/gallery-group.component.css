@@ -82,6 +82,9 @@
 @media (max-width: 599px) {
   :host {
     width: calc(100% - 8px);
-    margin: 5px 2px;
+    margin: 5px 2px 8px 2px;
+  }
+  :host:last-of-type {
+    margin-bottom: 5px;
   }
 }

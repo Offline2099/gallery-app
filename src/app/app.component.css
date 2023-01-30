@@ -2,13 +2,14 @@
 :host {
   display: flex;
   flex: 1 1 100%;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 /* Heading Area */
 
 .header-area {
   display: flex;
+  flex-basis: 100%;
   position: relative;
   overflow: hidden;
   align-items: center;
@@ -95,6 +96,7 @@
 
 .footer-area {
   display: flex;
+  flex-basis: 100%;
   position: relative;
   overflow: hidden;
   align-items: center;
