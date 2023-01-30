@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Gallery } from '../../data/data-types';
-import { UtilitiesService } from '../../utilities.service';
 
 @Component({
   selector: 'app-gallery-group',
@@ -9,39 +8,33 @@ import { UtilitiesService } from '../../utilities.service';
 })
 export class GalleryGroupComponent implements OnInit {
 
-  @Input() groupName: string;
-  @Input() groupPath: string;
-  @Input() groupNameMobile: string;
-  @Input() groupLabelType: number;
-  @Input() galleries: Gallery[];
+  @Input() groupName: string = '';
+  @Input() groupPath: string = '';
+  @Input() groupNameMobile: string = '';
+  @Input() groupLabelType: number = 0;
+  @Input() galleries: Gallery[] = [];
 
-  gData: Gallery[] = [];
   groupLabel: string = '';
   collapsedOnMobile: boolean = true;
 
-  constructor(private u: UtilitiesService) {
-    this.groupName = '';
-    this.groupPath = '';
-    this.groupNameMobile = '';
-    this.groupLabelType = 0;
-    this.galleries = [];
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    this.prepareData();
+    this.prepareLabel();
   }
 
-  prepareData(): void {
-    let imagesTotal = 0
-    let entriesTotal = this.galleries.length;
-    for (let i = 0; i < this.galleries.length; i++) {
-      this.gData[i] = this.galleries[i];
-      imagesTotal += this.galleries[i].numberOfImages;
-    }
+  prepareLabel(): void {
+    
+    let entriesTotal: number = this.galleries.length;
+
+    let imagesTotal: number = 0;
+    this.galleries.forEach(g => imagesTotal += g.numberOfImages);
+
     if (this.groupLabelType == 1) 
-      this.groupLabel = '(' + entriesTotal + ' galleries, ' + imagesTotal + ' images)';
+      this.groupLabel = ['(', entriesTotal, ' galleries, ', imagesTotal, ' images)'].join('');
+
     if (this.groupLabelType == 2) 
-      this.groupLabel = '(' + entriesTotal + ' galleries)';
+      this.groupLabel = ['(', entriesTotal, ' galleries)'].join('');
   }
 
   toggleOnMobile(): void {

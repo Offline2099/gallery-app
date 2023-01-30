@@ -5,57 +5,94 @@ import { Injectable } from '@angular/core';
 })
 export class UserSettingsService {
 
-  private userSettings = {
-    panelOpen: false,
-    showImageInfo: true,
-    showImageCaptions: true,
-    showImageData: false,
-    imageDataTabActive: 'location',
-    selectOnMouseover: false,
-    simpleGalleryByTime: false,
-    simpleGalleryByData: true,
-    imagesInRow: 3
-  };
+  private _panelOpen: boolean = false;
+  private _showImageInfo: boolean = true;
+  private _showImageCaptions: boolean = true;
+  private _showImageData: boolean = false;
+  private _showImageTags: boolean = false;
+  private _imageDataTabActive: string = 'location';
+  private _selectOnMouseover: boolean = false;
+  private _simpleGalleryByTime: boolean = false;
+  private _simpleGalleryByData: boolean = true;
+  private _imagesInRow: number = 3;
 
-  getUserSettings() {
-    return this.userSettings;
+  get panelOpen() {
+    return this._panelOpen;
   }
 
-  setPanelStatus(val: boolean) {
-    this.userSettings.panelOpen = val;
+  get showImageInfo() {
+    return this._showImageInfo;
   }
 
-  setShowImageInfo(val: boolean) {
-    this.userSettings.showImageInfo = val;
+  get showImageCaptions() {
+    return this._showImageCaptions;
   }
 
-  setShowImageCaptions(val: boolean) {
-    this.userSettings.showImageCaptions = val;
+  get showImageData() {
+    return this._showImageData;
   }
 
-  setShowImageData(val: boolean) {
-    this.userSettings.showImageData = val;
+   get showImageTags() {
+    return this._showImageTags;
   }
 
-  setImageDataTabActive(val: string) {
-    this.userSettings.imageDataTabActive = val;
+  get imageDataTabActive() {
+    return this._imageDataTabActive;
   }
 
-  setSelectOnMouseover(val: boolean) {
-    this.userSettings.selectOnMouseover = val;
+  get selectOnMouseover() {
+    return this._selectOnMouseover;
   }
 
-  setSimpleGalleryByTime(val: boolean) {
-    this.userSettings.simpleGalleryByTime = val;
+  get simpleGalleryByTime() {
+    return this._simpleGalleryByTime;
   }
 
-  setSimpleGalleryByData(val: boolean) {
-    this.userSettings.simpleGalleryByData = val;
+  get simpleGalleryByData() {
+    return this._simpleGalleryByData;
   }
 
-  setImagesInRow(val: number) {
-    this.userSettings.imagesInRow = val;
+  get imagesInRow() {
+    return this._imagesInRow;
   }
 
-  constructor() { }
+  set panelOpen(val: boolean) {
+    this._panelOpen = val;
+  }
+
+  set showImageInfo(val: boolean) {
+    this._showImageInfo = val;
+  }
+
+  set showImageCaptions(val: boolean) {
+    this._showImageCaptions = val;
+  }
+
+  set showImageData(val: boolean) {
+    this._showImageData = val;
+  }
+
+  set showImageTags(val: boolean) {
+    this._showImageTags = val;
+  }
+
+  set imageDataTabActive(val: string) {
+    this._imageDataTabActive = val;
+  }
+
+  set selectOnMouseover(val: boolean) {
+    this._selectOnMouseover = val;
+  }
+
+  set simpleGalleryByTime(val: boolean) {
+    this._simpleGalleryByTime = val;
+  }
+
+  set simpleGalleryByData(val: boolean) {
+    this._simpleGalleryByData = val;
+  }
+
+  set imagesInRow(val: number) {
+    this._imagesInRow = val;
+  }
 }

@@ -54,47 +54,47 @@ const D = [
 
 const Locations = [
   {
-    groupName: "Cities\xa0and Regions",
+    groupName: 'Cities\xa0and Regions',
     names: [
-      "Bangkok", "Pattaya", // major cities
-      "North of Pattaya", "Northeast of Pattaya", "East of Pattaya", "Southeast of Pattaya", "South of Pattaya", // directions
-      "Sattahip" // administrative regions
+      'Bangkok', 'Pattaya', // major cities
+      'North of Pattaya', 'Northeast of Pattaya', 'East of Pattaya', 'Southeast of Pattaya', 'South of Pattaya', // directions
+      'Sattahip', 'Test' // administrative regions
     ]
   },
   {
-    groupName: "Parks",
-    names: ["Khao Kheow Open Zoo", "Lumphini Park", "Wat Yansangwararam", "Pong Public Park", "Lan Pho Park", "Siam Country Club"]
+    groupName: 'Parks',
+    names: ['Khao Kheow Open Zoo', 'Lumphini Park', 'Wat Yansangwararam', 'Pong Public Park', 'Lan Pho Park', 'Siam Country Club']
   },
   {
-    groupName: "Beaches",
-    names: ["Jomtien Beach", "Dongtan Beach", "Yinyom Beach", "Pattaya Beach", "Na Klua Beach", "Bang Saray Beach"]
+    groupName: 'Beaches',
+    names: ['Jomtien Beach', 'Dongtan Beach', 'Yinyom Beach', 'Pattaya Beach', 'Na Klua Beach', 'Bang Saray Beach']
   },
   {
-    groupName: "Reservoirs",
-    names: ["Mabprachan Reservoir", "Ban Amphoe Reservoir", "Chak Nok Reservoir", "Khun Chit Reservoir", "Bang Phai Reservoir", "Nong Klang Dong Reservoir"]
+    groupName: 'Reservoirs',
+    names: ['Mabprachan Reservoir', 'Ban Amphoe Reservoir', 'Chak Nok Reservoir', 'Khun Chit Reservoir', 'Bang Phai Reservoir', 'Nong Klang Dong Reservoir']
   },
   {
-    groupName: "Hills",
-    names: ["Khao Phra Tamnak", "Khao Din", "Khao Phai", "Khao Mai Kaeo"]
+    groupName: 'Hills',
+    names: ['Khao Phra Tamnak', 'Khao Din', 'Khao Phai', 'Khao Mai Kaeo']
   }
 ];
 
 const Tags = [
   {
-    groupName: "Features",
+    groupName: 'Features',
     names: ['animals', 'people', 'trees', 'flowers', 'temple', 'shrine', 'statue', 'landmark', 'boats', 
       'road', 'waterbody', 'hills', 'islands', 'panorama'],
   },
   {
-    groupName: "Area Type",
+    groupName: 'Area Type',
     names: ['city', 'beach', 'park', 'forest', 'countryside', 'zoo']
   },
   {
-    groupName: "Weather",
+    groupName: 'Weather',
     names: ['sunny', 'cloudy', 'rain', 'fog']
   },
   {
-    groupName: "Time of Day",
+    groupName: 'Time of Day',
     names: ['sunrise', 'morning', 'day', 'evening', 'sunset']
   }
 ];
@@ -103,10 +103,8 @@ function combTags(tagArray: string[]): string[] {
 
   let sortedTags: string[] = [];
 
-  Tags.forEach(T => {
-    T.names.forEach(name => {
-      if (tagArray.includes(name)) sortedTags.push(name);
-    });
+  Tags.map(group => group.names).flat().forEach(tag => {
+    if (tagArray.includes(tag)) sortedTags.push(tag);
   });
 
   return sortedTags;
@@ -237,7 +235,7 @@ function constructGalleriesByLocations(): GalleryGroup[] {
       gByLocations[i].galleries[j] = {
         type: 'location',
         numberOfImages: 0,
-        path: u.strToKebabCase(name),
+        path: 'places/' + u.strToKebabCase(name),
         name: name,
         nameExtended: 'Location: ' + name,
         imageData: []
@@ -273,7 +271,7 @@ function constructGalleriesByTags(): GalleryGroup[] {
       gByTags[i].galleries[j] = {
         type: 'tag',
         numberOfImages: 0,
-        path: u.strToKebabCase(name),
+        path: 'tags/' + u.strToKebabCase(name),
         name: u.capFirstLetter(name),
         nameExtended: 'Tag: ' + u.capFirstLetter(name),
         imageData: []

@@ -13,14 +13,14 @@ export class NavigationAreaComponent implements OnInit {
   groupsByTags = DefaultGalleries.byTags;
 
   galleryGroupsEven = {
-    byYears: this.groupsByYears.filter((a, i) => i % 2 === 1),
-    byLocations: this.groupsByLocations.filter((a, i) => i % 2 === 1),
-    byTags: this.groupsByTags.filter((a, i) => i % 2 === 1)
+    byYears: this.groupsByYears.filter((g, i) => i % 2 === 1),
+    byLocations: this.groupsByLocations.filter((g, i) => i % 2 === 1),
+    byTags: this.groupsByTags.filter((g, i) => i % 2 === 1)
   }
   galleryGroupsOdd = {
-    byYears: this.groupsByYears.filter((a, i) => i % 2 === 0),
-    byLocations: this.groupsByLocations.filter((a, i) => i % 2 === 0),
-    byTags: this.groupsByTags.filter((a, i) => i % 2 === 0)
+    byYears: this.groupsByYears.filter((g, i) => i % 2 === 0),
+    byLocations: this.groupsByLocations.filter((g, i) => i % 2 === 0),
+    byTags: this.groupsByTags.filter((g, i) => i % 2 === 0)
   }
   columns: any[] = [this.galleryGroupsOdd, this.galleryGroupsEven];
 
@@ -52,9 +52,9 @@ export class NavigationAreaComponent implements OnInit {
   ];
 
   activateNavTab(index: number): void {
-    for (let i = 0; i < this.navigationTabs.length; i ++) {
-      this.navigationTabs[i].active = (i == index);
-    }
+    this.navigationTabs.forEach((tab, i) => {
+      tab.active = (i == index);
+    });
   }
 
   constructor() { }

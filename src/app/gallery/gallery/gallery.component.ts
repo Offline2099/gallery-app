@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, HostListener  } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { Gallery } from '../../data/data-types';
 import { UserSettingsService } from '../../user-settings.service';
@@ -14,77 +14,69 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   g: Gallery;
 
-  userSettings: {
-    panelOpen: boolean,
-    showImageInfo: boolean,
-    showImageCaptions: boolean,
-    showImageData: boolean,
-    imageDataTabActive: string,
-    selectOnMouseover: boolean,
-    simpleGalleryByTime: boolean,
-    simpleGalleryByData: boolean,
-    imagesInRow: number
-  };
+  desktop: boolean = true;
+  verticalOffset: number = 0;
 
-  verticalOffset = 0;
-
-  currentImage = 1;
-  currentImageLoading = true;
+  currentImage: number = 1;
+  currentImageLoading: boolean = true;
   currentLocationText: string[] = ['', '', ''];
   
   aciveMouseover: boolean[] = [];
 
   constructor(
-    private router: Router, 
     private activatedRoute: ActivatedRoute, 
-    private userSettingsService: UserSettingsService,
-    public u: UtilitiesService
-  ) {
-    // The data for current gallery is passed through the router
+    public userSettings: UserSettingsService,
+    public u: UtilitiesService) {
+
     this.g = activatedRoute.snapshot.data['gallery'];
-    // Applying global settings 
-    this.userSettings = userSettingsService.getUserSettings();
+
     if (this.g.type == 'month' && this.userSettings.imageDataTabActive == 'time')
       this.switchImageDataTab('location');
   }
 
   ngOnInit(): void {
+    this.desktop = (window.innerWidth > 991);
     this.setLocationText();
-    for (let i = 0; i < this.g.numberOfImages; i++) {
-      this.aciveMouseover[i] = false;
-    }
+    this.aciveMouseover = Array.from(Array(this.g.numberOfImages)).map(e => false);
   }
 
   ngAfterViewInit(): void {
-    this.preloadImages(0);
+    if (this.desktop && this.g.numberOfImages) this.preloadImages(0);
   }
 
-  // Scrolling functionality
+  @HostListener('window:resize') onResize() {
+    this.desktop = (window.innerWidth > 991);
+  }
 
   @HostListener("window:scroll", []) onWindowScroll() {
-    this.verticalOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    this.verticalOffset = 
+      window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
   }
 
+  
+  // Utility
+  
   scrollToTop(): void {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+    window.scroll({top: 0, left: 0, behavior: 'smooth'});
   }
-
-  // Preventing right-click on some elements
 
   onRightClick(e: Event) {
     e.preventDefault();
   }
 
+
   // Pre-loading full-size versions of all images recursively after the gallery is loaded
 
   preloadImages(i: number): void {
-    if (!this.g.numberOfImages) return;
     let img = new Image();
-    if (this.g.imageData) img.src = './assets/img/' + this.g.imageData[i].path;
+    if (this.g.imageData)
+      img.src = './assets/img/' + this.g.imageData[i].path;
     img.onload = () => {
-        if (this.g.imageData && i + 1 < this.g.imageData.length) this.preloadImages(i + 1);
+        if (this.g.imageData && i + 1 < this.g.imageData.length) 
+          this.preloadImages(i + 1);
     }
   }
+
 
   // Setting and displaying current image and its data
 
@@ -119,6 +111,7 @@ export class GalleryComponent implements OnInit, AfterViewInit {
     else this.currentLocationText = ['', '', ''];
   }
 
+
   // Switching to previous and next images
 
   prevImageNumber(): number {
@@ -139,58 +132,44 @@ export class GalleryComponent implements OnInit, AfterViewInit {
     this.setCurrentImage(this.nextImageNumber());
   }
 
-  // Settings panel
-
-  toggleSettingsPanel(): void {
-    this.userSettings.panelOpen = !this.userSettings.panelOpen;
-    this.userSettingsService.setPanelStatus(this.userSettings.panelOpen);
-  }
-
-  // No-click mode
-
-  toggleSelectOnMouseover(): void {
-    this.userSettings.selectOnMouseover = !this.userSettings.selectOnMouseover;
-    this.userSettingsService.setSelectOnMouseover(this.userSettings.selectOnMouseover);
-  }
-
-  mouseoverImageSelect(i: number): void {
-    this.aciveMouseover[i] = true;
-    setTimeout(()=>{
-      if (this.aciveMouseover[i] && this.userSettings.selectOnMouseover) this.setCurrentImage(i);
-    }, 300);
-  }
-
-  cancelMouseoverSelect(i: number): void {
-    this.aciveMouseover[i] = false;
-  }
 
   // Toggling image data
 
   toggleImageInfo(): void {
     this.userSettings.showImageInfo = !this.userSettings.showImageInfo;
-    this.userSettingsService.setShowImageInfo(this.userSettings.showImageInfo);
   }
-
-  toggleImageData(): void {
-    this.userSettings.showImageData = !this.userSettings.showImageData;
-    this.userSettingsService.setShowImageData(this.userSettings.showImageData);
-  }
-
-  toggleImageCaptions(): void {
-    this.userSettings.showImageCaptions = !this.userSettings.showImageCaptions;
-    this.userSettingsService.setShowImageCaptions(this.userSettings.showImageCaptions);
-  }
-
-  // Image data tabs
 
   switchImageDataTab(tab: string): void {
     if (this.userSettings.imageDataTabActive != tab) {
       this.userSettings.imageDataTabActive = tab;
-      this.userSettingsService.setImageDataTabActive(tab);
     }
   }
 
-  // Simple gallery mode
+  toggleImageCaptions(): void {
+    this.userSettings.showImageCaptions = !this.userSettings.showImageCaptions;
+  }
+
+  toggleImageData(): void {
+    this.userSettings.showImageData = !this.userSettings.showImageData;
+  }
+
+  toggleImageTags(): void {
+    this.userSettings.showImageTags = !this.userSettings.showImageTags;
+  }
+
+
+  // Settings panel
+
+  toggleSettingsPanel(): void {
+    this.userSettings.panelOpen = !this.userSettings.panelOpen;
+  }
+
+  setImagesInRow(n: number): void {
+    this.userSettings.imagesInRow = n;
+  }
+
+
+  // Grid mode
 
   gridModeOn(): boolean {
     if (this.g.type == 'month' || this.g.type == 'year')
@@ -202,16 +181,29 @@ export class GalleryComponent implements OnInit, AfterViewInit {
     if (mode == this.gridModeOn()) return;
     if (this.g.type == 'month' || this.g.type == 'year') {
       this.userSettings.simpleGalleryByTime = !this.userSettings.simpleGalleryByTime;
-      this.userSettingsService.setSimpleGalleryByTime(this.userSettings.simpleGalleryByTime);
     }
     else {
       this.userSettings.simpleGalleryByData = !this.userSettings.simpleGalleryByData;
-      this.userSettingsService.setSimpleGalleryByData(this.userSettings.simpleGalleryByData);
     }
   }
 
-  setImagesInRow(val: number): void {
-    this.userSettings.imagesInRow = val;
-    this.userSettingsService.setImagesInRow(this.userSettings.imagesInRow);
+
+  // No-click mode
+
+  toggleSelectOnMouseover(): void {
+    this.userSettings.selectOnMouseover = !this.userSettings.selectOnMouseover;
   }
+
+  mouseoverImageSelect(i: number): void {
+    this.aciveMouseover[i] = true;
+    setTimeout(()=>{
+      if (this.aciveMouseover[i] && this.userSettings.selectOnMouseover) 
+        this.setCurrentImage(i);
+    }, 300);
+  }
+
+  cancelMouseoverSelect(i: number): void {
+    this.aciveMouseover[i] = false;
+  }
+
 }

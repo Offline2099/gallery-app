@@ -30,54 +30,54 @@ const standardRoutes: Routes = [
         let routes: Routes = [];
 
         // Years
-        for (let i = 0; i < DefaultGalleries.byYears.galleries.length; i++) {
-           routes.push({
-            path: DefaultGalleries.byYears.galleries[i].path, 
+        DefaultGalleries.byYears.galleries.forEach(gallery => {
+          routes.push({
+            path: gallery.path, 
             component: GalleryComponent,
             data: {
-              gallery: DefaultGalleries.byYears.galleries[i]
+              gallery: gallery
             }
           });
-        }
-
+        });
+        
         // Months 
-        for (let i = 0; i < DefaultGalleries.byMonths.length; i++) {
-          for (let j = 0; j < DefaultGalleries.byMonths[i].galleries.length; j++) {
+        DefaultGalleries.byMonths.forEach(year => {
+          year.galleries.forEach(gallery => {
             routes.push({
-              path: DefaultGalleries.byMonths[i].galleries[j].path,
+              path: gallery.path, 
               component: GalleryComponent,
               data: {
-                gallery: DefaultGalleries.byMonths[i].galleries[j]
+                gallery: gallery
               }
             });
-          }
-        }
+          })
+        });
 
         // Locations
-        for (let i = 0; i < DefaultGalleries.byLocations.length; i++) {
-          for (let j = 0; j < DefaultGalleries.byLocations[i].galleries.length; j++) {
+        DefaultGalleries.byLocations.forEach(group => {
+          group.galleries.forEach(gallery => {
             routes.push({
-              path: DefaultGalleries.byLocations[i].galleries[j].path,
+              path: gallery.path, 
               component: GalleryComponent,
               data: {
-                gallery: DefaultGalleries.byLocations[i].galleries[j]
+                gallery: gallery
               }
             });
-          }
-        }
+          })
+        });
 
         // Tags
-        for (let i = 0; i < DefaultGalleries.byTags.length; i++) {
-          for (let j = 0; j < DefaultGalleries.byTags[i].galleries.length; j++) {
+        DefaultGalleries.byTags.forEach(group => {
+          group.galleries.forEach(gallery => {
             routes.push({
-              path: DefaultGalleries.byTags[i].galleries[j].path,
+              path: gallery.path, 
               component: GalleryComponent,
               data: {
-                gallery: DefaultGalleries.byTags[i].galleries[j]
+                gallery: gallery
               }
             });
-          }
-        }
+          })
+        });
 
         return [
           ...routes,

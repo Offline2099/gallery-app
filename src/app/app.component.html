@@ -1,6 +1,8 @@
 
-<!-- Heading -->
-<div class="heading-area">Thailand Photo Gallery</div>
+<!-- Header -->
+<div class="header-area">
+  <a routerLink="/">Thailand Photo Gallery</a>
+</div>
 
 <!-- Content -->
 <div class="content-area">
@@ -14,4 +16,11 @@
 </div>
 
 <!-- Footer -->
-<div class="footer-area">The world is fucking beautiful.</div>
+<div 
+  class="footer-area"
+  [ngClass]="{
+    'footer-area-mini' : 
+      !mainPage &&
+      ((chronological && !this.userSettings.simpleGalleryByTime) || 
+      (!chronological && !this.userSettings.simpleGalleryByData))
+  }">The world is fucking beautiful.</div>

@@ -1,37 +1,33 @@
-<div class="buttons-container">
 
-  <!-- Group Head -->
-  <div 
-    class="buttons-container-head" 
-    (click)="toggleOnMobile()">
-    <span 
-      class="buttons-container-head-triangle hidden-desktop" 
-      [ngClass]="{'buttons-container-head-triangle-down': !collapsedOnMobile}">&#9654;</span>
-    <span class="hidden-desktop">{{groupName}}</span>
-    <span 
-      *ngIf="groupPath != ''"
-      class="hidden-mobile hidden-tablet">
-      <a routerLink="{{groupPath}}">{{groupName}}</a>
-    </span>
-    <span 
-      *ngIf="groupPath == ''"
-      class="hidden-mobile hidden-tablet" >{{groupName}}</span>
-    <span class="buttons-container-head-label hidden-desktop">{{groupLabel}}</span>
-  </div>
+<!-- Group Head -->
+<div 
+  class="buttons-container-head" 
+  (click)="toggleOnMobile()">
+  <span 
+    class="buttons-container-head-triangle hidden-desktop" 
+    [ngClass]="{'buttons-container-head-triangle-down': !collapsedOnMobile}">&#9654;</span>
+  <span class="hidden-desktop">{{groupName}}</span>
+  <span 
+    *ngIf="groupPath != ''"
+    class="hidden-mobile hidden-tablet">
+    <a routerLink="{{groupPath}}">{{groupName}}</a>
+  </span>
+  <span 
+    *ngIf="groupPath == ''"
+    class="hidden-mobile hidden-tablet" >{{groupName}}</span>
+  <span class="buttons-container-head-label hidden-desktop">{{groupLabel}}</span>
+</div>
 
-  <!-- Group Body -->
-  <div 
-    class="buttons-container-body" 
-    [ngClass]="{'hidden-mobile hidden-tablet': collapsedOnMobile}">
-    <a *ngFor="let g of gData" routerLink="{{g.path}}">
-      <div 
-        *ngIf="g.numberOfImages"
-        class="controls-button" 
-        routerLinkActive="controls-button-selected">
-        <span class="controls-button-text">{{g.name}}</span>
-        <span class="controls-button-label">({{g.numberOfImages}})</span>
-      </div>
-    </a>
-  </div>
-
+<!-- Group Body -->
+<div 
+  class="buttons-container-body" 
+  [ngClass]="{'hidden-mobile hidden-tablet': collapsedOnMobile}">
+  <a *ngFor="let g of galleries" routerLink="{{g.path}}">
+    <app-controls-button
+      *ngIf="g.numberOfImages"
+      routerLinkActive="controls-button-selected"
+      [text]="g.name"
+      labelText="{{g.numberOfImages}}">
+    </app-controls-button>
+  </a>
 </div>

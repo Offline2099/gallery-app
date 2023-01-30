@@ -1,9 +1,10 @@
 
 /* Navigation Area */
 
-.navigation-area {
-  display: inline-block;
-  width: calc(100% - 20px);
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1;
   margin: 5px;
   padding: 5px;
   background-color: #282828;
@@ -17,7 +18,7 @@
 }
 
 @media (max-width: 991px) {
-  .navigation-area {
+  :host {
     background: #282828;
     box-shadow: none;
   }
@@ -73,10 +74,12 @@
   transition: .2s;
 }
 
-.navigation-tab-header:hover {
-  color: #eee;
-  background: #004d4d;
-  box-shadow: none;
+@media (hover: hover) {
+  .navigation-tab-header:hover {
+    color: #eee;
+    background: #004d4d;
+    box-shadow: none;
+  }
 }
 
 .navigation-tab-header:nth-of-type(4) {
@@ -89,6 +92,7 @@
   background-size: 9px 9px;
   background-image: repeating-linear-gradient(45deg, #004d4d 0, #004d4d 0.9px, #333 0, #333 50%);
   box-shadow: 0 0 2px 2px #333 inset;
+  cursor: default;
 }
 
 @media (max-width: 991px) {

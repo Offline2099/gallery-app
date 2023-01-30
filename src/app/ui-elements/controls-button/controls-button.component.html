@@ -1,0 +1,20 @@
+<div 
+  *ngIf="hasSwitch"
+  class="control-switch"
+  [ngClass]="{
+    'control-switch-off': !switchOn,
+    'control-switch-on': switchOn
+  }">
+  <div class="control-switch-ball"></div>
+</div>
+<img 
+  *ngIf="iconFile"
+  class="controls-button-icon {{iconClasses}}"
+  src="./assets/interface/{{iconFile}}" 
+  alt="icon" />
+<span
+  *ngIf="text"
+  class="controls-button-text {{textClasses}}">{{text}}</span>
+<span 
+  *ngIf="labelText"
+  class="controls-button-label {{labelClasses}}">({{labelText}})</span>

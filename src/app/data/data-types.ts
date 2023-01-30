@@ -1,4 +1,20 @@
-// Single image data
+export interface Gallery {
+  type: string;
+  name: string;
+  nameExtended?: string;
+  numberOfImages: number;
+  path?: string;
+  imageData?: ImageData[];
+};
+
+export interface GalleryGroup {
+  name: string,
+  nameShort?: string,
+  nameExtended?: string
+  path?: string,
+  galleries: Gallery[]  
+};
+
 export interface ImageData {
   path?: string;
   caption?: string;
@@ -11,23 +27,4 @@ export interface ImageData {
   tags?: string[]
   year?: string;
   month?: string;
-};
-
-// Gallery data
-export interface Gallery {
-  type: string;
-  numberOfImages: number;
-  imageData?: ImageData[];
-  path?: string;
-  name?: string;
-  nameExtended?: string; 
-};
-
-// Gallery group data 
-export interface GalleryGroup {
-  name: string,
-  galleries: Gallery[]
-  path?: string,
-  nameShort?: string,
-  nameExtended?: string
 };

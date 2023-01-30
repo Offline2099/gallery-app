@@ -1,49 +1,46 @@
-<div class="navigation-area">
 
-  <!-- Tab Headers -->
-  <div class="navigation-tabs-headers-container">
-    <div class="navigation-tab-header-main hidden-mobile hidden-tablet">Sorted by: </div>
-    <div 
-      *ngFor="let tab of navigationTabs; index as i"
-      class="navigation-tab-header"
-      [ngClass]="{'navigation-tab-header-active': tab.active}" 
-      (click)="activateNavTab(i)">
-      <span class="hidden-mobile">{{tab.name}}</span>
-      <span class="hidden-tablet hidden-desktop">{{tab.nameMobile}}</span>
-    </div>
-  </div>
-  
-  <!-- Tabs Content -->
+<!-- Tab Headers -->
+<div class="navigation-tabs-headers-container">
+  <div class="navigation-tab-header-main hidden-mobile hidden-tablet">Sorted by: </div>
   <div 
     *ngFor="let tab of navigationTabs; index as i"
-    class="navigation-tab-body"
-    [ngClass]="{'hidden-all': !tab.active}">
+    class="navigation-tab-header"
+    [ngClass]="{'navigation-tab-header-active': tab.active}" 
+    (click)="activateNavTab(i)">
+    <span class="hidden-mobile">{{tab.name}}</span>
+    <span class="hidden-tablet hidden-desktop">{{tab.nameMobile}}</span>
+  </div>
+</div>
 
-    <!-- One Column Layout -->
+<!-- Tabs Content -->
+<div 
+  *ngFor="let tab of navigationTabs; index as i"
+  class="navigation-tab-body"
+  [ngClass]="{'hidden-all': !tab.active}">
+
+  <!-- One Column Layout -->
+  <app-gallery-group 
+    *ngFor="let group of tab.galleryGroups"
+    class="hidden-tablet"
+    [ngClass]="{'hidden-desktop': i != 0}" 
+    [groupName]="group.name"
+    [groupPath]="group.path || ''"
+    [groupLabelType]="tab.labelType"
+    [galleries]="group.galleries">
+  </app-gallery-group>
+
+  <!-- Two Columns Layout -->
+  <div 
+    *ngFor="let column of tab.columns"
+    class="navigation-area-tab-column-half hidden-mobile"
+    [ngClass]="{'hidden-desktop': i == 0}">
     <app-gallery-group 
-      *ngFor="let group of tab.galleryGroups"
-      class="hidden-tablet"
-      [ngClass]="{'hidden-desktop': i != 0}" 
+      *ngFor="let group of column"
       [groupName]="group.name"
       [groupPath]="group.path || ''"
       [groupLabelType]="tab.labelType"
       [galleries]="group.galleries">
     </app-gallery-group>
-
-    <!-- Two Columns Layout -->
-    <div 
-      *ngFor="let column of tab.columns"
-      class="navigation-area-tab-column-half hidden-mobile"
-      [ngClass]="{'hidden-desktop': i == 0}">
-      <app-gallery-group 
-        *ngFor="let group of column"
-        [groupName]="group.name"
-        [groupPath]="group.path || ''"
-        [groupLabelType]="tab.labelType"
-        [galleries]="group.galleries">
-      </app-gallery-group>
-    </div>
-
   </div>
 
 </div>

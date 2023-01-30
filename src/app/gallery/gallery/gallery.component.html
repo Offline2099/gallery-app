@@ -6,108 +6,19 @@
   <div class="gallery-empty-placeholder-text">Nothing to Display</div>
 </div>
 
-<!-- Simple Gallery (Mobile and Tablets) -->
-<div 
-  *ngIf="g.numberOfImages"
-  class="gallery-simple hidden-desktop">
 
-  <!-- Options Panel -->
-  <div class="gallery-simple-options-panel">
-    <div class="controls-button" (click)="toggleImageCaptions()">
-      <div 
-        class="control-switch" 
-        [ngClass]="{'control-switch-off': !userSettings.showImageCaptions, 'control-switch-on': userSettings.showImageCaptions}">
-        <div class="control-switch-ball"></div>
-      </div>
-      <span class="controls-button-text"><span class="hidden-mobile">Show Image </span>Captions</span> 
-    </div>
-    <div class="controls-button" (click)="toggleImageData()">
-      <div 
-        class="control-switch" 
-        [ngClass]="{'control-switch-off': !userSettings.showImageData, 'control-switch-on': userSettings.showImageData}">
-        <div class="control-switch-ball"></div>
-      </div>
-      <span class="controls-button-text"><span class="hidden-mobile">Show Image </span>Data</span> 
-    </div>
-  </div>
+<!-- Mobile and Tablets -->
+<app-gallery-simple
+  *ngIf="!desktop && g.numberOfImages"
+  class="hidden-desktop"
+  [desktop]="false"
+  [g]="g">
+</app-gallery-simple>
 
-  <!-- Image Block -->
-  <div 
-    *ngFor="let image of g.imageData; index as i"
-    class="gallery-simple-block">
-
-    <!-- Image -->
-    <img 
-      class="gallery-simple-image"
-      src="./assets/img/small/{{image.path}}"
-      alt="Image {{i+1}}" />
-
-    <!-- Caption and Data -->
-    <div 
-      *ngIf="userSettings.showImageCaptions || userSettings.showImageData" 
-      class="gallery-simple-image-data">
-      <div class="gallery-simple-image-data-angle-1"></div>
-      <div class="gallery-simple-image-data-angle-4"></div>
-      <div 
-        *ngIf="userSettings.showImageCaptions"
-        class="gallery-simple-image-data-section">{{image.caption}}</div>
-      <div 
-        *ngIf="userSettings.showImageData && image.location"
-        class="gallery-simple-image-data-section">
-        <div class="gallery-simple-image-data-icon">
-          <img src="./assets/interface/location-icon.png" alt="icon" />
-        </div>
-        <div>
-          <span 
-            *ngIf="image.location.name"
-            class="gallery-simple-image-data-section-element">{{image.location.name}}</span>
-          <span 
-            *ngIf="image.location.name2"
-            class="gallery-simple-image-data-section-element">{{image.location.name2}}</span>
-          <span 
-            *ngIf="image.location.lat && image.location.lon"
-            class="gallery-simple-image-data-section-element image-data-location-coords">{{currentLocationText[2]}}</span>
-        </div>
-      </div>
-      <div 
-        *ngIf="userSettings.showImageData && image.month && image.year && g.type != 'month'"
-        class="gallery-simple-image-data-section">
-        <div class="gallery-simple-image-data-icon">
-          <img src="./assets/interface/calendar-icon.png" alt="icon" />
-        </div>
-        <div>
-          <span class="gallery-simple-image-data-section-element">{{u.monthName(image.month)}} {{image.year}}</span>
-        </div>
-      </div>
-      <div 
-        *ngIf="userSettings.showImageData && image.tags"
-        class="gallery-simple-image-data-section">
-        <div class="gallery-simple-image-data-icon">
-          <img src="./assets/interface/tag-icon.png" alt="icon" />
-        </div>
-        <div>
-          <span 
-            *ngFor="let tag of image.tags"
-            class="gallery-simple-image-data-section-element">
-            <span class="gallery-simple-image-data-section-element-decoration">&bull; </span>
-            <span>{{u.capFirstLetter(tag)}}</span>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scroll-to-Top Button -->
-  <div 
-    class="scroll-up-button" 
-    [ngClass]="{'mobile-up-button-invisible': verticalOffset < 250}" 
-    (click)="scrollToTop()">&#9650;</div>
-
-</div>
 
 <!-- Desktop Gallery -->
 <div 
-  *ngIf="g.numberOfImages"
+  *ngIf="desktop && g.numberOfImages"
   class="gallery-area hidden-mobile hidden-tablet">
   
   <!-- Selected Image Block -->    
@@ -131,24 +42,23 @@
       </div>
       <div class="image-name">Image {{currentImage}}</div>
       <a 
-        class="controls-button controls-button-right" 
+        class="controls-button-right" 
         href="./assets/img/{{g.imageData![currentImage - 1].path}}" 
         download="{{u.strToKebabCase(g.nameExtended || '')}}-image-{{currentImage}}.jpg">
-        <img 
-          class="controls-button-icon" 
-          src="./assets/interface/download-icon.png" 
-          alt="icon" />
-        <span class="controls-button-text">Download</span>
+        <app-controls-button
+          iconFile="download-icon.png"
+          text="Download">
+        </app-controls-button>
       </a>
       <a 
-        class="controls-button controls-button-right" 
+        class="controls-button-right" 
         href="./assets/img/{{g.imageData![currentImage - 1].path}}" target="_blank">
-        <img 
-          class="controls-button-icon" 
-          src="./assets/interface/new-tab-icon.png" 
-          alt="icon" />
-        <span class="controls-button-text">Full Size</span>
-        <span class="controls-button-label hidden-desktop-small">(3840&hairsp;x&hairsp;2160)</span>
+        <app-controls-button
+          iconFile="new-tab-icon.png"
+          text="Full Size"
+          labelText="3840&hairsp;x&hairsp;2160"
+          labelClasses="hidden-desktop-small">
+        </app-controls-button>
       </a>
     </div>
 
@@ -179,7 +89,7 @@
         <div 
           *ngIf="g.imageData![currentImage - 1].caption"
           class="image-data-section">
-          <div class="gallery-simple-image-data-icon">
+          <div class="gallery-image-data-icon">
             <img src="./assets/interface/image-caption-icon.png" alt="icon" />
           </div>
           <div>{{g.imageData![currentImage - 1].caption}}</div>
@@ -189,66 +99,63 @@
       <!-- Selected Image: Location, Time, Tags -->
       <div class="image-data-column">
         <div class="image-data-controls">
-          <div 
-            class="controls-button"
-            [ngClass]="{'controls-button-selected': userSettings.imageDataTabActive == 'location'}" 
-            (click)="switchImageDataTab('location')">
-            <span class="controls-button-text">Location</span>
-          </div>
-          <div 
+          <app-controls-button
+            [selected]="userSettings.imageDataTabActive == 'location'"
+            (click)="switchImageDataTab('location')"
+            text="Location">
+          </app-controls-button>
+          <app-controls-button
             *ngIf="g.type != 'month'"
-            class="controls-button"
-            [ngClass]="{'controls-button-selected': userSettings.imageDataTabActive == 'time'}" 
-            (click)="switchImageDataTab('time')">
-            <span class="controls-button-text">Time</span>
-          </div>
-          <div 
-            class="controls-button"
-            [ngClass]="{'controls-button-selected': userSettings.imageDataTabActive == 'tags'}" 
-            (click)="switchImageDataTab('tags')">
-            <span class="controls-button-text">Tags</span>
-          </div>
+            [selected]="userSettings.imageDataTabActive == 'time'"
+            (click)="switchImageDataTab('time')"
+            text="Time">
+          </app-controls-button>
+          <app-controls-button
+            [selected]="userSettings.imageDataTabActive == 'tags'"
+            (click)="switchImageDataTab('tags')"
+            text="Tags">
+          </app-controls-button>
         </div>
         <div 
           *ngIf="g.imageData![currentImage - 1].location && userSettings.imageDataTabActive == 'location'"
           class="image-data-section data-section-tab">
-          <div class="gallery-simple-image-data-icon">
+          <div class="gallery-image-data-icon">
             <img src="./assets/interface/location-icon.png" alt="icon" />
           </div>
           <div>
             <span 
               *ngIf="g.imageData![currentImage - 1].location?.name"
-              class="gallery-simple-image-data-section-element">{{currentLocationText[0]}}</span>
+              class="gallery-image-data-section-element">{{currentLocationText[0]}}</span>
             <span 
               *ngIf="g.imageData![currentImage - 1].location?.name2"
-              class="gallery-simple-image-data-section-element">{{currentLocationText[1]}}</span>
+              class="gallery-image-data-section-element">{{currentLocationText[1]}}</span>
             <span 
               *ngIf="g.imageData![currentImage - 1].location?.lat && g.imageData![currentImage - 1].location?.lon"
-              class="gallery-simple-image-data-section-element image-data-location-coords">{{currentLocationText[2]}}</span>
+              class="gallery-image-data-section-element image-data-location-coords">{{currentLocationText[2]}}</span>
           </div>
         </div>
         <div 
           *ngIf="userSettings.imageDataTabActive == 'time'"
           class="image-data-section data-section-tab">
-          <div class="gallery-simple-image-data-icon">
+          <div class="gallery-image-data-icon">
             <img src="./assets/interface/calendar-icon.png" alt="icon" />
           </div>
           <div>
-            <span class="gallery-simple-image-data-section-element">
+            <span class="gallery-image-data-section-element">
               {{u.monthName(g.imageData![currentImage - 1].month || '')}} {{g.imageData![currentImage - 1].year}}</span>
           </div>
         </div>
         <div 
           *ngIf="g.imageData![currentImage - 1].tags && userSettings.imageDataTabActive == 'tags'"
           class="image-data-section data-section-tab">
-          <div class="gallery-simple-image-data-icon">
+          <div class="gallery-image-data-icon">
             <img src="./assets/interface/tag-icon.png" alt="icon" />
           </div>
           <div>
             <span 
               *ngFor="let tag of g.imageData![currentImage - 1].tags"
-              class="gallery-simple-image-data-section-element">
-              <span class="gallery-simple-image-data-section-element-decoration">&bull; </span>
+              class="gallery-image-data-section-element">
+              <span class="gallery-image-data-section-element-decoration">&bull; </span>
               <span>{{u.capFirstLetter(tag)}}</span>
             </span>
           </div>
@@ -267,7 +174,7 @@
     <div class="gallery-options-panel">
       <div 
         *ngIf="!gridModeOn()"
-        class="gallery-name">{{g.name}}</div>
+        class="gallery-name">{{g.type == 'year' || g.type == 'month' ? g.nameExtended : g.name}}</div>
       <div 
         *ngIf="gridModeOn()"
         class="gallery-name">{{g.nameExtended}}</div>
@@ -302,18 +209,16 @@
       <div class="gallery-settings-panel-block gallery-settings-panel-block-right">
         <div class="gallery-settings-panel-block-control">
           <span class="gallery-settings-panel-block-control-text">Mode:</span>
-          <div 
-            class="controls-button" 
-            [ngClass]="{'controls-button-selected': !gridModeOn()}"
-            (click)="toggleSimpleGallery(false)">
-            <span class="controls-button-text">Default</span>
-          </div>
-          <div 
-            class="controls-button" 
-            [ngClass]="{'controls-button-selected': gridModeOn()}"
-            (click)="toggleSimpleGallery(true)">
-            <span class="controls-button-text">Grid</span>
-          </div>
+          <app-controls-button
+            [selected]="!gridModeOn()"
+            (click)="toggleSimpleGallery(false)"
+            text="Default">
+          </app-controls-button>
+          <app-controls-button
+            [selected]="gridModeOn()"
+            (click)="toggleSimpleGallery(true)"
+            text="Grid">
+          </app-controls-button>
         </div>
         <div class="gallery-settings-panel-block-text">
           Default mode displays the gallery preview on the right and allows to pick an image. Grid mode simply displays all images in the gallery as a grid.
@@ -325,14 +230,12 @@
         *ngIf="!gridModeOn()"
         class="gallery-settings-panel-block">
         <div class="gallery-settings-panel-block-control">
-          <div class="controls-button" (click)="toggleImageInfo()">
-            <div 
-              class="control-switch" 
-              [ngClass]="{'control-switch-off': !userSettings.showImageInfo, 'control-switch-on': userSettings.showImageInfo}">
-              <div class="control-switch-ball"></div>
-            </div>
-            <span class="controls-button-text">Show Image Info</span>
-          </div>
+          <app-controls-button
+            [hasSwitch]="true"
+            [switchOn]="userSettings.showImageInfo"
+            (click)="toggleImageInfo()"
+            text="Show Image Info">
+          </app-controls-button>
         </div>
         <div class="gallery-settings-panel-block-text">
           Show or hide the information block under the selected image. Knowing exactly what you are looking at often makes it more interesting.
@@ -344,22 +247,24 @@
         *ngIf="gridModeOn()"
         class="gallery-settings-panel-block">
         <div class="gallery-settings-panel-block-control">
-          <div class="controls-button" (click)="toggleImageCaptions()">
-            <div 
-              class="control-switch" 
-              [ngClass]="{'control-switch-off': !userSettings.showImageCaptions, 'control-switch-on': userSettings.showImageCaptions}">
-              <div class="control-switch-ball"></div>
-            </div>
-            <span class="controls-button-text">Captions</span>
-          </div>
-          <div class="controls-button" (click)="toggleImageData()">
-            <div 
-              class="control-switch" 
-              [ngClass]="{'control-switch-off': !userSettings.showImageData, 'control-switch-on': userSettings.showImageData}">
-              <div class="control-switch-ball"></div>
-            </div>
-            <span class="controls-button-text">Data</span>
-          </div>
+          <app-controls-button
+            [hasSwitch]="true"
+            [switchOn]="userSettings.showImageCaptions"
+            (click)="toggleImageCaptions()"
+            text="Text">
+          </app-controls-button>
+          <app-controls-button
+            [hasSwitch]="true"
+            [switchOn]="userSettings.showImageData"
+            (click)="toggleImageData()"
+            text="Data">
+          </app-controls-button>
+          <app-controls-button
+            [hasSwitch]="true"
+            [switchOn]="userSettings.showImageTags"
+            (click)="toggleImageTags()"
+            text="Tags">
+          </app-controls-button>
         </div>
         <div class="gallery-settings-panel-block-text">
           Show or hide the information blocks under the images. Knowing exactly what you are looking at often makes it more interesting.
@@ -371,14 +276,12 @@
         *ngIf="!gridModeOn()"
         class="gallery-settings-panel-block">
         <div class="gallery-settings-panel-block-control">
-          <div class="controls-button" (click)="toggleSelectOnMouseover()">
-            <div 
-              class="control-switch" 
-              [ngClass]="{'control-switch-off': !userSettings.selectOnMouseover, 'control-switch-on': userSettings.selectOnMouseover}">
-              <div class="control-switch-ball"></div>
-            </div>
-            <span class="controls-button-text">No-Click Mode</span>
-          </div>
+          <app-controls-button
+            [hasSwitch]="true"
+            [switchOn]="userSettings.selectOnMouseover"
+            (click)="toggleSelectOnMouseover()"
+            text="No-Click Mode">
+          </app-controls-button>
         </div>
         <div class="gallery-settings-panel-block-text">
           Select images automatically without clicking, just by hovering your mouse cursor over the preview. Some people find it convenient, others don't like it.
@@ -391,13 +294,13 @@
         class="gallery-settings-panel-block">
         <div class="gallery-settings-panel-block-control">
           <span class="gallery-settings-panel-block-control-text">Images per Row:</span>
-          <div 
+          <app-controls-button
             *ngFor="let n of [1, 2, 3, 4]"
-            class="controls-button" 
-            [ngClass]="{'controls-button-selected': userSettings.imagesInRow == n, 'hidden-desktop-small hidden-desktop-average': n == 4}" 
-            (click)="setImagesInRow(n)">
-            <span class="controls-button-text">{{n}}</span>
-          </div>
+            [ngClass]="{'hidden-desktop-small hidden-desktop-average': n == 4}"
+            [selected]="userSettings.imagesInRow == n"
+            (click)="setImagesInRow(n)"
+            text="{{n}}">
+          </app-controls-button>
         </div>
         <div class="gallery-settings-panel-block-text">
           Select how many images should be fit into a row. Less images per row means a larger size for each image on the screen.
@@ -411,15 +314,15 @@
       <div 
         *ngFor="let image of g.imageData; index as i" 
         class="image-thumbnail-container"
-        [ngClass]="{'image-thumbnail-container-selected': i+1 == currentImage}" 
-        (click)="setCurrentImage(i+1)"
-        (mouseenter)="mouseoverImageSelect(i+1)"
-        (mouseleave)="cancelMouseoverSelect(i+1)"
+        [ngClass]="{'image-thumbnail-container-selected': i + 1 == currentImage}" 
+        (click)="setCurrentImage(i + 1)"
+        (mouseenter)="mouseoverImageSelect(i + 1)"
+        (mouseleave)="cancelMouseoverSelect(i + 1)"
         (contextmenu)="onRightClick($event)">
         <img 
           class="image-thumbnail" 
           src="./assets/img/small/{{image.path}}" 
-          alt="Image {{i+1}}" />
+          alt="Image {{i + 1}}" />
         <div class="image-thumbnail-overlay-1"></div>
         <div class="image-thumbnail-overlay-2"></div>
         <div class="image-thumbnail-overlay-3"></div>
@@ -427,90 +330,27 @@
         <div 
           class="image-thumbnail-overlay-number" 
           [ngClass]="{'image-thumbnail-overlay-number-selected': i+1 == currentImage}">
-          <span>{{i+1}}</span>
+          <span>{{i + 1}}</span>
         </div>
       </div>
     </div>
 
     <!-- Grid Mode Gallery -->
-    <div 
+
+    <app-gallery-simple
       *ngIf="gridModeOn()"
-      class="gallery-simple gallery-simple-desktop">
-
-      <!-- Image Blocks -->
-      <div 
-        *ngFor="let image of g.imageData; index as i"
-        class="gallery-simple-block gallery-simple-block-{{userSettings.imagesInRow}}">
-
-        <!-- Image -->
-        <img 
-          class="gallery-simple-image"
-          src="./assets/img/{{userSettings.imagesInRow > 2 ? 'small/' : ''}}{{image.path}}"
-          alt="Image {{i+1}}" />
-
-        <!-- Caption and Data -->
-        <div 
-          *ngIf="userSettings.showImageCaptions || userSettings.showImageData" 
-          class="gallery-simple-image-data">
-          <div class="gallery-simple-image-data-angle-1"></div>
-          <div class="gallery-simple-image-data-angle-4"></div>
-          <div 
-            *ngIf="userSettings.showImageCaptions"
-            class="gallery-simple-image-data-section">{{image.caption}}</div>
-          <div 
-            *ngIf="userSettings.showImageData && image.location"
-            class="gallery-simple-image-data-section">
-            <div class="gallery-simple-image-data-icon">
-              <img src="./assets/interface/location-icon.png" alt="icon" />
-            </div>
-            <div>
-              <span 
-                *ngIf="image.location.name"
-                class="gallery-simple-image-data-section-element">{{image.location.name}}</span>
-              <span 
-                *ngIf="image.location.name2"
-                class="gallery-simple-image-data-section-element">{{image.location.name2}}</span>
-              <span 
-                *ngIf="image.location.lat && image.location.lon"
-                class="gallery-simple-image-data-section-element image-data-location-coords">{{currentLocationText[2]}}</span>
-            </div>
-          </div>
-          <div 
-            *ngIf="userSettings.showImageData && image.month && image.year && g.type != 'month'"
-            class="gallery-simple-image-data-section">
-            <div class="gallery-simple-image-data-icon">
-              <img src="./assets/interface/calendar-icon.png" alt="icon" />
-            </div>
-            <div>
-              <span class="gallery-simple-image-data-section-element">{{u.monthName(image.month)}} {{image.year}}</span>
-            </div>
-          </div>
-          <div 
-            *ngIf="userSettings.showImageData && image.tags"
-            class="gallery-simple-image-data-section">
-            <div class="gallery-simple-image-data-icon">
-              <img src="./assets/interface/tag-icon.png" alt="icon" />
-            </div>
-            <div>
-              <span 
-                *ngFor="let tag of image.tags"
-                class="gallery-simple-image-data-section-element">
-                <span class="gallery-simple-image-data-section-element-decoration">&bull; </span>
-                <span>{{u.capFirstLetter(tag)}}</span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Scroll-to-Top Button (Desktop) -->
-    <div 
-      class="scroll-up-button" 
-      [ngClass]="{'mobile-up-button-invisible': verticalOffset < 250}" 
-      (click)="scrollToTop()">&#9650;</div>
+      class="gallery-simple-desktop"
+      [desktop]="true"
+      [g]="g">
+    </app-gallery-simple>
 
   </div> 
 
 </div> 
+
+<!-- Scroll-to-Top Button -->
+<div 
+  class="scroll-up-button" 
+  [ngClass]="{'scroll-up-button-invisible': verticalOffset < 250}" 
+  (click)="scrollToTop()">&#9650;</div>
+  

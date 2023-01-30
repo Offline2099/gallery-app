@@ -8,6 +8,8 @@ import { GalleryGroupComponent } from './navigation/gallery-group/gallery-group.
 
 import { HomepageComponent } from './homepage/homepage.component';
 import { GalleryComponent } from './gallery/gallery/gallery.component';
+import { ControlsButtonComponent } from './ui-elements/controls-button/controls-button.component';
+import { GallerySimpleComponent } from './gallery/gallery-simple/gallery-simple.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { GalleryComponent } from './gallery/gallery/gallery.component';
     NavigationAreaComponent,
     GalleryGroupComponent,
     HomepageComponent,
-    GalleryComponent
+    GalleryComponent,
+    ControlsButtonComponent,
+    GallerySimpleComponent
   ],
   imports: [
     BrowserModule,
