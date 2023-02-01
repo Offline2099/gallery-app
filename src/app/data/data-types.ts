@@ -8,23 +8,23 @@ export interface Gallery {
 };
 
 export interface GalleryGroup {
-  name: string,
-  nameShort?: string,
-  nameExtended?: string
-  path?: string,
-  galleries: Gallery[]  
+  name: string;
+  nameShort?: string;
+  nameExtended?: string;
+  path?: string;
+  galleries: Gallery[];
 };
 
 export interface ImageData {
   path?: string;
   caption?: string;
   location?: {
-    name?: string,
-    name2?: string,
-    lat?: number,
-    lon?: number
+    name?: string;
+    name2?: string;
+    lat?: number;
+    lon?: number;
   };
-  tags?: string[]
+  tags?: string[];
   year?: string;
   month?: string;
 };
