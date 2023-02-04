@@ -787,6 +787,346 @@ export const Jul2022Data = [
       name2: "Pattaya"
     },
     tags: ["beach", "trees", "islands", "morning"]
+  },
+  {
+    caption: "Clouds above Pattaya, lit by the morning sun.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["trees", "city", "sunny", "morning"]
+  },
+  {
+    caption: "Yellow flowers at the side of a road climbing Phra Tamnak Hill, with Pattaya Bay on the background.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["flowers", "boats", "road", "panorama", "city", "morning"]
+  },
+  {
+    caption: "Pattaya Bay in the morning, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["flowers", "boats", "panorama", "city", "morning"]
+  },
+  {
+    caption: "A bird in the morning sky above Pattaya, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["flowers", "animals", "panorama", "city", "morning"]
+  },
+  {
+    caption: "Pattaya Bay in the morning, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "panorama", "city", "morning"]
+  },
+  {
+    caption: "Pattaya Bay in the morning, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "trees", "panorama", "city", "park", "morning"]
+  },
+  {
+    caption: "Pattaya in the morning, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["panorama", "city", "morning", "park"]
+  },
+  {
+    caption: "Pattaya City sign and a viewpoint at the side of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["landmark", "city", "morning", "park"]
+  },
+  {
+    caption: "Pattaya Bay in the morning, viewed from behind the Pattaya City sign at the side of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "landmark", "panorama", "city", "morning"]
+  },
+  {
+    caption: "Pattaya Bay in the morning, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "panorama", "city", "morning"]
+  },
+  {
+    caption: "Pattaya Bay in the morning, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "panorama", "city", "morning"]
+  },
+  {
+    caption: "Pattaya Bay in the morning, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "trees", "panorama", "city", "morning"]
+  },
+  {
+    caption: "A road on the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["road", "city", "sunny", "morning", "park"]
+  },
+  {
+    caption: "A pack of stray dogs on the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["road", "animals", "morning"]
+  },
+  {
+    caption: "A pack of stray dogs barks at a monkey climbing power lines on the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["road", "animals", "morning"]
+  },
+  {
+    caption: "A sunny morning in Pattaya.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["trees", "city", "morning", "sunny"]
+  },
+  {
+    caption: "The island of Ko Lan, seen from the top of Phra Tamnak Hill on a sunny morning.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["islands", "flowers", "morning", "sunny"]
+  },
+  {
+    caption: "The islands of Ko Lan and Ko Sak (small one on the right), seen from the top of Phra Tamnak Hill on a sunny morning.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["islands", "flowers", "morning", "sunny"]
+  },
+  {
+    caption: "The island of Ko Lan, seen from the top of Phra Tamnak Hill on a sunny morning.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["islands", "morning", "sunny"]
+  },
+  {
+    caption: "The islands of Ko Lan (right) and Ko Rin (left), seen from the top of Phra Tamnak Hill on a sunny morning.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["islands", "morning", "sunny"]
+  },
+  {
+    caption: "The island of Ko Rin, seen through the bushes and blooming plumeria trees on the top of Phra Tamnak Hill.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["islands", "flowers", "morning", "sunny"]
+  },
+  {
+    caption: "The island of Ko Lan, seen through the bushes and blooming plumeria trees on the top of Phra Tamnak Hill.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["islands", "flowers", "morning", "sunny"]
+  },
+  {
+    caption: "The islands of Ko Lan (right) and Ko Rin (left), seen from the top of Phra Tamnak Hill on a sunny morning.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["islands", "morning", "sunny"]
+  },
+  {
+    caption: "The islands of Ko Lan (left) and Ko Sak (right), seen through the bushes and blooming plumeria trees on the top of Phra Tamnak Hill.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["islands", "flowers", "morning", "sunny"]
+  },
+  {
+    caption: "A buoy floats in Pattaya Bay on a sunny morning, seen from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "city", "morning", "sunny"]
+  },
+  {
+    caption: "A view of the lighthouse and part of Pattaya Bay from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "landmark", "city", "morning", "sunny"]
+  },
+  {
+    caption: "A pier in Pattaya Bay on a sunny morning, seen from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "city", "morning", "sunny", "panorama"]
+  },
+  {
+    caption: "A pier in Pattaya Bay on a sunny morning, seen from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "road", "trees", "city", "morning", "sunny", "panorama"]
+  },
+  {
+    caption: "Pattaya Lighthouse on a sunny morning.",
+    location: {
+      name: "Pattaya",
+      lat: 12.9299361, 
+      lon: 100.8624946
+    },
+    tags: ["landmark", "trees", "morning", "sunny"]
+  },
+  {
+    caption: "Pattaya Lighthouse on a sunny morning.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["landmark", "trees", "morning", "sunny"]
+  },
+  {
+    caption: "A view towards Pattaya Bay from the shade of trees near Pattaya Lighthouse on a sunny morning.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["landmark", "boats", "city", "morning", "sunny"]
+  },
+  {
+    caption: "A view of Pattaya Bay from a spot near Pattaya Lighthouse on a sunny morning.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["trees", "boats", "city", "morning", "sunny"]
+  },
+  {
+    caption: "A ferry goes from the pier in Pattaya Bay towards the island of Ko Lan.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["boats", "morning", "sunny"]
+  },
+  {
+    caption: "A ferry goes from the pier in Pattaya Bay towards the island of Ko Lan.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["boats", "islands", "morning", "sunny", "beach"]
+  },
+  {
+    caption: "The islands of Ko Lan and Ko Rin, seen from the beach near Pattaya Lighthouse.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["beach", "islands", "morning", "sunny"]
+  },
+  {
+    caption: "The islands of Ko Lan and Ko Rin, seen from the beach near Pattaya Lighthouse.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["beach", "islands", "morning", "sunny"]
+  },
+  {
+    caption: "The islands of Ko Lan and Ko Sak, seen from the beach near Pattaya Lighthouse at low tide.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["beach", "islands", "morning", "sunny"]
+  },
+  {
+    caption: "The islands of Ko Lan and Ko Rin, seen from the beach near Pattaya Lighthouse.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["beach", "islands", "morning", "sunny"]
+  },
+  {
+    caption: "A rocky beach near Pattaya Lighthouse at low tide.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["beach", "city", "morning", "sunny"]
+  },
+  {
+    caption: "Plumeria blooms on a sunny day.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["flowers", "day", "sunny"]
+  },
+  {
+    caption: "A statue in a park on the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["statue", "park", "day"]
+  },
+  {
+    caption: "Prickly cacti grow near the stairs leading to the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["day", "sunny"]
+  },
+  {
+    caption: "A snake (probably Coelognathus) at the side of a paved footpath on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["animals", "day", "park"]
+  },
+  {
+    caption: "A paved footpath on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["road", "park"]
+  },
+  {
+    caption: "A small park at the sides of the road which climbs Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["road", "park", "trees", "animals"]
   }
 ];
 
@@ -3136,7 +3476,7 @@ export const Mar2017Data = [
     tags: ["animals", "zoo", "day"]
   },
   {
-    caption: "A tapir eats corn from the sicks at Khao Kheow Open Zoo.",
+    caption: "A tapir eats corn from the sticks at Khao Kheow Open Zoo.",
     location: {
       name: "Khao Kheow Open Zoo"
     },
