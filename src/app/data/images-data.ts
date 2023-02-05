@@ -1130,6 +1130,113 @@ export const Jul2022Data = [
   }
 ];
 
+export const Sep2022Data = [
+  {
+    caption: "Early sunrise in Pattaya, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["trees", "city", "sunrise"]
+  },
+  {
+    caption: "A sunrise in Pattaya, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["city", "sunrise", "panorama"]
+  },
+  {
+    caption: "Morning mist envelopes Pattaya, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["city", "sunrise", "fog", "panorama"]
+  },
+  {
+    caption: "Pattaya Bay and Laem Chabang Port (far in the distance), viewed from Phra Tamnak Hill on a clear morning.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "city", "morning", "sunny", "panorama"]
+  },
+  {
+    caption: "The pier in Pattaya Bay, viewed from Phra Tamnak Hill shortly after sunrise.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "city", "morning", "panorama"]
+  },
+  {
+    caption: "The pier in Pattaya Bay, viewed from Phra Tamnak Hill shortly after sunrise.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "city", "morning", "panorama"]
+  },
+  {
+    caption: "A small park at the side of the road that climbs Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["animals", "trees", "road", "park", "morning", "cloudy"]
+  },
+  {
+    caption: "Stray dogs chilling at the turn of a steep road that climbs Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["animals", "hills", "city", "road", "morning", "cloudy"]
+  },
+  {
+    caption: "A footpath on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["trees", "park", "road", "day"]
+  },
+  {
+    caption: "A footpath on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["trees", "park", "road", "day"]
+  },
+  {
+    caption: "A footpath on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["trees", "park", "road", "day"]
+  },
+  {
+    caption: "A view of Pattya from the park on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["city", "park", "morning", "panorama"]
+  },
+  {
+    caption: "A view from Phra Tamnak Hill to the west. The island of Ko Lan is seen in the distance.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["islands", "city", "cloudy", "morning", "panorama"]
+  }
+];
+
 // 2021
 
 export const Aug2021Data = [

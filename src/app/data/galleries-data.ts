@@ -47,7 +47,8 @@ const D = [
     m: [
       { m: '01', n: 47, d: I.Jan2022Data },
       { m: '02', n: 20, d: I.Feb2022Data },
-      { m: '07', n: 76, d: I.Jul2022Data }
+      { m: '07', n: 76, d: I.Jul2022Data },
+      { m: '09', n: 13, d: I.Sep2022Data }
     ]
   }
 ];
