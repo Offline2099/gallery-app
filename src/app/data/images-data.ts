@@ -1130,6 +1130,280 @@ export const Jul2022Data = [
   }
 ];
 
+export const Aug2022Data = [
+  {
+    caption: "Early sunrise in Pattaya, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["panorama", "city", "sunrise"]
+  },
+  {
+    caption: "Early sunrise in Pattaya, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["panorama", "city", "sunrise"]
+  },
+  {
+    caption: "Early sunrise in Pattaya, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "panorama", "city", "sunrise"]
+  },
+  {
+    caption: "Pattaya Bay at sunrise, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "panorama", "city", "sunrise"]
+  },
+  {
+    caption: "Early sunrise in Pattaya, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["panorama", "city", "sunrise"]
+  },
+  {
+    caption: "Pattaya at sunrise, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "panorama", "city", "sunrise"]
+  },
+  {
+    caption: "Pattaya Bay shortly after sunrise, viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "panorama", "city", "morning"]
+  },
+  {
+    caption: "Pattaya Bay, seen from a viewpoint on the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "flowers", "panorama", "city", "day", "cloudy"]
+  },
+  {
+    caption: "Pattaya Bay, seen from a viewpoint on the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "flowers", "panorama", "city", "day", "cloudy"]
+  },
+  {
+    caption: "Pattaya Bay, seen from a viewpoint on the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "flowers", "panorama", "city", "day", "cloudy"]
+  },
+  {
+    caption: "A view of Pattaya Beach from the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "panorama", "city", "day", "cloudy"]
+  },
+  {
+    caption: "A view of Pattaya from the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["panorama", "city", "day", "cloudy"]
+  },
+  {
+    caption: "A view of Pattaya Bay from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["trees", "boats", "panorama", "city", "day", "cloudy"]
+  },
+  {
+    caption: "A rooster walks around at the viewpoint on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["animals", "panorama", "city", "day", "cloudy"]
+  },
+  {
+    caption: "A statue of Thai admiral Abhakara Kiartivongse and a cell tower on the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["statue", "day", "cloudy"]
+  },
+  {
+    caption: "A view towards the island of Ko Rin from the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["islands", "day", "city", "panorama"]
+  },
+  {
+    caption: "A view towards the island of Ko Lan from the top of Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["islands", "day", "city", "panorama"]
+  },
+  {
+    caption: "A steep road descends from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["road", "day", "hills", "trees", "cloudy"]
+  },
+  {
+    caption: "Electricity is complicated. Bad electricians become good conductors.",
+    location: {
+      name: "Pattaya"
+    },
+    tags: ["city"]
+  },
+  {
+    caption: "A small park on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["park", "trees", "day", "road"]
+  },
+  {
+    caption: "A small park on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["park", "trees", "day"]
+  },
+  {
+    caption: "A cat poses for a photo in the park on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["animals", "park", "day"]
+  },
+  {
+    caption: "Pattaya Park Hotel tower and the islands of Ko Khram Yai (left) and Ko Rin (right), viewed from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["panorama", "city", "islands", "day"]
+  },
+  {
+    caption: "Pattaya Park Hotel tower and the island of Ko Khram Yai, seen from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["panorama", "trees", "city", "islands", "day"]
+  },
+  {
+    caption: "Pattaya Park Hotel tower and the island of Ko Khram Yai, seen from Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["panorama", "trees", "city", "islands", "day"]
+  },
+  {
+    caption: "A view from Phra Tamnak Hill to the south. Hills of Sattahip are visible in the distance.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["panorama", "trees", "city", "day"]
+  },
+  {
+    caption: "A view from Phra Tamnak Hill to the west.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["panorama", "trees", "city", "day"]
+  },
+  {
+    caption: "There's some strange geometric beauty in the shape of this tree.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["trees", "day"]
+  },
+  {
+    caption: "A footpath in the shade of trees on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["trees", "road", "day"]
+  },
+  {
+    caption: "A footpath in the shade of trees on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["trees", "road", "day"]
+  },
+  {
+    caption: "A footpath in the shade of trees on Phra Tamnak Hill.",
+    location: {
+      name: "Khao Phra Tamnak",
+      name2: "Pattaya"
+    },
+    tags: ["trees", "road", "day"]
+  },
+  {
+    caption: "Jomtien Beach on a sunny day. Hills of Sattahip are seen on the horizon.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    },
+    tags: ["boats", "beach", "sunny", "day"]
+  },
+  {
+    caption: "Jomtien Beach on a sunny day. The island of Ko Lan is seen in the distance.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    },
+    tags: ["islands", "beach", "sunny", "day"]
+  },
+  {
+    caption: "Palm trees at Jomtien Beach on a sunny day.",
+    location: {
+      name: "Jomtien Beach",
+      name2: "Pattaya"
+    },
+    tags: ["trees", "sunny", "day"]
+  }
+];
+
 export const Sep2022Data = [
   {
     caption: "Early sunrise in Pattaya, viewed from Phra Tamnak Hill.",
