@@ -48,6 +48,9 @@
 }
 
 @media (max-width: 991px) {
+  :host {
+    min-height: 80vh;
+  }
   .homepage-area-text {
     width: calc(100% - 50px);
     padding: 25px;
