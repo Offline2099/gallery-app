@@ -143,7 +143,9 @@
 
 .image-background {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   aspect-ratio: 16/9;
   margin-bottom: 5px;
@@ -158,14 +160,12 @@
 }
 
 .image-background-cogwheel {
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
   animation: rotate 3s;
   animation-iteration-count: infinite;
 }
 
 .image-selected {
-  display: inline-block;
   position: absolute;
   width: 100%;
   aspect-ratio:  16/9;

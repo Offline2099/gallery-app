@@ -63,15 +63,6 @@ a, a:hover, a:visited {
 }
 
 
-/* Utility */
-
-.vertical-align-fix {
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-}
-
-
 /* Visibility Control */
 
 .hidden-all {
