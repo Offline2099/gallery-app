@@ -1,0 +1,223 @@
+
+/* Container */
+
+:host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 66px;
+  background-color: #282828;
+  background-image: 
+    linear-gradient(#333 1.1px, transparent 1.1px), 
+    linear-gradient(to right, #333 1.1px, #282828 1.1px);
+  background-size: 3.125% 22px;
+  background-position: -1.5625% -11px;
+  animation: fadeIn .5s;
+}
+
+:host.image-data-block-selected {
+  flex-wrap: wrap;
+  height: 110px;
+}
+
+@media (max-width: 991px) {
+  :host {
+    min-height: 60px;
+    background-size: 3.125% 20px;
+    background-position: -1.5625% -10px;
+  }
+}
+
+@media (max-width: 599px) {
+  :host {
+    min-height: 48px;
+    background-size: 6.25% 18px;
+    background-position: -3.125% -9px;
+  }
+}
+
+
+/* Decorative Elements */
+
+.image-data-block-corner-1,
+.image-data-block-corner-2 {
+  position: absolute;
+  width: 20%;
+  height: 50%;
+  pointer-events: none;
+}
+
+.image-data-block-corner-1 {
+  top: 0;
+  left: 0;
+  border-top: 2px solid #004d4d;
+  border-left: 2px solid #004d4d;
+}
+
+.image-data-block-corner-2 {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid #004d4d;
+  border-right: 2px solid #004d4d;
+}
+
+:host.image-data-block-selected .image-data-block-corner-1, 
+:host.image-data-block-selected .image-data-block-corner-2 {
+  border-width: 3px;
+}
+
+
+/* Columns (Selected Image Data) */
+
+.image-data-column {
+  display: inline-flex;
+  flex-direction: column;
+  width: 50%;
+  height: 110px;
+}
+
+
+/* Sections */
+
+.image-data-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 12px 15px 10px 15px;
+  color: #bbb;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  text-shadow: 1px 1px #111;
+  user-select: text;
+  cursor: default;
+  animation: fadeIn .5s;
+}
+
+:host.image-data-block-3 .image-data-section,
+:host.image-data-block-4 .image-data-section {
+  font-size: 16px;
+}
+
+@media (max-width: 1599px) { 
+  :host.image-data-block-2 .image-data-section {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .image-data-section {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .image-data-section {
+    padding-bottom: 8px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 599px) {
+  .image-data-section {
+    padding: 11px 15px 7px 15px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+
+/* Controls and Tabs (Selected Image Data) */
+
+.image-data-controls {
+  padding: 0 5px 1px 5px;
+}
+
+.image-data-section.data-section-tab {
+  flex: 1;
+  padding-top: 0;
+}
+
+@media (max-width: 1199px) {
+  .image-data-controls {
+    padding: 1px 5px 3px 5px;
+  }
+}
+
+
+/* Icons */
+
+.image-data-icon {
+  height: 18px;
+  margin-right: 15px;
+  padding: 2px;
+  outline: 2px solid #004d4d;
+  border-radius: 3px;
+  background: rgba(0, 77, 77, .4);
+  line-height: 18px;
+  user-select: none;
+}
+
+.image-data-icon img {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 991px) {
+  .image-data-icon {
+    height: 16px;
+    transform: translateY(-1px);
+  }
+  .image-data-icon img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 599px) {
+  .image-data-icon {
+    height: 14px;
+    margin-right: 12px;
+  }
+  .image-data-icon img {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+
+/* Data Elements */
+
+.image-data-section-element {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 0 5px;
+  border-radius: 2px;
+  background: rgba(51, 51, 51, .7);
+  line-height: 19px;
+}
+
+.image-data-location-coords {
+  font-size: smaller;
+}
+
+.image-data-tag {
+  text-transform: capitalize;
+}
+
+.image-data-section-element-marker {
+  user-select: none;
+}
+
+@media (max-width: 991px) {
+  .image-data-section-element {
+    line-height: 18px;
+  }
+}
+
+@media (max-width: 599px) {
+  .image-data-section-element {
+    line-height: 16px;
+  }
+}

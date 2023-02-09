@@ -12,9 +12,20 @@
   class="controls-button-icon {{iconClasses}}"
   src="./assets/interface/{{iconFile}}" 
   alt="icon" />
+<img 
+  *ngIf="iconFile2"
+  class="controls-button-icon {{iconClasses}}"
+  src="./assets/interface/{{iconFile2}}" 
+  alt="icon" />
+<span
+  *ngIf="textBefore"
+  class="controls-button-text-before {{textBeforeClasses}}">{{textBefore}}</span>
 <span
   *ngIf="text"
   class="controls-button-text {{textClasses}}">{{text}}</span>
+<span
+  *ngIf="textAfter"
+  class="controls-button-text-after {{textAfterClasses}}">{{textAfter}}</span>
 <span 
   *ngIf="labelText"
   class="controls-button-label {{labelClasses}}">({{labelText}})</span>

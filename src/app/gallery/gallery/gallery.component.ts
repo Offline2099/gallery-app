@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Gallery } from '../../data/data-types';
 import { UserSettingsService } from '../../user-settings.service';
-import { UtilitiesService } from '../../utilities.service';
 
 @Component({
   selector: 'app-gallery',
@@ -18,25 +17,18 @@ export class GalleryComponent implements OnInit, AfterViewInit {
   verticalOffset: number = 0;
 
   currentImage: number = 1;
-  currentImageLoading: boolean = true;
-  currentLocationText: string[] = ['', '', ''];
   
   aciveMouseover: boolean[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute, 
-    public userSettings: UserSettingsService,
-    public u: UtilitiesService) {
+    public userSettings: UserSettingsService) {
 
     this.g = activatedRoute.snapshot.data['gallery'];
-
-    if (this.g.type == 'month' && this.userSettings.imageDataTabActive == 'time')
-      this.switchImageDataTab('location');
   }
 
   ngOnInit(): void {
     this.desktop = (window.innerWidth > 991);
-    this.setLocationText();
     this.aciveMouseover = Array.from(Array(this.g.numberOfImages)).map(e => false);
   }
 
@@ -77,42 +69,18 @@ export class GalleryComponent implements OnInit, AfterViewInit {
     }
   }
 
-
-  // Setting and displaying current image and its data
+ 
+  // Switching images
 
   setCurrentImage(val: number): void {
-    if (val == this.currentImage) return;
-    this.currentImage = val;
-    this.currentImageLoading = true;
-    this.setLocationText();
+    if (val != this.currentImage)
+      this.currentImage = val;
   }
 
-  onImageLoad(): void {
-    this.currentImageLoading = false;
+  handleImageChange(incr: number): void {
+    if (incr == 1) this.nextImage();
+    if (incr == -1) this.prevImage();
   }
-
-  setLocationText(): void {
-
-    if (!this.g.numberOfImages) return;
-
-    if (!this.g.imageData || typeof this.g.imageData[this.currentImage - 1] == undefined) {
-      this.currentLocationText = ['', '', ''];
-      return;
-    }
-
-    let loc = this.g.imageData[this.currentImage - 1].location; 
-
-    if (loc?.name)
-      this.currentLocationText = [ 
-        loc?.name, 
-        loc?.name2 ? loc?.name2 : '', 
-        loc?.lat && loc?.lon ? '(' + loc?.lat + ' N, ' + loc?.lon + ' E)' : '' 
-      ];
-    else this.currentLocationText = ['', '', ''];
-  }
-
-
-  // Switching to previous and next images
 
   prevImageNumber(): number {
     if (this.currentImage > 1) return this.currentImage - 1;
@@ -133,16 +101,14 @@ export class GalleryComponent implements OnInit, AfterViewInit {
   }
 
 
-  // Toggling image data
+  // Changing settings
+
+  toggleSettingsPanel(): void {
+    this.userSettings.panelOpen = !this.userSettings.panelOpen;
+  }
 
   toggleImageInfo(): void {
     this.userSettings.showImageInfo = !this.userSettings.showImageInfo;
-  }
-
-  switchImageDataTab(tab: string): void {
-    if (this.userSettings.imageDataTabActive != tab) {
-      this.userSettings.imageDataTabActive = tab;
-    }
   }
 
   toggleImageCaptions(): void {
@@ -155,13 +121,6 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   toggleImageTags(): void {
     this.userSettings.showImageTags = !this.userSettings.showImageTags;
-  }
-
-
-  // Settings panel
-
-  toggleSettingsPanel(): void {
-    this.userSettings.panelOpen = !this.userSettings.panelOpen;
   }
 
   setImagesInRow(n: number): void {

@@ -22,7 +22,7 @@
   </app-controls-button>
 </div>
 
-<!-- Image Block -->
+<!-- Image Blocks -->
 <div 
   *ngFor="let image of g.imageData; index as i"
   class="gallery-simple-block gallery-simple-block-{{userSettings.imagesInRow}}">
@@ -40,70 +40,11 @@
     alt="Image {{i+1}}" />
 
   <!-- Caption and Data -->
-  <div 
-    *ngIf="userSettings.showImageCaptions || userSettings.showImageData || userSettings.showImageTags" 
-    class="gallery-simple-image-data">
+  <app-image-data-block
+    *ngIf="userSettings.showImageCaptions || userSettings.showImageData || userSettings.showImageTags"
+    blockType="{{desktop ? userSettings.imagesInRow : '1'}}"
+    [data]="image"
+    [galleryType]="g.type">
+  </app-image-data-block>
 
-    <!-- Decorative Elements -->
-    <div class="gallery-simple-image-data-angle-1"></div>
-    <div class="gallery-simple-image-data-angle-4"></div>
-
-    <!-- Caption -->
-    <div 
-      *ngIf="userSettings.showImageCaptions"
-      class="gallery-simple-image-data-section">{{image.caption}}</div>
-
-    <!-- Data (Location, Time) -->
-    <ng-container *ngIf="userSettings.showImageData">
-
-      <div 
-        *ngIf="image.location"
-        class="gallery-simple-image-data-section">
-        <div class="gallery-simple-image-data-icon">
-          <img src="./assets/interface/location-icon.png" alt="icon" />
-        </div>
-        <div>
-          <span 
-            *ngIf="image.location.name"
-            class="gallery-simple-image-data-section-element">{{image.location.name}}</span>
-          <span 
-            *ngIf="image.location.name2"
-            class="gallery-simple-image-data-section-element">{{image.location.name2}}</span>
-          <span 
-            *ngIf="image.location.lat && image.location.lon"
-            class="gallery-simple-image-data-section-element image-data-location-coords">{{'(' + image.location.lat + ' N, ' + image.location.lon + ' E)'}}</span>
-        </div>
-      </div>
-
-      <div 
-        *ngIf="image.month && image.year && g.type != 'month'"
-        class="gallery-simple-image-data-section">
-        <div class="gallery-simple-image-data-icon">
-          <img src="./assets/interface/calendar-icon.png" alt="icon" />
-        </div>
-        <div>
-          <span class="gallery-simple-image-data-section-element">{{u.monthName(image.month)}} {{image.year}}</span>
-        </div>
-      </div>
-
-    </ng-container>
-
-    <!-- Tags -->
-    <div 
-      *ngIf="userSettings.showImageTags && image.tags"
-      class="gallery-simple-image-data-section">
-      <div class="gallery-simple-image-data-icon">
-        <img src="./assets/interface/tag-icon.png" alt="icon" />
-      </div>
-      <div>
-        <span 
-          *ngFor="let tag of image.tags"
-          class="gallery-simple-image-data-section-element">
-          <span class="gallery-simple-image-data-section-element-decoration">&bull; </span>
-          <span>{{u.capFirstLetter(tag)}}</span>
-        </span>
-      </div>
-    </div>
-
-  </div>
 </div>

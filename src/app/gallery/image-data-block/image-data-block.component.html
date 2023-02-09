@@ -1,0 +1,157 @@
+
+<!-- Decorative Elements -->
+<div class="image-data-block-corner-1"></div>
+<div class="image-data-block-corner-2"></div>
+
+<!-- Grid Mode Gallery -->
+<ng-container *ngIf="blockType != 'selected'">
+
+  <!-- Caption -->
+  <div 
+    *ngIf="data.caption && userSettings.showImageCaptions"
+    class="image-data-section">{{data.caption}}</div> 
+
+  <!-- Data (Location, Time) -->
+  <ng-container *ngIf="userSettings.showImageData">
+
+    <div 
+      *ngIf="data.location"
+      class="image-data-section">
+      <div class="image-data-icon">
+        <img src="./assets/interface/location-icon.png" alt="icon" />
+      </div>
+      <div>
+        <span 
+          *ngIf="data.location.name"
+          class="image-data-section-element">{{data.location.name}}</span>
+        <span 
+          *ngIf="data.location.name2"
+          class="image-data-section-element">{{data.location.name2}}</span>
+        <span 
+          *ngIf="data.location.lat && data.location.lon"
+          class="image-data-section-element image-data-location-coords">{{coordText}}</span>
+      </div>
+    </div>
+
+    <div 
+      *ngIf="data.month && data.year && galleryType != 'month'"
+      class="image-data-section">
+      <div class="image-data-icon">
+        <img src="./assets/interface/calendar-icon.png" alt="icon" />
+      </div>
+      <div>
+        <span class="image-data-section-element">{{timeText}}</span>
+      </div>
+    </div>
+
+  </ng-container>
+
+  <!-- Tags -->
+  <div 
+    *ngIf="data.tags && userSettings.showImageTags"
+    class="image-data-section">
+    <div class="image-data-icon">
+      <img src="./assets/interface/tag-icon.png" alt="icon" />
+    </div>
+    <div>
+      <span 
+        *ngFor="let tag of data.tags"
+        class="image-data-section-element">
+        <span class="image-data-section-element-marker">&bull; </span>
+        <span class="image-data-tag">{{tag}}</span>
+      </span>
+    </div>
+  </div>
+
+</ng-container>
+
+<!-- Selected Image Data -->
+<ng-container *ngIf="blockType == 'selected'">
+
+  <!-- Selected Image: Caption -->
+  <div class="image-data-column">
+    <div 
+      *ngIf="data.caption"
+      class="image-data-section">
+      <div class="image-data-icon">
+        <img src="./assets/interface/image-caption-icon.png" alt="icon" />
+      </div>
+      <div>{{data.caption}}</div>
+    </div>
+  </div>
+
+  <!-- Selected Image: Location, Time, Tags -->
+  <div class="image-data-column">
+
+    <!-- Buttons -->
+    <div class="image-data-controls">
+      <app-controls-button
+        [selected]="userSettings.imageDataTabActive == 'location'"
+        (click)="switchImageDataTab('location')"
+        text="Location">
+      </app-controls-button>
+      <app-controls-button
+        *ngIf="galleryType != 'month'"
+        [selected]="userSettings.imageDataTabActive == 'time'"
+        (click)="switchImageDataTab('time')"
+        text="Time">
+      </app-controls-button>
+      <app-controls-button
+        [selected]="userSettings.imageDataTabActive == 'tags'"
+        (click)="switchImageDataTab('tags')"
+        text="Tags">
+      </app-controls-button>
+    </div>
+
+    <!-- Location Data -->
+    <div 
+      *ngIf="data.location && userSettings.imageDataTabActive == 'location'"
+      class="image-data-section data-section-tab">
+      <div class="image-data-icon">
+        <img src="./assets/interface/location-icon.png" alt="icon" />
+      </div>
+      <div>
+        <span 
+          *ngIf="data.location?.name"
+          class="image-data-section-element">{{data.location.name}}</span>
+        <span 
+          *ngIf="data.location?.name2"
+          class="image-data-section-element">{{data.location.name2}}</span>
+        <span 
+          *ngIf="data.location?.lat && data.location?.lon"
+          class="image-data-section-element image-data-location-coords">{{coordText}}</span>
+      </div>
+    </div>
+
+    <!-- Time Data -->
+    <div 
+      *ngIf="data.month && data.year && userSettings.imageDataTabActive == 'time'"
+      class="image-data-section data-section-tab">
+      <div class="image-data-icon">
+        <img src="./assets/interface/calendar-icon.png" alt="icon" />
+      </div>
+      <div>
+        <span class="image-data-section-element">{{timeText}}</span>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    <div 
+      *ngIf="data.tags && userSettings.imageDataTabActive == 'tags'"
+      class="image-data-section data-section-tab">
+      <div class="image-data-icon">
+        <img src="./assets/interface/tag-icon.png" alt="icon" />
+      </div>
+      <div>
+        <span 
+          *ngFor="let tag of data.tags"
+          class="image-data-section-element">
+          <span class="image-data-section-element-marker">&bull; </span>
+          <span class="image-data-tag">{{tag}}</span>
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+</ng-container>

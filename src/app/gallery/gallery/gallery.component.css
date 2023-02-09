@@ -55,7 +55,7 @@
 }
 
 
-/* Default Gallery (Desktop) - Main Areas */
+/* Main Areas */
 
 .gallery-area {
   display: flex;
@@ -89,255 +89,7 @@
 }
 
 
-/* Default Gallery (Desktop) - Selected Image */
-
-.image-options-panel {
-  display: inline-block;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: calc(100% - 10px);
-  margin-top: -5px;
-  padding: 2px 5px;
-  background: #282828;
-  border-top: 5px solid #111;
-  border-bottom: 5px solid #111;
-  text-align: center;
-}
-
-.image-change-button {
-  min-width: 50px;
-}
-
-.image-change-button .controls-button-label {
-  color: #00b3b3;
-}
-
-.controls-button-left.image-change-button {
-  text-align: left;
-}
-
-.controls-button-left.image-change-button .controls-button-label {
-  margin-left: 5px;
-}
-
-.controls-button-right.image-change-button {
-  justify-content: right;
-}
-
-.controls-button-right.image-change-button .controls-button-label {
-  margin-right: 5px;
-  margin-left: 0;
-}
-
-.image-name {
-  display: inline-block;
-  vertical-align: top;
-  padding: 0 5px;
-  color: #00b3b3;
-  font-size: 20px;
-  line-height: 34px;
-  letter-spacing: 0.025em;
-}
-
-.image-background {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  aspect-ratio: 16/9;
-  margin-bottom: 5px;
-  background-color: #111;
-  background-image: 
-    linear-gradient(#004d4d 1.1px, transparent 1.1px), 
-    linear-gradient(to right, #004d4d 1.1px, #111 1.1px);
-  background-size: 4% 4%;
-  box-shadow: 0 0 2px 2px #004d4d inset;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.image-background-cogwheel {
-  display: block;
-  animation: rotate 3s;
-  animation-iteration-count: infinite;
-}
-
-.image-selected {
-  position: absolute;
-  width: 100%;
-  aspect-ratio:  16/9;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  opacity: 1;
-  transition: .2s;
-  transition-delay: .2s;
-}
-
-.image-selected.image-loading {
-  opacity: 0;
-}
-
-@media (max-width: 1199px) {
-  .image-change-button {
-    min-width: 43px;
-  }
-  .image-name {
-    font-size: 18px;
-    line-height: 30px;
-  }
-}
-
-
-/* Default Gallery (Desktop) - Selected Image Data */
-
-.image-data-container {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 110px;
-  background-color: #282828;
-  background-image: 
-    linear-gradient(#333 1.1px, transparent 1.1px), 
-    linear-gradient(to right, #333 1.1px, #282828 1.1px);
-  background-size: 3.125% 22px;
-  background-position: -1.5625% -11px;
-  animation: fadeIn .5s;
-}
-
-.image-data-angle-1,
-.image-data-angle-4 {
-  position: absolute;
-  width: 20%;
-  height: 50%;
-  z-index: 1;
-}
-
-.image-data-angle-1 {
-  top: 0;
-  left: 0;
-  border-top: 3px solid #004d4d;
-  border-left: 3px solid #004d4d;
-}
-
-.image-data-angle-4 {
-  bottom: 0;
-  right: 0;
-  border-bottom: 3px solid #004d4d;
-  border-right: 3px solid #004d4d;
-}
-
-.image-data-column {
-  display: inline-flex;
-  flex-direction: column;
-  vertical-align: top;
-  width: 50%;
-  height: 110px;
-}
-
-.image-data-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  z-index: 10;
-  padding: 12px 15px 10px 15px;
-  color: #bbb;
-  font-size: 18px;
-  line-height: 22px;
-  letter-spacing: 0.02em;
-  text-shadow: 1px 1px #111;
-  user-select: text;
-  cursor: default;
-  animation: fadeIn .5s;
-}
-
-.image-data-controls {
-  padding: 0 5px 1px 5px;
-}
-
-.image-data-section.data-section-tab {
-  flex: 1;
-  padding-top: 0;
-}
-
-.image-data-location-coords {
-  font-size: smaller;
-}
-
-.gallery-image-data-section-element {
-  display: inline-block;
-  margin-right: 8px;
-  padding: 0 5px;
-  border-radius: 2px;
-  background: rgba(51, 51, 51, .7);
-  line-height: 19px;
-}
-
-.gallery-image-data-section-element-decoration {
-  user-select: none;
-}
-
-.gallery-image-data-icon {
-  display: inline-block;
-  float: left;
-  height: 18px;
-  margin-right: 15px;
-  padding: 2px;
-  outline: 2px solid #004d4d;
-  border-radius: 3px;
-  background: rgba(0, 77, 77, .4);
-  text-align: center;
-  line-height: 18px;
-  user-select: none;
-}
-
-.gallery-image-data-icon img {
-  width: 18px;
-  height: 18px;
-}
-
-@media (max-width: 1199px) {
-  .image-data-section {
-    font-size: 16px;
-  }
-  .image-data-controls {
-    padding: 1px 5px 3px 5px;
-  }
-}
-
-@media (max-width: 991px) {
-  .gallery-image-data-icon {
-    height: 16px;
-    transform: translateY(-1px);
-  }
-  .gallery-image-data-icon img {
-    width: 16px;
-    height: 16px;
-  }
-  .gallery-image-data-section-element {
-    line-height: 18px;
-  }
-}
-
-@media (max-width: 599px) {
-  .gallery-image-data-icon {
-    height: 14px;
-    margin-right: 12px;
-  }
-  .gallery-image-data-icon img {
-    width: 14px;
-    height: 14px;
-  }
-  .gallery-image-data-section-element {
-    line-height: 16px;
-  }
-}
-
-
-/* Default Gallery (Desktop) - Gallery Options Panel */
+/* Gallery Name Panel */
 
 .gallery-options-panel {
   display: inline-block;
@@ -367,6 +119,17 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+@media (max-width: 1199px) {
+  .gallery-name {
+    max-width: calc(100% - 76px);
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
+
+/* Gallery Settings Panel */
 
 .gallery-settings-panel {
   position: sticky;
@@ -398,6 +161,7 @@
 }
 
 .panel-close-button {
+  float: right;
   color: 999;
   cursor: pointer;
 }
@@ -446,11 +210,6 @@
 }
 
 @media (max-width: 1199px) {
-  .gallery-name {
-    max-width: calc(100% - 76px);
-    font-size: 18px;
-    line-height: 30px;
-  }
   .gallery-settings-panel {
     top: 44px;
   }
@@ -472,7 +231,7 @@
 }
 
 
-/* Default Gallery (Desktop) - Interactive Preview Thumbnails */
+/* Interactive Preview Thumbnails */
 
 .image-thumbnail-container {
   display: inline-block;
@@ -500,10 +259,6 @@
 }
 
 .image-thumbnail-container:hover .image-thumbnail {
-  -webkit-filter: brightness(1.05);
-  -moz-filter: brightness(1.05);
-  -o-filter: brightness(1.05);
-  -ms-filter: brightness(1.05);
   filter: brightness(1.05);
 }
 

@@ -6,7 +6,6 @@
   <div class="gallery-empty-placeholder-text">Nothing to Display</div>
 </div>
 
-
 <!-- Mobile and Tablets -->
 <app-gallery-simple
   *ngIf="!desktop && g.numberOfImages"
@@ -15,154 +14,23 @@
   [g]="g">
 </app-gallery-simple>
 
-
-<!-- Desktop Gallery -->
+<!-- Desktop -->
 <div 
   *ngIf="desktop && g.numberOfImages"
   class="gallery-area hidden-mobile hidden-tablet">
   
   <!-- Selected Image Block -->    
-  <div 
+  <app-selected-image-block
     *ngIf="!gridModeOn()"
-    class="image-container">
-
-    <!-- Image Name and Options Panel -->
-    <div class="image-options-panel">
-      <div 
-        class="controls-button controls-button-left image-change-button" 
-        (click)="prevImage()">
-        <span class="controls-button-text">&#9664;</span>
-        <span class="controls-button-label">{{prevImageNumber()}}</span>
-      </div>
-      <div 
-        class="controls-button controls-button-right image-change-button" 
-        (click)="nextImage()">
-        <span class="controls-button-label">{{nextImageNumber()}}</span>
-        <span class="controls-button-text">&#9654;</span>
-      </div>
-      <div class="image-name">Image {{currentImage}}</div>
-      <a 
-        class="controls-button-right" 
-        href="./assets/img/{{g.imageData![currentImage - 1].path}}" 
-        download="{{u.strToKebabCase(g.nameExtended || '')}}-image-{{currentImage}}.jpg">
-        <app-controls-button
-          iconFile="download-icon.png"
-          text="Download">
-        </app-controls-button>
-      </a>
-      <a 
-        class="controls-button-right" 
-        href="./assets/img/{{g.imageData![currentImage - 1].path}}" target="_blank">
-        <app-controls-button
-          iconFile="new-tab-icon.png"
-          text="Full Size"
-          labelText="3840&hairsp;x&hairsp;2160"
-          labelClasses="hidden-desktop-small">
-        </app-controls-button>
-      </a>
-    </div>
-
-    <!-- Selected Image -->
-    <div class="image-background">
-      <img 
-        class="image-background-cogwheel" 
-        src="./assets/interface/cogwheel.svg" />
-      <img 
-        class="image-selected"
-        [ngClass]="{'image-loading' : currentImageLoading}"
-        src="./assets/img/{{g.imageData![currentImage - 1].path}}"
-        alt="{{g.nameExtended}} - Image {{currentImage}}"
-        (load)="onImageLoad()"
-        (contextmenu)="onRightClick($event)" />
-    </div>
-
-    <!-- Selected Image Data -->
-    <div 
-      *ngIf="g.imageData![currentImage - 1] && userSettings.showImageInfo"
-      class="image-data-container">
-      <div class="image-data-angle-1"></div>
-      <div class="image-data-angle-4"></div>
-
-      <!-- Selected Image Caption -->
-      <div class="image-data-column">
-        <div 
-          *ngIf="g.imageData![currentImage - 1].caption"
-          class="image-data-section">
-          <div class="gallery-image-data-icon">
-            <img src="./assets/interface/image-caption-icon.png" alt="icon" />
-          </div>
-          <div>{{g.imageData![currentImage - 1].caption}}</div>
-        </div>
-      </div>
-
-      <!-- Selected Image: Location, Time, Tags -->
-      <div class="image-data-column">
-        <div class="image-data-controls">
-          <app-controls-button
-            [selected]="userSettings.imageDataTabActive == 'location'"
-            (click)="switchImageDataTab('location')"
-            text="Location">
-          </app-controls-button>
-          <app-controls-button
-            *ngIf="g.type != 'month'"
-            [selected]="userSettings.imageDataTabActive == 'time'"
-            (click)="switchImageDataTab('time')"
-            text="Time">
-          </app-controls-button>
-          <app-controls-button
-            [selected]="userSettings.imageDataTabActive == 'tags'"
-            (click)="switchImageDataTab('tags')"
-            text="Tags">
-          </app-controls-button>
-        </div>
-        <div 
-          *ngIf="g.imageData![currentImage - 1].location && userSettings.imageDataTabActive == 'location'"
-          class="image-data-section data-section-tab">
-          <div class="gallery-image-data-icon">
-            <img src="./assets/interface/location-icon.png" alt="icon" />
-          </div>
-          <div>
-            <span 
-              *ngIf="g.imageData![currentImage - 1].location?.name"
-              class="gallery-image-data-section-element">{{currentLocationText[0]}}</span>
-            <span 
-              *ngIf="g.imageData![currentImage - 1].location?.name2"
-              class="gallery-image-data-section-element">{{currentLocationText[1]}}</span>
-            <span 
-              *ngIf="g.imageData![currentImage - 1].location?.lat && g.imageData![currentImage - 1].location?.lon"
-              class="gallery-image-data-section-element image-data-location-coords">{{currentLocationText[2]}}</span>
-          </div>
-        </div>
-        <div 
-          *ngIf="userSettings.imageDataTabActive == 'time'"
-          class="image-data-section data-section-tab">
-          <div class="gallery-image-data-icon">
-            <img src="./assets/interface/calendar-icon.png" alt="icon" />
-          </div>
-          <div>
-            <span class="gallery-image-data-section-element">
-              {{u.monthName(g.imageData![currentImage - 1].month || '')}} {{g.imageData![currentImage - 1].year}}</span>
-          </div>
-        </div>
-        <div 
-          *ngIf="g.imageData![currentImage - 1].tags && userSettings.imageDataTabActive == 'tags'"
-          class="image-data-section data-section-tab">
-          <div class="gallery-image-data-icon">
-            <img src="./assets/interface/tag-icon.png" alt="icon" />
-          </div>
-          <div>
-            <span 
-              *ngFor="let tag of g.imageData![currentImage - 1].tags"
-              class="gallery-image-data-section-element">
-              <span class="gallery-image-data-section-element-decoration">&bull; </span>
-              <span>{{u.capFirstLetter(tag)}}</span>
-            </span>
-          </div>
-        </div>
-
-      </div> 
-    </div>
-  </div>
+    class="image-container"
+    [imageNumber]="currentImage"
+    [prevImageNumber]="prevImageNumber()"
+    [nextImageNumber]="nextImageNumber()"
+    [galleryName]="g.nameExtended!"
+    [galleryType]="g.type"
+    [data]="g.imageData![currentImage - 1]"
+    (changeImage)="handleImageChange($event)">
+  </app-selected-image-block>
 
   <!-- Gallery Settings and Images -->
   <div 
@@ -177,18 +45,13 @@
       <div 
         *ngIf="gridModeOn()"
         class="gallery-name">{{g.nameExtended}}</div>
-      <div 
-        class="controls-button controls-button-right"
+      <app-controls-button
+        iconFile="settings-icon-1.png"
+        iconFile2="settings-icon-2.png"
+        buttonClasses="controls-button-right"
+        iconClasses="controls-button-icon-notext"
         (click)="toggleSettingsPanel()">
-        <img 
-          class="controls-button-icon controls-button-icon-notext" 
-          src="./assets/interface/settings-icon-1.png" 
-          alt="icon" />
-        <img 
-          class="controls-button-icon controls-button-icon-notext" 
-          src="./assets/interface/settings-icon-2.png" 
-          alt="icon" />
-      </div>
+      </app-controls-button>
     </div>
 
     <!-- Settings Panel -->
@@ -200,7 +63,7 @@
       <div class="gallery-settings-panel-header">
         <span>Gallery Settings</span>
         <span 
-          class="panel-close-button controls-button-right" 
+          class="panel-close-button" 
           (click)="toggleSettingsPanel()">&#x2716;</span>
       </div>
 
@@ -335,7 +198,6 @@
     </div>
 
     <!-- Grid Mode Gallery -->
-
     <app-gallery-simple
       *ngIf="gridModeOn()"
       class="gallery-simple-desktop"
