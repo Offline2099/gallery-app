@@ -50,5 +50,9 @@ export class SelectedImageBlockComponent implements OnInit, OnChanges {
   nextImage(): void {
     this.changeImage.emit(1);
   }
+
+  toggleOverlay(): void {
+    this.userSettings.showOverlay = !this.userSettings.showOverlay;
+  }
   
 }

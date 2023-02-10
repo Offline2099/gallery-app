@@ -202,7 +202,8 @@
       *ngIf="gridModeOn()"
       class="gallery-simple-desktop"
       [desktop]="true"
-      [g]="g">
+      [g]="g"
+      (changeImage)="setCurrentImage($event)">
     </app-gallery-simple>
 
   </div> 
@@ -214,4 +215,21 @@
   class="scroll-up-button" 
   [ngClass]="{'scroll-up-button-invisible': verticalOffset < 250}" 
   (click)="scrollToTop()">&#9650;</div>
-  
+
+<!-- Overlay -->
+<div 
+  *ngIf="desktop && userSettings.showOverlay"
+  class="page-overlay hidden-mobile hidden-tablet"
+  (click)="toggleOverlay()">
+  <app-selected-image-block
+    class="overlay-image-container"
+    [imageNumber]="currentImage"
+    [prevImageNumber]="prevImageNumber()"
+    [nextImageNumber]="nextImageNumber()"
+    [galleryName]="g.nameExtended!"
+    [galleryType]="g.type"
+    [data]="g.imageData![currentImage - 1]"
+    (changeImage)="handleImageChange($event)"
+    (click)="$event.stopPropagation()">
+  </app-selected-image-block>
+</div>

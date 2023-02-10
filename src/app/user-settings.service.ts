@@ -5,6 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class UserSettingsService {
 
+  // Variables
+
+  private _showOverlay: boolean = false;
   private _panelOpen: boolean = false;
   private _showImageInfo: boolean = true;
   private _showImageCaptions: boolean = true;
@@ -15,6 +18,12 @@ export class UserSettingsService {
   private _simpleGalleryByTime: boolean = false;
   private _simpleGalleryByData: boolean = true;
   private _imagesInRow: number = 3;
+
+  // Getters
+
+  get showOverlay() {
+    return this._showOverlay;
+  }
 
   get panelOpen() {
     return this._panelOpen;
@@ -54,6 +63,12 @@ export class UserSettingsService {
 
   get imagesInRow() {
     return this._imagesInRow;
+  }
+
+  // Setters
+
+  set showOverlay(val: boolean) {
+    this._showOverlay = val;
   }
 
   set panelOpen(val: boolean) {

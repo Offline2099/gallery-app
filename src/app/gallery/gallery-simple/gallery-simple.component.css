@@ -82,6 +82,7 @@
   background-size: 3.125% 5.5%;
   background-position: -1.5625% -2.75%;
   transition: .2s;
+  cursor: zoom-in;
 }
 
 @media (hover: hover) {

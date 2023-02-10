@@ -346,3 +346,33 @@
   color: #eee;
   background: rgba(0, 179, 179, .8);
 }
+
+
+/* Overlay */
+
+.page-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  padding: 10px;
+  background-color: #333;
+  background-size: 19px 19px;
+  background-image: repeating-linear-gradient(45deg, #004d4d 0, #004d4d 0.9px, #333 0, #333 50%);
+  box-shadow: 0 0 5px 5px #333 inset;
+  animation: fadeIn .2s;
+}
+
+.overlay-image-container {
+  display: flex;
+  flex-direction: column;
+  width: calc(16 * (100vh - 173px) / 9);
+  min-width: calc(992px - 20px);
+  background: #111;
+  box-shadow: 0 0 5px 5px #333;
+}

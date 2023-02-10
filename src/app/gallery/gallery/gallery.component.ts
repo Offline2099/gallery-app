@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, HostListener  } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Gallery } from '../../data/data-types';
@@ -17,7 +17,7 @@ export class GalleryComponent implements OnInit, AfterViewInit {
   verticalOffset: number = 0;
 
   currentImage: number = 1;
-  
+
   aciveMouseover: boolean[] = [];
 
   constructor(
@@ -163,6 +163,13 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   cancelMouseoverSelect(i: number): void {
     this.aciveMouseover[i] = false;
+  }
+
+
+  // Overlay
+
+  toggleOverlay(): void {
+    this.userSettings.showOverlay = !this.userSettings.showOverlay;
   }
 
 }

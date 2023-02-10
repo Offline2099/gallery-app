@@ -10,7 +10,12 @@
     (click)="prevImage()">
   </app-controls-button>
 
-  <div class="image-name">Image {{imageNumber}}</div>
+  <div class="image-name">
+    <span 
+      *ngIf="userSettings.showOverlay"
+      class="hidden-desktop-small">{{galleryName}} &#9656; </span>
+    <span>Image {{imageNumber}}</span>
+  </div>
   
   <div class="image-options-panel-buttons-right">
     <a 
@@ -49,11 +54,15 @@
     src="./assets/interface/cogwheel.svg" />
   <img 
     class="image-selected"
-    [ngClass]="{'image-loading' : currentImageLoading}"
+    [ngClass]="{
+      'image-loading' : currentImageLoading,
+      'overlay-image-selected': userSettings.showOverlay
+    }"
     src="./assets/img/{{data.path}}"
     alt="{{galleryName}} - Image {{imageNumber}}"
     (load)="onImageLoad()"
-    (contextmenu)="onRightClick($event)" />
+    (contextmenu)="onRightClick($event)"
+    (click)="toggleOverlay()" />
 </div>
 
 <!-- Selected Image Data -->

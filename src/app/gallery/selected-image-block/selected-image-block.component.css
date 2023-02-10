@@ -45,7 +45,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   aspect-ratio: 16/9;
   margin-bottom: 5px;
   background-color: #111;
@@ -63,14 +62,19 @@
 
 .image-selected {
   position: absolute;
-  width: 100%;
   aspect-ratio:  16/9;
   top: 0;
   left: 0;
   z-index: 10;
+  width: 100%;
   opacity: 1;
   transition: .2s;
   transition-delay: .2s;
+  cursor: zoom-in;
+}
+
+.image-selected.overlay-image-selected {
+  cursor: zoom-out;
 }
 
 .image-selected.image-loading {

@@ -32,12 +32,13 @@
     *ngIf="!desktop"
     class="gallery-simple-image"
     src="./assets/img/small/{{image.path}}"
-    alt="Image {{i+1}}" />
+    alt="Image {{i + 1}}" />
   <img 
     *ngIf="desktop"
     class="gallery-simple-image"
     src="./assets/img/{{userSettings.imagesInRow > 2 ? 'small/' : ''}}{{image.path}}"
-    alt="Image {{i+1}}" />
+    alt="Image {{i + 1}}"
+    (click)="toggleOverlay(i + 1)" />
 
   <!-- Caption and Data -->
   <app-image-data-block
