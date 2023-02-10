@@ -30,6 +30,7 @@ export class GalleryComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.desktop = (window.innerWidth > 991);
     this.aciveMouseover = Array.from(Array(this.g.numberOfImages)).map(e => false);
+    this.userSettings.showOverlay = false;
   }
 
   ngAfterViewInit(): void {
@@ -103,26 +104,6 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   // Changing settings
 
-  toggleSettingsPanel(): void {
-    this.userSettings.panelOpen = !this.userSettings.panelOpen;
-  }
-
-  toggleImageInfo(): void {
-    this.userSettings.showImageInfo = !this.userSettings.showImageInfo;
-  }
-
-  toggleImageCaptions(): void {
-    this.userSettings.showImageCaptions = !this.userSettings.showImageCaptions;
-  }
-
-  toggleImageData(): void {
-    this.userSettings.showImageData = !this.userSettings.showImageData;
-  }
-
-  toggleImageTags(): void {
-    this.userSettings.showImageTags = !this.userSettings.showImageTags;
-  }
-
   setImagesInRow(n: number): void {
     this.userSettings.imagesInRow = n;
   }
@@ -149,10 +130,6 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   // No-click mode
 
-  toggleSelectOnMouseover(): void {
-    this.userSettings.selectOnMouseover = !this.userSettings.selectOnMouseover;
-  }
-
   mouseoverImageSelect(i: number): void {
     this.aciveMouseover[i] = true;
     setTimeout(()=>{
@@ -163,13 +140,6 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   cancelMouseoverSelect(i: number): void {
     this.aciveMouseover[i] = false;
-  }
-
-
-  // Overlay
-
-  toggleOverlay(): void {
-    this.userSettings.showOverlay = !this.userSettings.showOverlay;
   }
 
 }

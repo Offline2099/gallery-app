@@ -50,7 +50,7 @@
         iconFile2="settings-icon-2.png"
         buttonClasses="controls-button-right"
         iconClasses="controls-button-icon-notext"
-        (click)="toggleSettingsPanel()">
+        (click)="userSettings.toggleSettingsPanel()">
       </app-controls-button>
     </div>
 
@@ -64,7 +64,7 @@
         <span>Gallery Settings</span>
         <span 
           class="panel-close-button" 
-          (click)="toggleSettingsPanel()">&#x2716;</span>
+          (click)="userSettings.toggleSettingsPanel()">&#x2716;</span>
       </div>
 
       <!-- Settings Panel: Mode -->
@@ -95,7 +95,7 @@
           <app-controls-button
             [hasSwitch]="true"
             [switchOn]="userSettings.showImageInfo"
-            (click)="toggleImageInfo()"
+            (click)="userSettings.toggleImageInfo()"
             text="Show Image Info">
           </app-controls-button>
         </div>
@@ -112,19 +112,19 @@
           <app-controls-button
             [hasSwitch]="true"
             [switchOn]="userSettings.showImageCaptions"
-            (click)="toggleImageCaptions()"
+            (click)="userSettings.toggleImageCaptions()"
             text="Text">
           </app-controls-button>
           <app-controls-button
             [hasSwitch]="true"
             [switchOn]="userSettings.showImageData"
-            (click)="toggleImageData()"
+            (click)="userSettings.toggleImageData()"
             text="Data">
           </app-controls-button>
           <app-controls-button
             [hasSwitch]="true"
             [switchOn]="userSettings.showImageTags"
-            (click)="toggleImageTags()"
+            (click)="userSettings.toggleImageTags()"
             text="Tags">
           </app-controls-button>
         </div>
@@ -141,7 +141,7 @@
           <app-controls-button
             [hasSwitch]="true"
             [switchOn]="userSettings.selectOnMouseover"
-            (click)="toggleSelectOnMouseover()"
+            (click)="userSettings.toggleSelectOnMouseover()"
             text="No-Click Mode">
           </app-controls-button>
         </div>
@@ -220,9 +220,10 @@
 <div 
   *ngIf="desktop && userSettings.showOverlay"
   class="page-overlay hidden-mobile hidden-tablet"
-  (click)="toggleOverlay()">
+  (click)="userSettings.toggleOverlay()">
   <app-selected-image-block
     class="overlay-image-container"
+    [ngClass]="{'overlay-image-container-no-data': !userSettings.showImageInfo}"
     [imageNumber]="currentImage"
     [prevImageNumber]="prevImageNumber()"
     [nextImageNumber]="nextImageNumber()"

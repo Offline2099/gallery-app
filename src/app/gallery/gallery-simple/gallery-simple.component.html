@@ -5,19 +5,19 @@
   <app-controls-button
     [hasSwitch]="true"
     [switchOn]="userSettings.showImageCaptions"
-    (click)="toggleImageCaptions()"
+    (click)="userSettings.toggleImageCaptions()"
     text="Captions">
   </app-controls-button>
   <app-controls-button
     [hasSwitch]="true"
     [switchOn]="userSettings.showImageData"
-    (click)="toggleImageData()"
+    (click)="userSettings.toggleImageData()"
     text="Data">
   </app-controls-button>
   <app-controls-button
     [hasSwitch]="true"
     [switchOn]="userSettings.showImageTags"
-    (click)="toggleImageTags()"
+    (click)="userSettings.toggleImageTags()"
     text="Tags">
   </app-controls-button>
 </div>

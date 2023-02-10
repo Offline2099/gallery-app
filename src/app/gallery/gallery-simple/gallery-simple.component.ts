@@ -21,18 +21,6 @@ export class GallerySimpleComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleImageCaptions(): void {
-    this.userSettings.showImageCaptions = !this.userSettings.showImageCaptions;
-  }
-
-  toggleImageData(): void {
-    this.userSettings.showImageData = !this.userSettings.showImageData;
-  }
-
-  toggleImageTags(): void {
-    this.userSettings.showImageTags = !this.userSettings.showImageTags;
-  }
-
   toggleOverlay(image: number): void {
     this.changeImage.emit(image);
     this.userSettings.showOverlay = !this.userSettings.showOverlay;

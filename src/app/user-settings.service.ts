@@ -110,4 +110,34 @@ export class UserSettingsService {
   set imagesInRow(val: number) {
     this._imagesInRow = val;
   }
+
+  // Togglers
+
+  toggleOverlay(): void {
+    this._showOverlay = !this._showOverlay;
+  }
+
+  toggleSettingsPanel(): void {
+    this._panelOpen = !this._panelOpen;
+  }
+
+  toggleImageInfo(): void {
+    this._showImageInfo = !this._showImageInfo;
+  }
+
+  toggleImageCaptions(): void {
+    this._showImageCaptions = !this._showImageCaptions;
+  }
+
+  toggleImageData(): void {
+    this._showImageData = !this._showImageData;
+  }
+
+  toggleImageTags(): void {
+    this._showImageTags = !this._showImageTags;
+  }
+
+  toggleSelectOnMouseover(): void {
+    this._selectOnMouseover = !this._selectOnMouseover;
+  }
 }

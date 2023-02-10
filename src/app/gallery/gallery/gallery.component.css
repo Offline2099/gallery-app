@@ -371,8 +371,15 @@
 .overlay-image-container {
   display: flex;
   flex-direction: column;
-  width: calc(16 * (100vh - 173px) / 9);
+  width: calc(16 * (100vh - 178px) / 9);
   min-width: calc(992px - 20px);
   background: #111;
+  border: 5px solid #111;
+  border-radius: 5px;
   box-shadow: 0 0 5px 5px #333;
+}
+
+.overlay-image-container-no-data {
+  border-bottom: none;
+  width: calc(16 * (100vh - 63px) / 9);
 }
