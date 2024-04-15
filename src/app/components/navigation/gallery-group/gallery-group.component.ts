@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Gallery } from '../../data/data-types';
+import { Gallery } from '../../../interfaces/data';
 
 @Component({
   selector: 'app-gallery-group',

@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
-import { ImageData } from '../../data/data-types';
-import { UserSettingsService } from '../../user-settings.service';
-import { UtilitiesService } from '../../utilities.service';
+import { ImageData } from '../../../interfaces/data';
+import { UserSettingsService } from '../../../services/user-settings.service';
+import { UtilitiesService } from '../../../services/utilities.service';
 
 @Component({
   selector: 'app-selected-image-block',

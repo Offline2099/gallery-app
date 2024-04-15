@@ -1,3 +1,20 @@
+
+export interface TimelineYear {
+  year: string;
+  months: {
+    m: string;
+    n: number;
+    d: ImageData[];
+  }[];
+}
+
+export interface DefaultGalleries {
+  byYears: GalleryGroup;
+  byMonths: GalleryGroup[];
+  byLocations: GalleryGroup[];
+  byTags: GalleryGroup[];
+}
+
 export interface Gallery {
   type: string;
   name: string;

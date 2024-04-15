@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { RouterModule, ROUTES, Routes } from '@angular/router';
 
-import { HomepageComponent } from './homepage/homepage.component';
-import { GalleryComponent } from './gallery/gallery/gallery.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { GalleryComponent } from './components/gallery/gallery/gallery.component';
 
-import { DefaultGalleries } from './data/galleries-data';
+import { DataService } from './services/data.service';
 
 const standardRoutes: Routes = [
   // Main page
@@ -27,10 +27,12 @@ const standardRoutes: Routes = [
     {
       provide: ROUTES,
       useFactory: () => {
+
         let routes: Routes = [];
+        let data = inject(DataService);
 
         // Years
-        DefaultGalleries.byYears.galleries.forEach(gallery => {
+        data.DefaultGalleries.byYears.galleries.forEach(gallery => {
           routes.push({
             path: gallery.path, 
             component: GalleryComponent,
@@ -41,7 +43,7 @@ const standardRoutes: Routes = [
         });
         
         // Months 
-        DefaultGalleries.byMonths.forEach(year => {
+        data.DefaultGalleries.byMonths.forEach(year => {
           year.galleries.forEach(gallery => {
             routes.push({
               path: gallery.path, 
@@ -54,7 +56,7 @@ const standardRoutes: Routes = [
         });
 
         // Locations
-        DefaultGalleries.byLocations.forEach(group => {
+        data.DefaultGalleries.byLocations.forEach(group => {
           group.galleries.forEach(gallery => {
             routes.push({
               path: gallery.path, 
@@ -67,7 +69,7 @@ const standardRoutes: Routes = [
         });
 
         // Tags
-        DefaultGalleries.byTags.forEach(group => {
+        data.DefaultGalleries.byTags.forEach(group => {
           group.galleries.forEach(gallery => {
             routes.push({
               path: gallery.path, 
