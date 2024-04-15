@@ -80,12 +80,13 @@
   flex-basis: calc(28.571% - 10px);
   position: relative;
   top: 0;
-  padding: 0 5px;
+  padding: 0 5px 50vh 5px;
   animation: fadeIn .5s;
 }
 
 .gallery-container-full-width {
   flex-basis: calc(100% - 10px);
+  padding-bottom: 0;
 }
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService } from '../../../services/data.service'; 
 
 @Component({
@@ -6,13 +6,13 @@ import { DataService } from '../../../services/data.service';
   templateUrl: './navigation-area.component.html',
   styleUrls: ['./navigation-area.component.css']
 })
-export class NavigationAreaComponent implements OnInit {
+export class NavigationAreaComponent {
 
   constructor(private data: DataService) { }
 
-  groupsByYears = this.data.DefaultGalleries.byMonths.reverse();
-  groupsByLocations = this.data.DefaultGalleries.byLocations;
-  groupsByTags = this.data.DefaultGalleries.byTags;
+  groupsByYears = this.data.DefaultGalleries.byMonth;
+  groupsByLocations = this.data.DefaultGalleries.byLocation;
+  groupsByTags = this.data.DefaultGalleries.byTag;
 
   galleryGroupsEven = {
     byYears: this.groupsByYears.filter((g, i) => i % 2 === 1),
@@ -57,8 +57,5 @@ export class NavigationAreaComponent implements OnInit {
     this.navigationTabs.forEach((tab, i) => {
       tab.active = (i == index);
     });
-  }
-
-  ngOnInit(): void {
   }
 }

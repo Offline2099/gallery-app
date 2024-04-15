@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 
 import { ImageData } from '../../../interfaces/data';
 import { UserSettingsService } from '../../../services/user-settings.service';
@@ -12,7 +12,11 @@ import { UtilitiesService } from '../../../services/utilities.service';
   templateUrl: './image-data-block.component.html',
   styleUrls: ['./image-data-block.component.css']
 })
-export class ImageDataBlockComponent implements OnInit, OnChanges {
+export class ImageDataBlockComponent {
+
+  constructor(
+    public userSettings: UserSettingsService,
+    public u: UtilitiesService) { }
 
   @Input() blockType!: string;
   @Input() galleryType!: string;
@@ -22,10 +26,6 @@ export class ImageDataBlockComponent implements OnInit, OnChanges {
 
   timeText: string = '';
   coordText: string = '';
-
-  constructor(
-    public userSettings: UserSettingsService,
-    public u: UtilitiesService) { }
 
   ngOnInit(): void {
     this.setContainerClass();

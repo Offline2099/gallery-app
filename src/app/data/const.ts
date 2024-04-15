@@ -61,6 +61,13 @@ export const Timeline: TimelineYear[] = [
   }
 ];
 
+export const enum GalleryTypes {
+  month = 'month',
+  year = 'year',
+  location = 'location',
+  tag = 'tag'
+}
+
 export const Locations = [
   {
     groupName: 'Cities\xa0and Regions',

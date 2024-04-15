@@ -24,10 +24,10 @@
   [ngClass]="{'hidden-mobile hidden-tablet': collapsedOnMobile}">
   <a *ngFor="let g of galleries" routerLink="{{g.path}}">
     <app-controls-button
-      *ngIf="g.numberOfImages"
+      *ngIf="g.images.length"
       routerLinkActive="controls-button-selected"
-      [text]="g.name"
-      labelText="{{g.numberOfImages}}">
+      [text]="g.name.short"
+      labelText="{{g.images.length}}">
     </app-controls-button>
   </a>
 </div>

@@ -110,10 +110,6 @@
   animation: fadeIn .5s;
 }
 
-.footer-area-mini {
-  height: 30px;
-}
-
 .footer-area:before {
   content: '';
   position: absolute;
@@ -135,9 +131,6 @@
 @media (max-width: 991px) {
   .footer-area {
     font-size: 16px;
-  }
-  .footer-area-mini {
-    height: 100px;
   }
 }
 

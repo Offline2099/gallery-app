@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 
@@ -11,19 +11,19 @@
     <title>Photo Gallery</title>
     <meta name="title" content="Photo Gallery">
     <meta name="description" content="A collection of photos made while staying in Thailand over the recent few years.">
-    <link rel="icon" type="image/x-icon" href="https://offline2099.github.io/photo-gallery/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://offline2099.github.io/photo-gallery/">
     <meta property="og:title" content="Photo Gallery">
     <meta property="og:description" content="A collection of photos made while staying in Thailand over the recent few years.">
-    <meta property="og:image" content="https://offline2099.github.io/photo-gallery/assets/og/og-image.jpg">
+    <meta property="og:image" content="./assets/og/og-image.jpg">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://offline2099.github.io/photo-gallery/">
     <meta property="twitter:title" content="Photo Gallery">
     <meta property="twitter:description" content="A collection of photos made while staying in Thailand over the recent few years.">
-    <meta property="twitter:image" content="https://offline2099.github.io/photo-gallery/assets/og/og-image.jpg">
+    <meta property="twitter:image" content="./assets/og/og-image.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 1000;
+        z-index: 10000;
         width: 100%;
         height: 100%;
         background-color: #111;
@@ -49,8 +49,7 @@
         position: fixed;
         top: calc(50% - 256px);
         left: calc(50% - 128px);
-        animation: loadingCogwheelRotate 3s;
-        animation-iteration-count: infinite;
+        animation: loadingCogwheelRotate 3s infinite;
       }
       .app-loading-cogwheel svg {
         display: block;
@@ -85,11 +84,12 @@
       <div class="app-loading-placeholder">
         <div class="app-loading-cogwheel">
           <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            xmlns:xlink="http://www.w3.org/1999/xlink" 
-            width="256px" height="256px" viewBox="0 0 256 256" version="1.1">
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            width="256px" height="256px" viewBox="0 0 256 256">
             <defs>
-              <path id='p1' fill="#00b3b3" d="
+              <path id='p1' fill="#00b3b3" 
+                d="
                 M 174.39 206.44 
                 C 167.61 210.40 160.41 213.45 152.87 215.55
                 L 152.87 240.85
@@ -103,18 +103,17 @@
                 L 138.42 248.55
                 C 142.74 248.55 146.23 245.08 146.23 240.79 
                 L 146.23 210.47 
-                C 157.28 207.71 165.48 204.24 173.04 199.52
-              "></path>
+                C 157.28 207.71 165.48 204.24 173.04 199.52" />
             </defs>
-            <use href="#p1"></use>
-            <use href="#p1" transform="rotate(45, 128, 128)"></use>
-            <use href="#p1" transform="rotate(-45, 128, 128)"></use>
-            <use href="#p1" transform="rotate(90, 128, 128)"></use>
-            <use href="#p1" transform="rotate(-90, 128, 128)"></use>
-            <use href="#p1" transform="rotate(135, 128, 128)"></use>
-            <use href="#p1" transform="rotate(-135, 128, 128)"></use>
-            <use href="#p1" transform="rotate(180, 128, 128)"></use>
-            <circle cx="128" cy="128" r="45" stroke="#00b3b3" stroke-width="7" fill="none" />
+            <use href="#p1"/>
+            <use href="#p1" transform="rotate(45, 128, 128)"/>
+            <use href="#p1" transform="rotate(-45, 128, 128)"/>
+            <use href="#p1" transform="rotate(90, 128, 128)"/>
+            <use href="#p1" transform="rotate(-90, 128, 128)"/>
+            <use href="#p1" transform="rotate(135, 128, 128)"/>
+            <use href="#p1" transform="rotate(-135, 128, 128)"/>
+            <use href="#p1" transform="rotate(180, 128, 128)"/>
+            <circle cx="128" cy="128" r="45" stroke="#00b3b3" stroke-width="7" fill="none"/>
           </svg>
         </div>
         <div class="app-loading-text">Loading...</div>

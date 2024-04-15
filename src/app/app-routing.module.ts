@@ -32,7 +32,7 @@ const standardRoutes: Routes = [
         let data = inject(DataService);
 
         // Years
-        data.DefaultGalleries.byYears.galleries.forEach(gallery => {
+        data.DefaultGalleries.byYear.galleries.forEach(gallery => {
           routes.push({
             path: gallery.path, 
             component: GalleryComponent,
@@ -43,7 +43,7 @@ const standardRoutes: Routes = [
         });
         
         // Months 
-        data.DefaultGalleries.byMonths.forEach(year => {
+        data.DefaultGalleries.byMonth.forEach(year => {
           year.galleries.forEach(gallery => {
             routes.push({
               path: gallery.path, 
@@ -56,7 +56,7 @@ const standardRoutes: Routes = [
         });
 
         // Locations
-        data.DefaultGalleries.byLocations.forEach(group => {
+        data.DefaultGalleries.byLocation.forEach(group => {
           group.galleries.forEach(gallery => {
             routes.push({
               path: gallery.path, 
@@ -69,7 +69,7 @@ const standardRoutes: Routes = [
         });
 
         // Tags
-        data.DefaultGalleries.byTags.forEach(group => {
+        data.DefaultGalleries.byTag.forEach(group => {
           group.galleries.forEach(gallery => {
             routes.push({
               path: gallery.path, 

@@ -1,14 +1,14 @@
 
 <!-- Empty Gallery Placeholder -->
 <div 
-  *ngIf="!g.numberOfImages"
+  *ngIf="!g.images.length"
   class="gallery-empty-placeholder">
   <div class="gallery-empty-placeholder-text">Nothing to Display</div>
 </div>
 
 <!-- Mobile and Tablets -->
 <app-gallery-simple
-  *ngIf="!desktop && g.numberOfImages"
+  *ngIf="!desktop && g.images.length"
   class="hidden-desktop"
   [desktop]="false"
   [g]="g">
@@ -16,7 +16,7 @@
 
 <!-- Desktop -->
 <div 
-  *ngIf="desktop && g.numberOfImages"
+  *ngIf="desktop && g.images.length"
   class="gallery-area hidden-mobile hidden-tablet">
   
   <!-- Selected Image Block -->    
@@ -26,9 +26,9 @@
     [imageNumber]="currentImage"
     [prevImageNumber]="prevImageNumber()"
     [nextImageNumber]="nextImageNumber()"
-    [galleryName]="g.nameExtended!"
+    [galleryName]="g.name.full"
     [galleryType]="g.type"
-    [data]="g.imageData![currentImage - 1]"
+    [data]="g.images![currentImage - 1]"
     (changeImage)="handleImageChange($event)">
   </app-selected-image-block>
 
@@ -41,13 +41,13 @@
     <div class="gallery-options-panel">
       <div 
         *ngIf="!gridModeOn()"
-        class="gallery-name">{{g.type == 'year' || g.type == 'month' ? g.nameExtended : g.name}}</div>
+        class="gallery-name">{{g.type == 'year' || g.type == 'month' ? g.name.full : g.name.short}}</div>
       <div 
         *ngIf="gridModeOn()"
-        class="gallery-name">{{g.nameExtended}}</div>
+        class="gallery-name">{{g.name.full}}</div>
       <app-controls-button
-        iconFile="settings-icon-1.png"
-        iconFile2="settings-icon-2.png"
+        icon="settings-icon-1.png"
+        icon2="settings-icon-2.png"
         buttonClasses="controls-button-right"
         iconClasses="controls-button-icon-notext"
         (click)="userSettings.toggleSettingsPanel()">
@@ -174,7 +174,7 @@
     <!-- Interactive Gallery Preview Thumbnails -->
     <div *ngIf="!gridModeOn()">
       <div 
-        *ngFor="let image of g.imageData; index as i" 
+        *ngFor="let image of g.images; index as i" 
         class="image-thumbnail-container"
         [ngClass]="{'image-thumbnail-container-selected': i + 1 == currentImage}" 
         (click)="setCurrentImage(i + 1)"
@@ -227,9 +227,9 @@
     [imageNumber]="currentImage"
     [prevImageNumber]="prevImageNumber()"
     [nextImageNumber]="nextImageNumber()"
-    [galleryName]="g.nameExtended!"
+    [galleryName]="g.name.full"
     [galleryType]="g.type"
-    [data]="g.imageData![currentImage - 1]"
+    [data]="g.images[currentImage - 1]"
     (changeImage)="handleImageChange($event)"
     (click)="$event.stopPropagation()">
   </app-selected-image-block>

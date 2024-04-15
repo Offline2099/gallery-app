@@ -1,23 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-controls-button',
   host: {
-    '[class]' : 'buttonClasses',
+    '[class]': 'buttonClasses',
     '[class.controls-button-selected]': 'selected'
   },
   templateUrl: './controls-button.component.html',
   styleUrls: ['./controls-button.component.css']
 })
-export class ControlsButtonComponent implements OnInit {
+export class ControlsButtonComponent {
 
   @Input() selected?: boolean = false;
 
   @Input() hasSwitch?: boolean = false;
   @Input() switchOn?: boolean = false;
 
-  @Input() iconFile?: string = '';
-  @Input() iconFile2?: string = '';
+  @Input() icon?: string;
+  @Input() icon2?: string;
   @Input() text?: string;
   @Input() textBefore?: string;
   @Input() textAfter?: string;
@@ -29,10 +29,5 @@ export class ControlsButtonComponent implements OnInit {
   @Input() textBeforeClasses?: string;
   @Input() textAfterClasses?: string;
   @Input() labelClasses?: string;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

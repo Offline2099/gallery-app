@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 
 import { ImageData } from '../../../interfaces/data';
 import { UserSettingsService } from '../../../services/user-settings.service';
@@ -9,7 +9,7 @@ import { UtilitiesService } from '../../../services/utilities.service';
   templateUrl: './selected-image-block.component.html',
   styleUrls: ['./selected-image-block.component.css']
 })
-export class SelectedImageBlockComponent implements OnInit, OnChanges {
+export class SelectedImageBlockComponent {
 
   @Input() imageNumber!: number;
   @Input() prevImageNumber!: number;
@@ -25,9 +25,6 @@ export class SelectedImageBlockComponent implements OnInit, OnChanges {
   constructor(
     public userSettings: UserSettingsService,
     public u: UtilitiesService) { }
-
-  ngOnInit(): void {
-  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['imageNumber']) {

@@ -1,4 +1,6 @@
 
+import { GalleryTypes } from '../data/const';
+
 export interface TimelineYear {
   year: string;
   months: {
@@ -9,26 +11,25 @@ export interface TimelineYear {
 }
 
 export interface DefaultGalleries {
-  byYears: GalleryGroup;
-  byMonths: GalleryGroup[];
-  byLocations: GalleryGroup[];
-  byTags: GalleryGroup[];
+  byYear: GalleryGroup;
+  byMonth: GalleryGroup[];
+  byLocation: GalleryGroup[];
+  byTag: GalleryGroup[];
 }
 
 export interface Gallery {
-  type: string;
-  name: string;
-  nameExtended?: string;
-  numberOfImages: number;
-  path?: string;
-  imageData?: ImageData[];
+  type: `${GalleryTypes}`;
+  name: {
+    short: string;
+    full: string;
+  }
+  path: string;
+  images: ImageData[];
 };
 
 export interface GalleryGroup {
   name: string;
-  nameShort?: string;
-  nameExtended?: string;
-  path?: string;
+  path: string;
   galleries: Gallery[];
 };
 

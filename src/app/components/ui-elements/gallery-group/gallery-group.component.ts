@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Gallery } from '../../../interfaces/data';
 
 @Component({
@@ -6,18 +6,16 @@ import { Gallery } from '../../../interfaces/data';
   templateUrl: './gallery-group.component.html',
   styleUrls: ['./gallery-group.component.css']
 })
-export class GalleryGroupComponent implements OnInit {
+export class GalleryGroupComponent {
 
   @Input() groupName: string = '';
-  @Input() groupPath: string = '';
   @Input() groupNameMobile: string = '';
+  @Input() groupPath: string = '';
   @Input() groupLabelType: number = 0;
   @Input() galleries: Gallery[] = [];
 
   groupLabel: string = '';
   collapsedOnMobile: boolean = true;
-
-  constructor() { }
 
   ngOnInit(): void {
     this.prepareLabel();
@@ -28,7 +26,7 @@ export class GalleryGroupComponent implements OnInit {
     let entriesTotal: number = this.galleries.length;
 
     let imagesTotal: number = 0;
-    this.galleries.forEach(g => imagesTotal += g.numberOfImages);
+    this.galleries.forEach(g => imagesTotal += g.images.length);
 
     if (this.groupLabelType == 1) 
       this.groupLabel = ['(', entriesTotal, ' galleries, ', imagesTotal, ' images)'].join('');

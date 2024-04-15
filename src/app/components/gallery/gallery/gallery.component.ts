@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Gallery } from '../../../interfaces/data';
@@ -9,7 +9,13 @@ import { UserSettingsService } from '../../../services/user-settings.service';
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent implements OnInit, AfterViewInit {
+export class GalleryComponent {
+
+  constructor(
+    private activatedRoute: ActivatedRoute, 
+    public userSettings: UserSettingsService) {
+    this.g = activatedRoute.snapshot.data['gallery'];
+  }
 
   g: Gallery;
 
@@ -20,21 +26,14 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   aciveMouseover: boolean[] = [];
 
-  constructor(
-    private activatedRoute: ActivatedRoute, 
-    public userSettings: UserSettingsService) {
-
-    this.g = activatedRoute.snapshot.data['gallery'];
-  }
-
   ngOnInit(): void {
     this.desktop = (window.innerWidth > 991);
-    this.aciveMouseover = Array.from(Array(this.g.numberOfImages)).map(e => false);
+    this.aciveMouseover = Array.from(Array(this.g.images.length)).map(e => false);
     this.userSettings.showOverlay = false;
   }
 
   ngAfterViewInit(): void {
-    if (this.desktop && this.g.numberOfImages) this.preloadImages(0);
+    if (this.desktop && this.g.images.length) this.preloadImages(0);
   }
 
   @HostListener('window:resize') onResize() {
@@ -62,10 +61,10 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   preloadImages(i: number): void {
     let img = new Image();
-    if (this.g.imageData)
-      img.src = './assets/img/' + this.g.imageData[i].path;
+    if (this.g.images)
+      img.src = './assets/img/' + this.g.images[i].path;
     img.onload = () => {
-        if (this.g.imageData && i + 1 < this.g.imageData.length) 
+        if (this.g.images && i + 1 < this.g.images.length) 
           this.preloadImages(i + 1);
     }
   }
@@ -85,7 +84,7 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   prevImageNumber(): number {
     if (this.currentImage > 1) return this.currentImage - 1;
-    else return this.g.numberOfImages;
+    else return this.g.images.length;
   }
 
   prevImage(): void {
@@ -93,7 +92,7 @@ export class GalleryComponent implements OnInit, AfterViewInit {
   }
   
   nextImageNumber(): number {
-    if(this.currentImage < this.g.numberOfImages) return this.currentImage + 1;
+    if(this.currentImage < this.g.images.length) return this.currentImage + 1;
     else return 1;
   }
 
