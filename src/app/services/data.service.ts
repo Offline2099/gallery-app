@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { ImageData, DefaultGalleries, GalleryGroup, Gallery } from '../interfaces/data';
+import { ImageData, DefaultGalleries, GalleryGroup } from '../interfaces/data';
 import { Timeline, Locations, Tags, GalleryTypes } from '../data/const';
 import { UtilitiesService } from './utilities.service';
 
@@ -13,11 +13,16 @@ export class DataService {
 
   DefaultGalleries: DefaultGalleries = this.constructDefaultGalleries();
 
-  private sortTags(tags: string[]): void {
-    let allTagsSorted: string[] = Tags.map(group => group.names).flat();
-    tags.sort((a, b) => {
-      return allTagsSorted.indexOf(a) - allTagsSorted.indexOf(b);
-    });
+  private constructDefaultGalleries(): DefaultGalleries {
+
+    let data: ImageData[] = this.getAllImageData();
+
+    return { 
+      byYear: this.constructGalleriesByYear(data), 
+      byMonth: this.constructGalleriesByMonth(data),
+      byLocation: this.constructGalleriesByLocation(data),
+      byTag: this.constructGalleriesByTag(data)
+    }
   }
 
   private getAllImageData(): ImageData[] {
@@ -46,6 +51,13 @@ export class DataService {
     return allImageData;
   }
 
+  private sortTags(tags: string[]): void {
+    let allTagsSorted: string[] = Tags.map(group => group.names).flat();
+    tags.sort((a, b) => {
+      return allTagsSorted.indexOf(a) - allTagsSorted.indexOf(b);
+    });
+  }
+
   private constructGalleriesByYear(data: ImageData[]): GalleryGroup {
     return {
       name: 'Years',
@@ -68,7 +80,7 @@ export class DataService {
       path: y.year,
       galleries: y.months.map(month => ({
         type: GalleryTypes.month,
-        path: `${y.year} ${month.m}`,
+        path: `${y.year}/${month.m}`,
         name: {
           short: this.u.monthName(month.m),
           full: `${this.u.monthName(month.m)} ${y.year}`
@@ -97,7 +109,7 @@ export class DataService {
           .sort((a, b) => {
             let t1 = new Date(`01/${a.month}/${a.year}`).getTime();
             let t2 = new Date(`01/${b.month}/${b.year}`).getTime();
-            return  t2 - t1;
+            return t2 - t1;
           })
       }))
     }));
@@ -122,21 +134,9 @@ export class DataService {
           .sort((a, b) => {
             let t1 = new Date(`01/${a.month}/${a.year}`).getTime();
             let t2 = new Date(`01/${b.month}/${b.year}`).getTime();
-            return  t2 - t1;
+            return t2 - t1;
           })
       }))
     }));
-  }
-
-  constructDefaultGalleries(): DefaultGalleries {
-
-    let data: ImageData[] = this.getAllImageData();
-
-    return { 
-      byYear: this.constructGalleriesByYear(data), 
-      byMonth: this.constructGalleriesByMonth(data),
-      byLocation: this.constructGalleriesByLocation(data),
-      byTag: this.constructGalleriesByTag(data)
-    }
   }
 }

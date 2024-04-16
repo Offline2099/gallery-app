@@ -1,5 +1,13 @@
 
-// 2021
+/******************************************************************************
+
+  In a proper implementation, this data should be stored in a backend
+  database. Since this project is hosted on GitHub Pages (which only allows
+  static websites), the easiest way is to just keep the data here.
+
+******************************************************************************/
+
+// 2022
 
 export const Jan2022Data = [
   {

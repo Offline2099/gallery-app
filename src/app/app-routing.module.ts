@@ -29,7 +29,7 @@ const standardRoutes: Routes = [
       useFactory: () => {
 
         let routes: Routes = [];
-        let data = inject(DataService);
+        let data: DataService = inject(DataService);
 
         // Years
         data.DefaultGalleries.byYear.galleries.forEach(gallery => {
@@ -52,7 +52,7 @@ const standardRoutes: Routes = [
                 gallery: gallery
               }
             });
-          })
+          });
         });
 
         // Locations
@@ -65,7 +65,7 @@ const standardRoutes: Routes = [
                 gallery: gallery
               }
             });
-          })
+          });
         });
 
         // Tags
@@ -78,7 +78,7 @@ const standardRoutes: Routes = [
                 gallery: gallery
               }
             });
-          })
+          });
         });
 
         return [

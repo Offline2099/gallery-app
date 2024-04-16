@@ -74,7 +74,7 @@ export const Locations = [
     names: [
       'Bangkok', 'Pattaya', // major cities
       'North of Pattaya', 'Northeast of Pattaya', 'East of Pattaya', 'Southeast of Pattaya', 'South of Pattaya', // directions
-      'Sattahip', 'Test' // administrative regions
+      'Sattahip' // administrative regions
     ]
   },
   {
