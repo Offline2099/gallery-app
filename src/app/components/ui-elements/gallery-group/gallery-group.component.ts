@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+
 import { Gallery } from '../../../interfaces/data';
+import { GalleryGroupLabelTypes } from '../../../interfaces/ui';
 
 @Component({
   selector: 'app-gallery-group',
@@ -9,12 +11,11 @@ import { Gallery } from '../../../interfaces/data';
 export class GalleryGroupComponent {
 
   @Input() groupName: string = '';
-  @Input() groupNameMobile: string = '';
   @Input() groupPath: string = '';
-  @Input() groupLabelType: number = 0;
   @Input() galleries: Gallery[] = [];
+  @Input() labelType: number = 0;
 
-  groupLabel: string = '';
+  label: string = '';
   collapsedOnMobile: boolean = true;
 
   ngOnInit(): void {
@@ -24,15 +25,12 @@ export class GalleryGroupComponent {
   prepareLabel(): void {
     
     let entriesTotal: number = this.galleries.length;
-
-    let imagesTotal: number = 0;
-    this.galleries.forEach(g => imagesTotal += g.images.length);
-
-    if (this.groupLabelType == 1) 
-      this.groupLabel = ['(', entriesTotal, ' galleries, ', imagesTotal, ' images)'].join('');
-
-    if (this.groupLabelType == 2) 
-      this.groupLabel = ['(', entriesTotal, ' galleries)'].join('');
+    let imagesTotal: number = this.galleries.map(g => g.images).flat().length;
+ 
+    if (this.labelType == GalleryGroupLabelTypes.countAll) 
+      this.label = `(${entriesTotal} galleries, ${imagesTotal} images)`;
+    else if (this.labelType == GalleryGroupLabelTypes.countGalleries) 
+      this.label = `(${entriesTotal} galleries)`;
   }
 
   toggleOnMobile(): void {

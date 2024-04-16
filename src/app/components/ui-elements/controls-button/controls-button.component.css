@@ -16,6 +16,10 @@
   }
 }
 
+:host.no-margin {
+  margin: 0;
+}
+
 :host.controls-button-right {
   float: right;
 }

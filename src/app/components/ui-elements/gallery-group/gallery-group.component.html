@@ -15,19 +15,22 @@
   <span 
     *ngIf="groupPath == ''"
     class="hidden-mobile hidden-tablet" >{{groupName}}</span>
-  <span class="buttons-container-head-label hidden-desktop">{{groupLabel}}</span>
+  <span class="buttons-container-head-label hidden-desktop">{{label}}</span>
 </div>
 
 <!-- Group Body -->
 <div 
   class="buttons-container-body" 
   [ngClass]="{'hidden-mobile hidden-tablet': collapsedOnMobile}">
-  <a *ngFor="let g of galleries" routerLink="{{g.path}}">
+  <a 
+    *ngFor="let g of galleries"
+    routerLink="{{g.path}}">
     <app-controls-button
       *ngIf="g.images.length"
       routerLinkActive="controls-button-selected"
       [text]="g.name.short"
-      labelText="{{g.images.length}}">
+      labelText="{{g.images.length}}"
+      buttonClasses="no-margin">
     </app-controls-button>
   </a>
 </div>

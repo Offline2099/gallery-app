@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { DataService } from '../../../services/data.service'; 
+
+import { DataService } from '../../../services/data.service';
+import { GalleryGroupLabelTypes } from '../../../interfaces/ui';
 
 @Component({
   selector: 'app-navigation-area',
@@ -10,46 +12,45 @@ export class NavigationAreaComponent {
 
   constructor(private data: DataService) { }
 
-  groupsByYears = this.data.DefaultGalleries.byMonth;
-  groupsByLocations = this.data.DefaultGalleries.byLocation;
-  groupsByTags = this.data.DefaultGalleries.byTag;
+  groupsByYear = this.data.DefaultGalleries.byMonth;
+  groupsByLocation = this.data.DefaultGalleries.byLocation;
+  groupsByTag = this.data.DefaultGalleries.byTag;
 
-  galleryGroupsEven = {
-    byYears: this.groupsByYears.filter((g, i) => i % 2 === 1),
-    byLocations: this.groupsByLocations.filter((g, i) => i % 2 === 1),
-    byTags: this.groupsByTags.filter((g, i) => i % 2 === 1)
+  groupsEven = {
+    byYear: this.groupsByYear.filter((g, i) => i % 2 === 0),
+    byLocation: this.groupsByLocation.filter((g, i) => i % 2 === 0),
+    byTag: this.groupsByTag.filter((g, i) => i % 2 === 0)
   }
-  galleryGroupsOdd = {
-    byYears: this.groupsByYears.filter((g, i) => i % 2 === 0),
-    byLocations: this.groupsByLocations.filter((g, i) => i % 2 === 0),
-    byTags: this.groupsByTags.filter((g, i) => i % 2 === 0)
+  groupsOdd = {
+    byYear: this.groupsByYear.filter((g, i) => i % 2 === 1),
+    byLocation: this.groupsByLocation.filter((g, i) => i % 2 === 1),
+    byTag: this.groupsByTag.filter((g, i) => i % 2 === 1)
   }
-  columns: any[] = [this.galleryGroupsOdd, this.galleryGroupsEven];
-
+  
   navigationTabs = [
     {
-      name: "Years and Months",
-      nameMobile: "Years",
-      labelType: 1,
+      name: 'Years and Months',
+      nameMobile: 'Years',
       active: true,
-      galleryGroups: this.groupsByYears,
-      columns: [this.galleryGroupsOdd.byYears, this.galleryGroupsEven.byYears]
+      galleryGroups: this.groupsByYear,
+      columns: [this.groupsEven.byYear, this.groupsOdd.byYear],
+      labelType: GalleryGroupLabelTypes.countAll
     },
     {
-      name: "Places and Locations",
-      nameMobile: "Places",
-      labelType: 2,
-      active: false,
-      galleryGroups: this.groupsByLocations,
-      columns: [this.galleryGroupsOdd.byLocations, this.galleryGroupsEven.byLocations]
+      name: 'Places and Locations',
+      nameMobile: 'Places',
+      active: false,      
+      galleryGroups: this.groupsByLocation,
+      columns: [this.groupsEven.byLocation, this.groupsOdd.byLocation],
+      labelType: GalleryGroupLabelTypes.countGalleries
     },
     {
-      name: "Tags and Features",
-      nameMobile: "Tags",
-      labelType: 2,
+      name: 'Tags and Features',
+      nameMobile: 'Tags',
       active: false,
-      galleryGroups: this.groupsByTags,
-      columns: [this.galleryGroupsOdd.byTags, this.galleryGroupsEven.byTags]
+      galleryGroups: this.groupsByTag,
+      columns: [this.groupsEven.byTag, this.groupsOdd.byTag],
+      labelType: GalleryGroupLabelTypes.countGalleries
     }
   ];
 

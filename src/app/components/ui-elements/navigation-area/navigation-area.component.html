@@ -24,8 +24,8 @@
     class="hidden-tablet"
     [ngClass]="{'hidden-desktop': i != 0}" 
     [groupName]="group.name"
-    [groupPath]="group.path || ''"
-    [groupLabelType]="tab.labelType"
+    [groupPath]="group.path"
+    [labelType]="tab.labelType"
     [galleries]="group.galleries">
   </app-gallery-group>
 
@@ -37,8 +37,8 @@
     <app-gallery-group 
       *ngFor="let group of column"
       [groupName]="group.name"
-      [groupPath]="group.path || ''"
-      [groupLabelType]="tab.labelType"
+      [groupPath]="group.path"
+      [labelType]="tab.labelType"
       [galleries]="group.galleries">
     </app-gallery-group>
   </div>

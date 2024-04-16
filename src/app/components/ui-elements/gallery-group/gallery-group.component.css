@@ -53,6 +53,11 @@
   padding: 0 2px;
 }
 
+.buttons-container-body a {
+  display: inline-block;
+  margin: 4px 3px;
+}
+
 @media (max-width: 1199px) {
   .buttons-container-head {
     font-size: 18px;
