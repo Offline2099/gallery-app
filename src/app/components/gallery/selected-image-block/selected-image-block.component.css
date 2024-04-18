@@ -1,4 +1,33 @@
 
+:host.selected-image-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: calc(71.429% - 10px);
+  align-self: flex-start;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 0 5px;
+  animation: fadeIn .5s;
+}
+
+:host.overlay-image-container {
+  display: flex;
+  flex-direction: column;
+  width: calc(16 * (100vh - 178px) / 9);
+  min-width: calc(992px - 20px);
+  background: #111;
+  border: 5px solid #111;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 5px #333;
+}
+
+:host.overlay-image-container-no-data {
+  border-bottom: none;
+  width: calc(16 * (100vh - 63px) / 9);
+}
+
+
 /* Panel Elements */
 
 .image-options-panel {
@@ -19,6 +48,11 @@
 .image-options-panel-buttons-right {
   display: flex;
   margin-left: auto;
+}
+
+.image-options-panel a {
+  display: inline-flex;
+  margin: 4px 3px;
 }
 
 .image-name {

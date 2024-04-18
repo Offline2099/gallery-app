@@ -2,45 +2,53 @@
 <!-- Image Name and Options -->
 <div class="image-options-panel">
 
+  <!-- Previous Image -->
   <app-controls-button
     text="&#9664;"
-    [textAfter]="prevImageNumber.toString()"
-    buttonClasses="image-change-button"
-    textAfterClasses="controls-button-text-theme-colored"
+    [textAfter]="image.prevIndex"
+    buttonStyles="image-change-button"
+    textAfterStyles="controls-button-text-theme-colored"
     (click)="prevImage()">
   </app-controls-button>
 
+  <!-- Name -->
   <div class="image-name">
     <span 
-      *ngIf="userSettings.showOverlay"
-      class="hidden-desktop-small">{{galleryName}} &#9656; </span>
-    <span>Image {{imageNumber}}</span>
+      *ngIf="settings.showOverlay"
+      class="hidden-desktop-small">{{image.galleryName}} &#9656; </span>
+    <span>Image {{image.index}}</span>
   </div>
   
   <div class="image-options-panel-buttons-right">
+
+    <!-- Full Size & Download -->
     <a 
-      href="./assets/img/{{data.path}}"
+      href="./assets/img/{{image.data.path}}"
       target="_blank">
       <app-controls-button
         icon="new-tab-icon.png"
         text="Full Size"
         labelText="3840&hairsp;x&hairsp;2160"
-        labelClasses="hidden-desktop-small">
+        buttonStyles="no-margin"
+        labelStyles="hidden-desktop-small">
       </app-controls-button>
     </a>
     <a 
-      href="./assets/img/{{data.path}}" 
-      download="{{u.strToKebabCase(galleryName)}}-image-{{imageNumber}}.jpg">
+      href="./assets/img/{{image.data.path}}" 
+      download="{{dlName}}">
       <app-controls-button
         icon="download-icon.png"
-        text="Download">
+        text="Download"
+        buttonStyles="no-margin">
       </app-controls-button>
     </a>
+
+    <!-- Next Image -->
     <app-controls-button
       text="&#9654;"
-      [textBefore]="nextImageNumber.toString()"
-      buttonClasses="image-change-button button-content-right"
-      textBeforeClasses="controls-button-text-theme-colored"
+      [textBefore]="image.nextIndex"
+      buttonStyles="image-change-button button-content-right"
+      textBeforeStyles="controls-button-text-theme-colored"
       (click)="nextImage()">
     </app-controls-button>
   </div>
@@ -51,24 +59,25 @@
 <div class="image-background">
   <img 
     class="image-background-cogwheel" 
-    src="./assets/interface/cogwheel.svg" />
+    src="./assets/interface/cogwheel.svg" 
+    alt="" />
   <img 
     class="image-selected"
     [ngClass]="{
-      'image-loading' : currentImageLoading,
-      'overlay-image-selected': userSettings.showOverlay
+      'image-loading': imageLoading,
+      'overlay-image-selected': settings.showOverlay
     }"
-    src="./assets/img/{{data.path}}"
-    alt="{{galleryName}} - Image {{imageNumber}}"
+    src="./assets/img/{{image.data.path}}"
+    alt="{{altName}}"
     (load)="onImageLoad()"
-    (contextmenu)="onRightClick($event)"
-    (click)="userSettings.toggleOverlay()" />
+    (click)="settings.toggleOverlay()" 
+    (contextmenu)="$event.preventDefault()" />
 </div>
 
 <!-- Selected Image Data -->
 <app-image-data-block
-  *ngIf="data && userSettings.showImageInfo"
+  *ngIf="settings.showImageInfo"
   blockType="selected"
-  [data]="data"
-  [galleryType]="galleryType">
+  [data]="image.data"
+  [galleryType]="image.galleryType">
 </app-image-data-block>

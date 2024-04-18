@@ -85,6 +85,10 @@
   cursor: zoom-in;
 }
 
+.gallery-simple-image-unclickable {
+  cursor: default;
+}
+
 @media (hover: hover) {
   .gallery-simple-block:hover .gallery-simple-image {
     filter: brightness(1.1);

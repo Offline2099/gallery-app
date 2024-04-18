@@ -1,0 +1,110 @@
+
+<!-- Panel Header -->
+<div class="gallery-settings-panel-header">
+  <span>Gallery Settings</span>
+  <span 
+    class="panel-close-button" 
+    (click)="settings.toggleSettingsPanel()">&#x2716;</span>
+</div>
+
+<!-- Gallery Mode -->
+<div class="gallery-settings-panel-block gallery-settings-panel-block-right">
+  <div class="gallery-settings-panel-block-control">
+    <span class="gallery-settings-panel-block-control-text">Mode:</span>
+    <app-controls-button
+      [selected]="!simpleMode"
+      text="Default"
+      (click)="toggleGalleryMode(false)">
+    </app-controls-button>
+    <app-controls-button
+      [selected]="simpleMode"
+      text="Grid"
+      (click)="toggleGalleryMode(true)">
+    </app-controls-button>
+  </div>
+  <div class="gallery-settings-panel-block-text">
+    Default mode displays the gallery preview on the right and allows to pick an image. Grid mode simply displays all images in the gallery as a grid.
+  </div>
+</div>
+
+<!-- Image Info (Default Mode) -->
+<div 
+  *ngIf="!simpleMode"
+  class="gallery-settings-panel-block">
+  <div class="gallery-settings-panel-block-control">
+    <app-controls-button
+      [hasSwitch]="true"
+      [switchOn]="settings.showImageInfo"
+      text="Show Image Info"
+      (click)="settings.toggleImageInfo()">
+    </app-controls-button>
+  </div>
+  <div class="gallery-settings-panel-block-text">
+    Show or hide the information block under the selected image. Knowing exactly what you are looking at often makes it more interesting.
+  </div>
+</div>
+
+<!-- Image Info (Grid Mode) -->
+<div 
+  *ngIf="simpleMode"
+  class="gallery-settings-panel-block">
+  <div class="gallery-settings-panel-block-control">
+    <app-controls-button
+      [hasSwitch]="true"
+      [switchOn]="settings.showImageCaptions"
+      text="Text"
+      (click)="settings.toggleImageCaptions()">
+    </app-controls-button>
+    <app-controls-button
+      [hasSwitch]="true"
+      [switchOn]="settings.showImageData"
+      text="Data"
+      (click)="settings.toggleImageData()">
+    </app-controls-button>
+    <app-controls-button
+      [hasSwitch]="true"
+      [switchOn]="settings.showImageTags"
+      text="Tags"
+      (click)="settings.toggleImageTags()">
+    </app-controls-button>
+  </div>
+  <div class="gallery-settings-panel-block-text">
+    Show or hide the information blocks under the images. Knowing exactly what you are looking at often makes it more interesting.
+  </div>
+</div>
+
+<!-- No-Click Mode (Default Mode) -->
+<div 
+  *ngIf="!simpleMode"
+  class="gallery-settings-panel-block">
+  <div class="gallery-settings-panel-block-control">
+    <app-controls-button
+      [hasSwitch]="true"
+      [switchOn]="settings.selectOnMouseover"
+      text="No-Click Mode"
+      (click)="settings.toggleSelectOnMouseover()">
+    </app-controls-button>
+  </div>
+  <div class="gallery-settings-panel-block-text">
+    Select images automatically without clicking, just by hovering your mouse cursor over the preview. Some people find it convenient, others don't like it.
+  </div>
+</div>
+
+<!-- Images per row (Grid Mode) -->
+<div 
+  *ngIf="simpleMode"
+  class="gallery-settings-panel-block">
+  <div class="gallery-settings-panel-block-control">
+    <span class="gallery-settings-panel-block-control-text">Images per Row:</span>
+    <app-controls-button
+      *ngFor="let n of [1, 2, 3, 4]"
+      [ngClass]="{'hidden-desktop-small hidden-desktop-average': n == 4}"
+      [selected]="settings.imagesInRow == n"
+      text="{{n}}"
+      (click)="setImagesInRow(n)">
+    </app-controls-button>
+  </div>
+  <div class="gallery-settings-panel-block-text">
+    Select how many images should be fit into a row. Less images per row means a larger size for each image on the screen.
+  </div>
+</div>

@@ -1,0 +1,109 @@
+
+<!-- Empty Gallery Placeholder -->
+<div 
+  *ngIf="!g.images.length"
+  class="gallery-empty-placeholder">
+  <div class="gallery-empty-placeholder-text">Nothing to Display</div>
+</div>
+
+<!-- Gallery Content -->
+<ng-container *ngIf="g.images.length">
+
+  <!-- Mobile and Tablets -->
+  <app-gallery-simple
+    *ngIf="!desktop"
+    [desktop]="false"
+    [g]="g">
+  </app-gallery-simple>
+
+  <!-- Desktop -->
+  <ng-container *ngIf="desktop">
+
+    <div class="gallery-wrapper">
+      
+      <!-- Selected Image Block -->    
+      <app-selected-image-block
+        *ngIf="!simpleMode"
+        [image]="currentImage"
+        (changeImage)="handleImageIncrement($event)">
+      </app-selected-image-block>
+
+      <!-- Gallery Settings and Image Thumbnails -->
+      <div 
+        class="gallery-container" 
+        [ngClass]="{'gallery-container-full-width': simpleMode}">
+
+        <!-- Gallery Name -->
+        <div class="gallery-options-panel">
+          <div class="gallery-name">{{simpleMode ? g.name.full : displayedName}}</div>
+          <app-controls-button
+            icon="settings-icon-1.png"
+            icon2="settings-icon-2.png"
+            buttonStyles="controls-button-right"
+            iconStyles="controls-button-icon-notext"
+            (click)="settings.toggleSettingsPanel()">
+          </app-controls-button>
+        </div>
+
+        <!-- Settings Panel -->
+        <app-gallery-settings
+          [simpleMode]="simpleMode"
+          (changeMode)="toggleGalleryMode($event)">
+        </app-gallery-settings>
+     
+        <!-- Image Thumbnails -->
+        <div *ngIf="!simpleMode">
+          <div 
+            *ngFor="let image of g.images; index as i" 
+            class="image-thumbnail-container"
+            [ngClass]="{'image-thumbnail-container-selected': i + 1 == currentImage.index}" 
+            (click)="updateCurrentImage(i + 1)"
+            (mouseenter)="mouseoverImageSelect(i + 1)"
+            (mouseleave)="cancelMouseoverSelect(i + 1)"
+            (contextmenu)="$event.preventDefault()">
+            <img 
+              class="image-thumbnail" 
+              src="./assets/img/small/{{image.path}}" 
+              alt="Image {{i + 1}}" />
+            <div 
+              *ngFor="let n of [1, 2, 3, 4]"
+              class="image-thumbnail-overlay-{{n}}"></div>
+            <div 
+              class="image-thumbnail-overlay-number" 
+              [ngClass]="{'image-thumbnail-overlay-number-selected': i + 1 == currentImage.index}">
+              <span>{{i + 1}}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simple (Grid) Mode Gallery -->
+        <app-gallery-simple
+          *ngIf="simpleMode"
+          [desktop]="true"
+          [g]="g"
+          (changeImage)="updateCurrentImage($event)">
+        </app-gallery-simple>
+
+      </div> 
+
+    </div> 
+
+    <!-- Overlay -->
+    <div 
+      *ngIf="settings.showOverlay"
+      class="page-overlay"
+      (click)="settings.toggleOverlay()">
+      <app-selected-image-block
+        [image]="currentImage"
+        [overlay]="true"
+        (changeImage)="handleImageIncrement($event)"
+        (click)="$event.stopPropagation()">
+      </app-selected-image-block>
+    </div>
+
+  </ng-container>
+
+  <!-- Scroll-to-Top Button -->
+  <app-scroll-to-top-button></app-scroll-to-top-button>  
+
+</ng-container>

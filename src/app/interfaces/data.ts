@@ -1,4 +1,3 @@
-
 import { GalleryTypes } from '../data/const';
 
 export interface TimelineYear {

@@ -2,7 +2,7 @@ import { NgModule, inject } from '@angular/core';
 import { RouterModule, ROUTES, Routes } from '@angular/router';
 
 import { HomepageComponent } from './components/homepage/homepage.component';
-import { GalleryComponent } from './components/gallery/gallery/gallery.component';
+import { GalleryAreaComponent } from './components/gallery/gallery-area/gallery-area.component';
 
 import { DataService } from './services/data.service';
 
@@ -35,7 +35,7 @@ const standardRoutes: Routes = [
         data.DefaultGalleries.byYear.galleries.forEach(gallery => {
           routes.push({
             path: gallery.path, 
-            component: GalleryComponent,
+            component: GalleryAreaComponent,
             data: {
               gallery: gallery
             }
@@ -47,7 +47,7 @@ const standardRoutes: Routes = [
           year.galleries.forEach(gallery => {
             routes.push({
               path: gallery.path, 
-              component: GalleryComponent,
+              component: GalleryAreaComponent,
               data: {
                 gallery: gallery
               }
@@ -60,7 +60,7 @@ const standardRoutes: Routes = [
           group.galleries.forEach(gallery => {
             routes.push({
               path: gallery.path, 
-              component: GalleryComponent,
+              component: GalleryAreaComponent,
               data: {
                 gallery: gallery
               }
@@ -73,7 +73,7 @@ const standardRoutes: Routes = [
           group.galleries.forEach(gallery => {
             routes.push({
               path: gallery.path, 
-              component: GalleryComponent,
+              component: GalleryAreaComponent,
               data: {
                 gallery: gallery
               }

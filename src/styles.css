@@ -32,6 +32,10 @@
 
 /* Global properties */
 
+html, body {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   min-width: 320px;

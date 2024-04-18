@@ -1,3 +1,5 @@
+
+<!-- Switch -->
 <div 
   *ngIf="hasSwitch"
   class="control-switch"
@@ -7,25 +9,32 @@
   }">
   <div class="control-switch-ball"></div>
 </div>
+
+<!-- Icons -->
 <img 
   *ngIf="icon"
-  class="controls-button-icon {{iconClasses}}"
+  class="controls-button-icon {{iconStyles}}"
   src="./assets/interface/{{icon}}" 
   alt="" />
 <img 
   *ngIf="icon2"
-  class="controls-button-icon {{iconClasses}}"
+  class="controls-button-icon {{iconStyles}}"
   src="./assets/interface/{{icon2}}" 
   alt="" />
+
+<!-- Text -->
 <span
   *ngIf="textBefore"
-  class="controls-button-text-before {{textBeforeClasses}}">{{textBefore}}</span>
+  class="controls-button-text-before {{textBeforeStyles}}">{{textBefore}}</span>
 <span
   *ngIf="text"
-  class="controls-button-text {{textClasses}}">{{text}}</span>
+  class="controls-button-text {{textStyles}}">{{text}}</span>
 <span
   *ngIf="textAfter"
-  class="controls-button-text-after {{textAfterClasses}}">{{textAfter}}</span>
+  class="controls-button-text-after {{textAfterStyles}}">{{textAfter}}</span>
+
+<!-- Label -->
 <span 
   *ngIf="labelText"
-  class="controls-button-label {{labelClasses}}">({{labelText}})</span>
+  class="controls-button-label {{labelStyles}}">({{labelText}})</span>
+  

@@ -132,6 +132,7 @@
 
 .image-data-controls {
   padding: 0 5px 1px 5px;
+  text-transform: capitalize;
 }
 
 .image-data-section.data-section-tab {

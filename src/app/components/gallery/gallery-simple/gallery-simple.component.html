@@ -1,49 +1,46 @@
-<!-- Options Panel -->
+
+<!-- Mini Options Panel (Mobile and Tablets) -->
 <div 
   *ngIf="!desktop"
   class="gallery-simple-options-panel">
   <app-controls-button
     [hasSwitch]="true"
-    [switchOn]="userSettings.showImageCaptions"
-    (click)="userSettings.toggleImageCaptions()"
-    text="Captions">
+    [switchOn]="settings.showImageCaptions"
+    text="Captions"
+    (click)="settings.toggleImageCaptions()">
   </app-controls-button>
   <app-controls-button
     [hasSwitch]="true"
-    [switchOn]="userSettings.showImageData"
-    (click)="userSettings.toggleImageData()"
-    text="Data">
+    [switchOn]="settings.showImageData"
+    text="Data"
+    (click)="settings.toggleImageData()">
   </app-controls-button>
   <app-controls-button
     [hasSwitch]="true"
-    [switchOn]="userSettings.showImageTags"
-    (click)="userSettings.toggleImageTags()"
-    text="Tags">
+    [switchOn]="settings.showImageTags"
+    text="Tags"
+    (click)="settings.toggleImageTags()">
   </app-controls-button>
 </div>
 
 <!-- Image Blocks -->
 <div 
   *ngFor="let image of g.images; index as i"
-  class="gallery-simple-block gallery-simple-block-{{userSettings.imagesInRow}}">
+  class="gallery-simple-block gallery-simple-block-{{settings.imagesInRow}}">
 
   <!-- Image -->
   <img 
-    *ngIf="!desktop"
     class="gallery-simple-image"
-    src="./assets/img/small/{{image.path}}"
-    alt="Image {{i + 1}}" />
-  <img 
-    *ngIf="desktop"
-    class="gallery-simple-image"
-    src="./assets/img/{{userSettings.imagesInRow > 2 ? 'small/' : ''}}{{image.path}}"
+    [ngClass]="{'gallery-simple-image-unclickable': !desktop || settings.imagesInRow == 1}"
+    src="./assets/img/{{(!desktop || settings.imagesInRow > 2) ? 'small/' : ''}}{{image.path}}"
     alt="Image {{i + 1}}"
-    (click)="toggleOverlay(i + 1)" />
+    (click)="desktop && settings.imagesInRow > 1 ? toggleOverlay(i + 1) : ''"
+    (contextmenu)="$event.preventDefault()" />
 
   <!-- Caption and Data -->
   <app-image-data-block
-    *ngIf="userSettings.showImageCaptions || userSettings.showImageData || userSettings.showImageTags"
-    blockType="{{desktop ? userSettings.imagesInRow : '1'}}"
+    *ngIf="settings.showImageCaptions || settings.showImageData || settings.showImageTags"
+    blockType="{{desktop ? settings.imagesInRow : '1'}}"
     [data]="image"
     [galleryType]="g.type">
   </app-image-data-block>

@@ -1,0 +1,31 @@
+:host {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1000;
+  width: 42px;
+  height: 42px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  background: #333;
+  color: #888;
+  font-size: 25px;
+  line-height: 38px;
+  text-align: center;
+  opacity: .9;
+  cursor: pointer;
+  transition: .3s;
+}
+
+:host.button-invisible {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  :host:hover {
+    opacity: 1;
+    color: #00cccc;
+    border-color: #00b3b3;
+  }
+}

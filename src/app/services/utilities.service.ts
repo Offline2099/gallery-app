@@ -28,5 +28,9 @@ export class UtilitiesService {
     return s.charAt(0).toUpperCase() + s.slice(1);
   }
 
+  checkIfDesktop(): boolean {
+    return window.innerWidth > 991;
+  }
+
 }
 
