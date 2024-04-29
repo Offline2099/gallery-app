@@ -1,27 +1,25 @@
-# Gallery
+# Photo Gallery
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+## Project Description
 
-## Development server
+An image gallery with hundreds of photos taken by me while living in Thailand over the last several years. The same interface can possibly be used for organizing and displaying a collection of any other photo albums or image sets.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* The main idea of this project is designing a convenient UI for viewing a large amount of images with some data attached to them. The data is used both for organizing the photos and for providing additional context.
 
-## Code scaffolding
+* All photos are sorted into galleries by when and where they were taken. Each image also has several tags, which may include the weather, time of day, or some features present in the photo. Pictures can be automatically grouped into galleries by each of these tags.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Each image has a caption. Those are mostly boring, but explain what exactly is shown in the photo. Such notes can provide additional interesting info in some cases.
 
-## Build
+* The user can always switch between several different ways of viewing the same gallery. Each image can also be easily viewed in full size or downloaded.
+    
+* There are some experimental features, such as the no-click mode that allows to switch between images by simply hovering over the preview.
+    
+* The UI is not cluttered with unnecessary junk, such as likes or social buttons. Most of the existing features (such as captions and tags) can also be completely hidden.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Technical Information
 
-## Running unit tests
+This project is made with Angular.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* To run the app in the development mode, run `ng serve` in the project directory. Open [http://localhost:4200](http://localhost:4200) to view it in the browser. The page will reload if you make edits.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* To build the app in the production mode, run `ng build` in the project directory. The app will be saved to the `dist/` directory.
